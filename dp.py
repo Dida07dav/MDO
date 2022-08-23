@@ -3,6 +3,8 @@
 # Задание
 
 # №1
+# Дано три словаря: {1: 10, 2: 20}, {3: 30, 4: 40}, {5: 50, 6: 60}.
+#  Объединить данные словари в один
 # a = {1: 10, 2: 20}
 # b = {3: 30, 4: 40}
 # c = {5: 50, 6: 60}
@@ -27,6 +29,7 @@
 # }
 # print(sales)
 # person = input("Emp: ")
+# Name = input("Наименование: ")
 # print(sales[person][Name])
 # sale = int(input("Зарплата : 0"))
 # sales[person][Name] = sale
@@ -95,16 +98,16 @@
 # 		print(i)
 
 # 2 вариант
-studs = {}
-student_people = int(input("Количество студентов: "))
-s = 0
-for i in range(student_people):
-	people_name = input(str(i + 1) + "-й  студент: ")
-	score = int(input("Балл: "))
-	studs[people_name] = score
-	s += score
-a = s / student_people
-print("\nСредний балл: %.0f. Студенты с баллом выше среднего: " % a)
-for i in studs:
-	if studs[i] > a:
-		print(i)
+# studs = {}
+# student_people = int(input("Количество студентов: "))
+# s = 0
+# for i in range(student_people):
+# 	people_name = input(str(i + 1) + "-й  студент: ")
+# 	score = int(input("Балл: "))
+# 	studs[people_name] = score
+# 	s += score
+# a = s / student_people
+# print("\nСредний балл: %.0f. Студенты с баллом выше среднего: " % a)
+# for i in studs:
+# 	if studs[i] > a:
+# 		print(i)
