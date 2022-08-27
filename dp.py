@@ -111,3 +111,13 @@
 # for i in studs:
 # 	if studs[i] > a:
 # 		print(i)
+
+
+
+
+import builtins
+
+names = dir(builtins)
+
+for t in names:
+	print(t)
