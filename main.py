@@ -2250,6 +2250,498 @@
 # print(d(student))
 
 
+# 15 Занитие
+
+# def square(figure_type, **kwargs):
+# 	if figure_type == 'rhombus':
+# 		return kwargs['d1'] *
+#
+# print(square(figure_type='rhombus', ))
 
 
+# lambda (окончание функции)
+
+# def get_sum(x, y):
+# 	return x + y
+#
+#
+# print(get_sum(1, 2))
+# print(get_sum(3, 4))
+#
+# print((lambda x, y: x + y)(1, 2))
+# print((lambda x, y: x + y)(3, 4))
+#
+# func = lambda x, y: x + y
+# print(func(1, 2))
+# print(func(3, 4))
+
+
+# print((lambda x, y: x ** 2 + y ** 2)(2, 5))
+
+# sum = lambda a=1, b=2, c=3: a + b + c
+#
+# print(sum())  # 6
+# print(sum(10))  # 15
+# print(sum(10, 20))  # 33
+
+# func1 = lambda *args: args
+#
+# print(func1(1, 2, 3, 4, 5, 6, 7))
+# print(func1('a', 'b', 'c'))
+
+# c = (
+# 	lambda x: x * 2,
+# 	lambda x: x * 3,
+# 	lambda x: x * 4,
+#
+# )
+#
+# for t in c:
+# 	print(t('abc_'))
+
+# def inc(n):
+# 	def inner(x):
+# 		return n + x
+# 	return inner
+#
+#
+# f = inc(5)
+# print(f(2))
+#
+#
+# # def inc1(n):
+# # 	return lambda x: n + x
+# #
+# #
+# # f1 = inc(5)
+# # print(f1(2))
+# #
+# # inc2 = lambda n: lambda x: n + x
+# #
+# # f2 = inc(5)
+# # print(f2(2))
+#
+# print((lambda n: lambda x: n + x)(5)(2))
+
+# print((lambda n: lambda x: lambda y: n + x + y)(2)(4)(6))
+
+# d = {'b': 10, 'a': 15, 'c': 4}
+# list_d = list(d.items())
+# print(list_d)
+# list_d.sort(key=lambda i: i[1], reverse=True)
+# print(list_d)
+# print(dict(list_d))
+
+
+# players = [
+# 	{'name': 'Антон', 'last_name': 'Бирюков', 'rating': 9},
+# 	{'name': 'Алексей', 'last_name': 'Бодня', 'rating': 10},
+# 	{'name': 'Федор', 'last_name': 'Сидоров', 'rating': 4},
+# 	{'name': 'Михаил', 'last_name': 'Семенов', 'rating': 6}
+# ]
+#
+# res1 = sorted(players, key=lambda item: item['last_name'])
+# print(res1)
+# res2 = sorted(players, key=lambda item: item['rating'], reverse=True)
+# print(res2)
+# res3 = sorted(players, key=lambda item: item['rating'])
+# print(res3)
+
+# a = [(lambda x, y: x + y), (lambda x, y: x - y), (lambda x, y: x * y), (lambda x, y: x / y)]
+#
+# b = a[1](5, 3)
+# print(b)
+
+# a = {'one': lambda x: x - 1, 'two': lambda x: abs(x) - 1, 'three': lambda x: x}
+# b = [-3, 10, 0, 1]
+#
+# for i in b:
+# 	if i < 0:
+# 		print(a['two'](i))
+# 	elif i > 0:
+# 		print(a['one'](i))
+# 	else:
+# 		print(a['three'](i))
+
+# d = {
+# 	1: lambda: print('Понедельник'),
+# 	2: lambda: print('Вторник'),
+# 	3: lambda: print('Среда'),
+# 	4: lambda: print('Четверг'),
+# 	5: lambda: print('Пятница'),
+# 	6: lambda: print('Суббота'),
+# 	7: lambda: print('Воскресенье'),
+# }
+#
+# print(d[3])
+# d[3]()
+
+
+# print((lambda a, b: a if a > b else b)(15, 4))
+
+# map(func, *iterables)
+
+# def mult(t):
+# 	return t * 2
+#
+#
+# lst = [2, 8, 12, -5, 10]
+#
+# a = list(map(mult, lst))
+# print(a)
+#
+# print(list(map(lambda t: t * 2, lst)))
+
+#
+# b = ['1', '2', '3', '4', '5']
+# c = list(map(int, b))
+# print(c)
+# print(type(c))
+
+
+# st = ['a', 'b', 'c', 'd', 'e']
+# num = [1, 2, 3, 4, 5]
+# print(list(map(lambda x, y: (x, y), st, num)))
+
+
+# l1 = [1, 2, 3]
+# l2 = [4, 5, 6]
+# print(list(map(lambda x, y: (x + y), l1, l2)))
+
+
+# res = filter(func (true or false), *iterables)
+
+
+# t = ('abcd', 'abc', 'cdefq', 'def', 'ghi')
+#
+# t2 = tuple(filter(lambda s: len(s) == 3, t))
+# print(t2)
+
+
+# b = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65]
+# res = list(filter(lambda s: s > 75, b))
+# print(res)
+
+# import random
+#
+# lst = [random.randint(1, 40) for i in range(10)]
+# print(lst)
+# print(list(filter(lambda x: 10 <= x <= 20, lst)))
+
+# Декораторы
+
+# def hello():
+# 	return 'Hello, I am func "hello"'
+#
+#
+# def super_func(func):
+# 	print('Hello, I am func "super_func"')
+# 	print(func())
+#
+#
+# super_func(hello)
+
+
+# def hello():
+# 	return 'Hello, I am func "hello"'
+#
+#
+# test = hello
+# print(test())
+
+# def my_decorator(func):  # 2
+#     def func_wrapper():  # 3
+#         print('Code before')  # 4
+#         func()  # 5
+#         print('Code after')  # 8
+#     return func_wrapper  # 3
+#
+#
+# def func_test():  # 6
+#     print('func_test')  # 7
+#
+#
+# text = my_decorator(func_test)  # 1
+# text()
+
+
+# def my_decorator(func):  # декорирующая функция
+# 	def func_wrapper():
+# 		print('*' * 40)
+# 		func()
+# 		print('*' * 40)
+# 	return func_wrapper
+#
+#
+# @my_decorator   # декоратор
+# def func_test():  # декорирующая функция
+# 	print('func_test')
+#
+#
+# @my_decorator
+# def hello():
+# 	print('hello')
+#
+#
+# func_test()
+# print()
+# hello()
+
+# text = my_decorator(func_test)
+# text()
+
+
+# 15 Занятие
+
+# def bold(fn):
+# 	def wrap():
+# 		return "<b>" + fn () + "</b>"
+#
+# 	return wrap
+#
+#
+# def italic(fn):
+# 	def wrap():
+# 		return "<i>" + fn () + "</i>"
+#
+# 	return wrap
+#
+#
+# @bold
+# @italic
+# def hello():
+# 	return "text"
+#
+#
+# print(hello())
+
+# def cnt(fn):
+# 	count = 0
+#
+# 	def wrap():
+# 		nonlocal count
+# 		count = count + 1
+# 		fn()
+# 		print("Вызов функции: ", count)
+# 	return wrap
+#
+# @cnt
+# def hello():
+# 	print("Hello")
+#
+#
+# hello()
+# hello()
+# hello()
+
+
+# def args_decorator(fn):
+# 	def wrap(args1, args2):
+# 		print("Данные:")
+# 		fn(args1, args2)
+#
+# 	return wrap
+
+
+# @args_decorator
+# def print_full_name(first, last):
+# 	print("Меня зовут:", first, last)
+#
+#
+# print_full_name("Ирина", "Лаврова")
+
+#
+# def args_decorator(fn):
+# 	def wrap(*args, **kwargs):
+# 		print("args", args)
+# 		print("kwargs", kwargs)
+# 		fn(*args, **kwargs)
+#
+# 	return wrap
+#
+#
+# @args_decorator
+# def print_full_name(a, b, c, study="Python"):
+# 	print(a, b, c, "изучают", study, "\n")
+#
+# @args_decorator
+# def new_func(q):
+# 	print(q)
+#
+#
+# print_full_name("Борис", "Елизавета", "Светлана", study="JavaScript")
+# print_full_name("Владимир", "Екатерина", "Виктор")
+#
+# new_func("Новая функция")
+
+
+# def decor(args1, args2):
+# 	def args_dec(fn):
+# 		def wrap(x, y):
+# 			print(args1, x, args2, y, "=", end=" ")
+# 			fn(x, y)
+#
+# 		return wrap
+# 	return args_dec
+#
+#
+# @decor("Сложение:", "+")
+# def summa(a, b):
+# 	print(a + b)
+#
+#
+# @decor("Разность:", "-")
+# def sub(a, b):
+# 	print(a - b)
+#
+#
+# summa(5, 2)
+# sub(5, 2)
+#
+# def myltiply(arg):
+# 	def my_decorator(func):
+# 		def wrap(*args, **kwargs):
+# 			return arg * func(*args, **kwargs)
+#
+# 		return wrap
+# 	return my_decorator
+#
+#
+# @myltiply(3)
+# def return_num(num):
+# 	return num
+#
+#
+# print("Результат:", return_num(5))
+
+# print(int('10'))
+# print(int('1010', 2))
+# print(int('12', 8))
+# print(int('A', 16))
+
+#
+# print(bin(18))  #0b10010
+# print(oct(18))  #0o22
+# print(hex(18))  #0x12
+#
+#
+# print(0b10010)
+# print(0o22)
+# print(0x12)
+
+# q = "Pyt"
+# w = 'hon'
+# e = q + w
+# print(e)
+#
+# print(e * 3)
+# print(e * -3)
+#
+# print(e in "i am learn Python")
+# print(e in "i am learn Java")
+
+# s = "Hello"
+# print(s[1])
+# print(s[-5])
+# # print(s[5])
+#
+# print(s[-5:-2])
+
+
+# s = 'python'
+# s = s[:3] + 't' + s[4:]
+# print(s)
+
+
+# def changeCharToStr(s, c_old, c_new):
+# 	i = 0
+# 	s2 = ""
+#
+# 	while i < len(s):
+# 		if s[i] == c_old:
+# 			s2 = s2 + c_new
+# 		else:
+# 			s2 = s2 + s[i]
+# 		i = i + 1
+#
+# 	return s2
+#
+#
+# srt1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# str2 = changeCharToStr(srt1, 'N', 'P')
+# print(srt1)
+# print(str2)
+#
+# print(u"Hello")
+# print("Hello")
+
+# print('I\'m learning\nPython')
+# print('C:\\file.txt')
+# print(r'C:\file.txt')
+# print(r'C:\file\\'[:-1])
+# print(r'C:\file' + "\\")
+# print('C:\\file\\')
+
+# name = "Дмитрий"
+# age = 25
+# print(f"Меня зовут {name}. Мне {age} лет")
+
+# import math
+#
+#
+# print(f"Значение числа pi: {round(math.pi, 2)}")
+# print(f"Значение числа pi: {math.pi:.2f}")
+
+#
+# x = 10
+# y = 5
+# print(f"{x} x {y} / 2 = {x * y / 2}")
+
+# a = 74
+# print(f"{{{{{{{a}}}}}}}")
+
+# dir_name = "my_doc"
+# file_name = 'date.txt'
+# print(fr"home\{dir_name}\{file_name}")
+# print(r"home\{dir_name}\{file_name}")
+# print("home\\" + dir_name + "\\" +file_name)
+
+
+# s = 'Hello'
+# print(s)
+#
+# a = """aaaa"""
+# print(a)
+#
+# s = '''<div
+#     < a href="#">content</a>
+# </div>'''
+#
+# print(s)
+
+# def square(n):
+# 	"""Принимает число n, возвращает квадрат числа n"""
+# 	a = 2
+# 	return n ** 2
+#
+#
+# print(square(5))
+# print(square.__doc__)
+
+import math as m
+
+
+def cylinder(r, h):
+	"""
+	Вычисляет площадь цилиндра.
+	
+	Вычисляет площадь цилиндра на оснавонии заданной высоты и радиуса основания
+	:param r:  положительное число, радиус основания цилиндра
+	:param h: положительное число, высота цилиндра
+	:return: положительное число, площадь цилиндра
+	"""
+	return 2 * m.pi * r * (r + h)
+
+
+print(cylinder(2, 4))
 
