@@ -108,6 +108,8 @@
 # res += num % 10
 # print(res)
 
+# 2 Занятие
+#
 # a = int(input("Введите число: "))
 # # a = int(a)
 # print(type(a))
@@ -306,6 +308,9 @@
 # minim = a if a < b else b
 # print(minim)
 
+# 3 Занятие
+
+
 # n = int(input("Введите число от 1 до 99: "))
 # if 1 <= n <= 99:
 #
@@ -466,6 +471,9 @@
 #     i += 1
 # else:
 #     print("Цикл окончен, i =", i)
+
+# 4 Занятие
+
 
 # n = int(input("Количество символов:"))
 # sim = input("Тип символа:")
@@ -2491,7 +2499,7 @@
 # text()
 
 
-# 15 Занятие
+# 16 Занятие
 
 # def bold(fn):
 # 	def wrap():
@@ -2727,21 +2735,223 @@
 #
 # print(square(5))
 # print(square.__doc__)
+#
+# import math as m
+#
+#
+# def cylinder(r, h):
+# 	"""
+# 	Вычисляет площадь цилиндра.
+#
+# 	Вычисляет площадь цилиндра на оснавонии заданной высоты и радиуса основания
+# 	:param r:  положительное число, радиус основания цилиндра
+# 	:param h: положительное число, высота цилиндра
+# 	:return: положительное число, площадь цилиндра
+# 	"""
+# 	return 2 * m.pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
 
-import math as m
+# 17 Занятие
 
 
-def cylinder(r, h):
-	"""
-	Вычисляет площадь цилиндра.
-	
-	Вычисляет площадь цилиндра на оснавонии заданной высоты и радиуса основания
-	:param r:  положительное число, радиус основания цилиндра
-	:param h: положительное число, высота цилиндра
-	:return: положительное число, площадь цилиндра
-	"""
-	return 2 * m.pi * r * (r + h)
+# print(ord("a"))
+# print(ord("#"))
+# print(ord("к"))
+#
+# while True:
+# 	n = input("->")
+# 	if n != "-1":
+# 		print(ord(n))
+# 	else:
+# 		break
 
 
-print(cylinder(2, 4))
+# my_str = "Test string for me"
+# arr = [ord(x) for x in my_str]
+# print("ASCII коды:", arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое:", arr)
+# arr += [x for x in [ord(x) for x in input("->")[:3]] if x not in arr]
+# print(arr)
+# if arr [-1] in arr[:-1]:
+# 	print("Количество последних элементов:", arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+
+# print(chr(97))
+# print(chr(7897))
+# print(chr(47))
+
+# a = 122
+# b = 97
+#
+# for i in range(b, a + 1):
+# 	print(chr(i), end=" ")
+
+# a = 122
+# b = 97
+#
+# if a > b:
+# 	for i in range(b, a + 1):
+# 		print(chr(i), end=" ")
+# else:
+# 	for i in range(a, b + 1):
+# 		print(chr(i), end=" ")
+
+
+# print("apple" == "Apple")
+# print("apple" > "Apple")  # 97 > 65
+
+
+# from random import  randint
+#
+# short = 7
+# longest = 12
+# min_ascii = 33
+# max_ascii = 126
+#
+#
+# def random_password():
+# 	random_length = randint(short, longest)
+# 	res = ""
+# 	for i in range(random_length):
+# 		random_char = chr(randint(min_ascii, max_ascii))
+# 		res += random_char
+# 	return res
+#
+#
+# print("Ваш случайный пароль:", random_password())
+
+#
+# s = "hello, WORLD! I am learn Python."
+# print(s.capitalize())  # Hello, world! i am learn python.
+# print(s.lower())   # hello, world! i am learn python.
+# print(s.upper())  # HELLO, WORLD! I AM LEARN PYTHON.
+# print(s.swapcase())  # HELLO, world! i AM LEARN pYTHON.
+# print(s.title())  # Hello, World! I Am Learn Python.
+
+
+# s = "hello, WORLD! I am learn Python."
+# print(s.count("h", 1, -4))  # количество искомых символов
+# print(s.find("Python"))   # возвращает индекс первого совпадения
+# print(s.find("oPython"))  # если подстроки нет, возвращается -1
+
+
+# string = "один два"
+# one = string[:string.find(" ")]
+# two = string[string.find(" ") + 1:]
+# print(two + " " + one)
+
+
+# s = 'ab12c59p7dq'
+# digits = []
+#
+# for symbol in s:
+#     if '0123456789'.find(symbol) != -1:
+#         digits.append(int(symbol))
+# print(digits)
+#
+# s = "hello, WORLD! I am learn Python."
+# print(s.index("Python"))
+# # print(s.index("oPython"))
+
+# s = "Дана строка сим(волов, среди которых ес)ть одна окрывающаяся"
+# ind1 = s.index("(")
+# ind2 = s.index(")")
+# print(ind1)
+# print(ind2)
+#
+# print(s[ind1+1:ind2])
+
+# s = "hello, WORLD! i am learn Python."
+# print(s.find("l"))
+# print(s.rfind("l"))
+# print(s.index("l"))
+# print(s.rindex("l"))
+#
+# s = "Some content in this message has been blocked because the sender isn`t in your Safe senders list"
+# item = "o"
+# if s.count(item) == 1:
+# 	print(s.find(item))
+# elif s.count(item) >= 2:
+# 	print(s.find(item), s.rfind(item))
+
+# s = "hello, WORLD! I am learn Python."
+# print(s.endswith("on."))
+# print(s.endswith("lo", 3, 5))
+#
+# print(s.startswith("hello"))
+# print(s.startswith("I am", 14))
+
+# print("aab123".isalnum())  # не пустая и состоит из букв и цифр
+# print("45%6".isalnum())  #
+#
+# print("ABCabc".isalpha())  # не пустая и содержит только буквы
+# print("123abc".isalpha())
+#
+# print("123".isdigit())  # не пустая и содержит только цифры
+# print("ывав1".isdigit())
+#
+# print('abc'.islower())  # не пустая и содержит только буквенные символы в нижнем регистре,
+# # также может содержать спецсиволв и цифры
+# print('abc@98AS'.islower())
+#
+# print('ABC'.isupper())  # не пустая и содержит только буквенные символы в нижнем регистре,
+# # также может содержать спецсиволв и цифры
+# print('ABC1^q'.isupper())
+#
+# print(' \t \n'.isspace()) # строка состоит только из пробельных символов + табуляция и перенос на другую строку
+# print(' a '.isspace())
+
+
+# print('py'.center(10))
+# print('py'.center(11, "-"))
+# print('py'.center(24, ">"))
+
+
+# print("   py".lstrip())  # py
+# print("py   ".rstrip())  # py
+# print("   py   ".strip())  # py
+#
+# print("https://www.python.org".lstrip("th/sp"))
+# print('$py.$$$;'.rstrip(';$.'))
+# print('$py.$$$;'.strip(';$.'))
+#
+# print("https://www.python.org/".lstrip("th/sp:").rstrip("/.org"))
+
+# srt1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования. New"
+# print(srt1.replace("Nython", "Python", 2))
+
+# s = "-"
+# seq = ('a', 'b', 'c')
+# print(s.join(seq))  # a-b-c
+#
+# print("..".join(['1', '2']))
+# print(":".join("Hello"))
+
+
+# print('Строка разделенная пробелами'.split())
+# print('www.python.org.ru'.split(".", 2))
+# print('www.python.org.ru'.rsplit("."))
+# print('www...python...org'.split("."))
+
+# a = input("->").split()
+# print(a)
+# def name(name):
+# 	  print(f"{name[0]} {name[1][0]}. {name[2][0]}.")
+#
+#
+# a = input("Введите ФИО: ").split()
+# name(a)
+
+# s = "В строке заменить пробелы символом"
+# # lst = s.split()
+# # print(lst)
+# # st = "*".join(lst)
+# # print(st)
+#
+# print(s.replace(" ", "*"))
 
