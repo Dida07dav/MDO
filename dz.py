@@ -203,7 +203,7 @@
 # a = len(n)
 # for i in range(0, a, 2):
 #     print(n[i], end=" ")
-# # Задание 8
+# # Задание 9
 #
 # w = [int(input("-> ")) for i in range(int(input("n = ")))]
 # for i in range(1, len(w)):
@@ -228,7 +228,7 @@
 #             print("*", end="")
 #     w += 2
 #
-# # 6 Урок
+# # Задание 10
 #
 # a = [1, 3, 5, 6, 2, 4, 6, 1, 2, 7]
 # for i in range(len(a)):
@@ -275,7 +275,7 @@
 #         c.append(b[i])
 # print("c =", c)
 #
-# # 7 Урок
+# # Задание 11
 #
 #
 #
@@ -317,7 +317,7 @@
 #             main_list[row] = sub_list
 #         print(main_list[row][i], end='\t\t')
 #     print()
-# # 8 Урок
+# # Задание 12
 #
 # # def change(lst):
 # #     lst[0], lst[-1] = lst[-1], lst[0]
@@ -341,12 +341,8 @@
 # print(change([9, 12, 33, 54, 105]))
 # print(change(["с", "л", "о", "н"]))
 
-# 9 урок
-import math
+# Задание 13
 
-
-# 10 Занятие
-# Задание №"1
 
 # s = ('ab', 'abcd', 'cde', 'abc', 'def')
 # a = str(input('->'))
@@ -367,7 +363,7 @@ import math
 # print('Количество 1 =', s.count('1'))
 #
 
-# 12 занятие
+# Задание 14
 # Даны два словаря: x = {'a': 1, 'b': 2} и y = {'b': 3, 'c': 4}.
 # Объединить их в третий словарь.
 
@@ -385,7 +381,7 @@ import math
 # print(c)
 
 
-13
+# Задание 15
 
 
 # №1
@@ -464,7 +460,7 @@ import math
 # 	for y in sales[x]:
 # 		print('\t', y, " : ", sales[x][y], sep="")
 
-# №3
+# Задание 16
 
 
 # studs = {}
@@ -505,7 +501,7 @@ import math
 #
 # for t in names:
 # 	print(t)
-#  №14
+#  № Задание 17
 # from math import pi
 #
 #
@@ -529,7 +525,7 @@ import math
 # print(square(figure_type="circle", r=18))
 # print(square(figure_type="unknown", a=1, b=2, c=3))
 
-# № 15
+# № Задание 18
 
 #
 # print((lambda x, y: x * y * 5)(2, 5))
