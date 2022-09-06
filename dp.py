@@ -66,7 +66,7 @@
 #
 
 # Задание 17
-# I am learning Python. hello, WORLD!
+# #### I am learning Python. hello, WORLD!
 # # 1
 # s = input("-> ")
 # a = s.find("h")
@@ -76,13 +76,13 @@
 #
 # # 2
 #
-# # s = "I am learning Python. hello, WORLD!"
-# s = input("-> ")
-# a = s[:s.find("h")]
-# b = s[s.find("h"):s.rfind("h") + 1]
-# c = s[s.rfind("h") + 1:]
-# s = a + b[::-1] + c
-# print(s)
+# #### I am learning Python. hello, WORLD!
+s = input("-> ")
+a = s[:s.find("h")]
+b = s[s.find("h"):s.rfind("h") + 1]
+c = s[s.rfind("h") + 1:]
+s = a + b[::-1] + c
+print(s)
 
 # 3
 
