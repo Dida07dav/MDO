@@ -77,12 +77,12 @@
 # # 2
 #
 # #### I am learning Python. hello, WORLD!
-s = input("-> ")
-a = s[:s.find("h")]
-b = s[s.find("h"):s.rfind("h") + 1]
-c = s[s.rfind("h") + 1:]
-s = a + b[::-1] + c
-print(s)
+# s = input("-> ")
+# a = s[:s.find("h")]
+# b = s[s.find("h"):s.rfind("h") + 1]
+# c = s[s.rfind("h") + 1:]
+# s = a + b[::-1] + c
+# print(s)
 
 # 3
 
@@ -105,3 +105,19 @@ print(s)
 # print()
 # print("Количество слов: ", str)
 
+# Задание 18
+
+# №1
+import re
+email = "123456@i.ru," \
+	" 123_456@ru.name.ru," \
+	" login@i.ru, " \
+	"логин-1@i.ru, " \
+	"login.3@i.ru, " \
+	"login.3-67@i.ru, " \
+	"1login@ru.name.ru"
+print(re.findall("""
+[A-Za-zа-я0-9-._]+
+@
+[A-Za-zа-я0-9-._]+
+""", email, re.VERBOSE))

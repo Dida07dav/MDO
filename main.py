@@ -2955,3 +2955,259 @@
 #
 # print(s.replace(" ", "*"))
 
+# 18 Занятие
+
+# s = """Ежевику для ежат
+# Принесли два ежа.
+# Ежевику еле-еле
+# Ежата возле ели съели."""
+#
+# up = s.count("Е")
+# down = s.count(" е")
+# # print(up)
+# # print(down)
+# e = up + down
+# print("Количество слов:", e)
+
+# Регулярные выражения
+
+import re
+
+# s = "Я ищу сов[паден]ия в 2021 го-да. И я их найду в 2 счёта. 45678"
+# # reg = r'[201]'
+# # print(s.find(reg))
+# # print(re.findall(reg, s))  # возвращает список, содержащий все совпадение
+# # print(re.search(reg, s))  # возвращает первый найденный элемент
+# # print(re.search(reg, s).span())  # (15, 16)
+# # print(re.search(reg, s).start())  # 15
+# # print(re.search(reg, s).end())  # 16
+# # print(re.search(reg, s).group())  # я
+# #
+# # print(re.match(reg, s))  # для поиска по заданному шаблону
+#
+#
+# # print(re.split(reg, s))
+# # print(re.split(reg, s, 1))
+#
+# # print(re.sub(reg, "!", s, 1))
+#
+# # [] - любой из символов
+# # print(re.findall(reg, s))
+# #
+# reg = r'[А-яё.[\]-]'
+# print(re.findall(reg, s))
+
+# s = "Еда, беду, победа"
+# reg = '[Ее]д[ау]'
+# print(re.findall(reg, s))
+
+
+# s = "Я ищу совпадения в 2021 го-да. И я их найду в 2 счёта. 45678"
+# reg = r'[^0-9]'
+# # [^abc] - вернет все, за исключением abc
+# print(re.findall(reg, s))
+
+# s = "Час в 24-часовом формате от 00 до 23. 2021-06-15Т21:40. Минуты, в диапозоне от 00 до 59ю 2021-06-15Т01:09."
+# reg = "[0-2][0-9]:[0-5][0-9]"
+# print(re.findall(reg, s))
+
+# s = "Я ищу совпадения в 2021 го-да. И \t из найду в 2 счёта. \n 45678"
+# reg = r'20*'
+# # \d - одна цифра [0-5]
+# # \w - цифра, буква, символ _ [0-9A-яА-z]
+# # \s - пробельный символ (включая табуляция и перенос строки)
+# # \D - все кроме цифр [0-5]
+# # \W - все кроме цифр, букв, символа _ [0-9A-яА-z]
+# # \S - все кроме пробельного символа (включая табуляция и перенос строки)
+# print(re.findall(reg, s))
+# + - от 1 до бесконечности повторений
+# * - от 0 до бесконечности повторений
+# ? - 0 или 1
+
+#
+# d = "Цифры: 7, +17, -42, 0.01.3, 0.3"
+# reg1 = r'[+-]?[\d.]+'
+# print(re.findall(reg1, d))
+
+# s = "05-03-1987 # Дата рождения"
+# print("Дата рождения:", re.sub("#.*", "", s))
+#
+# # 05-03-1987
+#
+# print("Дата рождения:", re.sub("-", ".",  re.sub("#.*", "", s)))
+#
+# s = "author=Пушкин А.С.; title = Евгений Онегин; price =200; year= 1831"
+# # reg = r"\w+\s*=\s*[^;]+"
+# reg = r'[^;]+'
+# print(re.findall(reg, s))
+
+
+# s = "12 сентября 2021 года 789"
+# reg = r"\d{2,4}"
+# print(re.findall(reg, s))
+
+# s = "+7 499 456-45-78, +74994564578, 7(499) 456 45 78, 74994564578"
+# reg = r"\+?7\d{10}"
+# print(re.findall(reg, s))
+
+#
+# s = "Я ищу совпадения в 2021 го-да. И я их найду в 2 счё_та"
+# # reg = r'^\w+\s\w+'
+# reg = r'\w+\s\w+$'
+# print(re.findall(reg, s))
+
+# print(re.findall(r'\w+', '12 + й'))
+# print(re.findall(r'\w+', '12 + q', flags=re.ASCII))  # только анг.символы
+# print(re.findall(r'[0-9] +[^А-я]+', '12 + й'))
+#
+# text = 'hello world'
+# print(re.findall(r'\w+', text, flags=re.DEBUG))
+
+# s = "Я ищу совпадения в 2021 го-да. И \tя их найду в 2 счё_та"
+# reg = r'Я'
+# print(re.findall(reg, s, re.IGNORECASE))
+
+# text = """
+# one
+# two
+# """
+# # print(re.findall(r'one.\w+', text))
+# # print(re.findall(r'one.\w+', text, flags=re.DOTALL))
+# print(re.findall(r'one$', text))
+# print(re.findall(r'one$', text, flags=re.MULTILINE))
+
+# print(re.findall("""[a-z.-]+@[a-z.-]+""", 'text@mail.ru'))
+
+# print(re.findall("""
+# [a-z.-]+ # part1
+# @        #@
+# [a-z.-]+ #past2
+# """, 'text@mail.ru', re.VERBOSE))
+
+
+# 19 занятие
+
+# text = """Python,
+# python,
+# PYTHON"""
+# reg = "(?im)^python"
+# print(re.findall(reg, text))
+
+# def validate_name(name):
+#     return re.findall(r'^[\w-]{3,16}$', name, re.IGNORECASE)
+#
+#
+# print(validate_name('Python_master'))
+# print(validate_name('Python_ma5st#er'))
+
+
+# greedy - захватывает максимально возможное число символов
+# ? - lazy - захватывает минимально возможное число символов
+
+# *?, +?, ??
+# {m,n}?, {,n}?, {m,}?
+
+# text = "<body>Пример жадного соответствия регулярных выражений</body>"
+# print(re.findall('<.*?>', text))
+
+# s = "<p>Изображение <img alt='картинка' src='bg.jpg' width='100'> - фон страницы</p>"
+# # reg = '<img[^>]*>'
+# reg = r'<img\s+[^>]*src\s*=\s*[^>]+>'
+# print(re.findall(reg, s))
+#
+
+# text = "Методы этой группы[16] выполняют[17] преобразование регистра[18][19] строки"
+# print(re.findall(r'\[.*?]', text))
+
+
+# s = "Петр и Виталий отлично учатся"
+# reg = 'Петр|Ольга|Виталий'
+# print(re.findall(reg, s))
+
+# s = "int = 4, float = 4.0, double = 8.0f"
+# # reg = r"(?:int|float)\s*=\s*\d[.\w+]*"
+# reg = r"(?:int|float)\s*=\s*(\d[.\w+]*)"
+# print(re.findall(reg, s))
+
+# (?:  ...) - обозначет, что эта группирующая скобка является не сохраняющей
+
+# s = '127.0.0.1'
+# #s = '192.255.255.255'
+# # reg = r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}'
+# # reg = r'(?:\d{1,3}.){3}(?:\d{1,3})'
+# reg = r'(?:\d{1,3}.){3}\d{1,3}'
+# print(re.findall(reg, s))
+
+# s = "Word2016, PS6, AI5"
+# reg = r'[a-z]+\d*'
+# print(re.findall(reg, s, re.I))
+
+# s = "5 + 7*2 - 4"
+# reg = r'\s*([+*-])\s*'
+# print(re.split(reg, s))
+
+
+# a = "31-12-2000"
+# reg = "(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])"
+# print(re.findall(reg, a))
+
+
+# s = "Я ищу совпадения в 2021 года. И я из найду в 2 счёта"
+# reg = r'([0-9]+)\s(\D+)'
+# print(re.search(reg, s).group())
+# # m = re.search(reg, s)
+# # print(m[0])
+# # print(m[1])
+# # print(m[2])
+# # print(re.findall(reg, s))
+# print(re.search(reg, s).group(1))
+# print(re.search(reg, s).group(2))
+
+# text = """
+# Самара
+# Москва
+# Сочи
+# Тверь
+# Уфа
+# Казань
+# """
+# count = 0
+#
+#
+# def replace_find(m):
+#     global count
+#     count += 1
+#     return f"<option value='{count}'>{m.group(1)}</option>\n"
+#
+#
+# print("<select>")
+# print(re.sub(r'\s*(\w+)\s*', replace_find, text))
+# print("</select>")
+
+
+# s = "<p>Изображение <img src='bg.jpg'> - фон страницы</p>"
+# # reg = r'<img\s+[^>]*src=([\'"])(.+)\1>'
+# reg = r'<img\s+[^>]*(src=)(?P<q>[\'"])(.+)(?P=q)>'
+# # (?P<name>)  (?P=name)
+# print(re.findall(reg, s))
+
+
+# s = "Самолет прилетает 10/23/2022. Будем рады вас видеть после 10/24/2022"
+# reg = r'(\d{2})/(\d{2})/(\d{4})'
+# # print(re.findall(reg, s))
+# print(re.sub(reg, r"\2.\1.\3", s))
+
+# s = "google.com and google.ru"
+# reg = r"(([a-z0-9-]{2,}\.)+[a-z]{2,4})"
+# # print(re.findall(reg, s))
+# print(re.sub(reg, r"http://\1", s))
+
+def validate_phone(name):
+    reg = r"^\+?7[ (]*\d+[ )]*[\d -]{8,10}$"
+    return re.search(reg, name).group()
+
+
+print(validate_phone('+7 499 456-45-78'))
+print(validate_phone('+74994564578'))
+print(validate_phone('7 (499) 456 45 78'))
+print(validate_phone('7 (499) 456-45-78'))
