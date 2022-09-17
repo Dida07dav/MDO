@@ -109,15 +109,40 @@
 
 # №1
 import re
-email = "123456@i.ru," \
-	" 123_456@ru.name.ru," \
-	" login@i.ru, " \
-	"логин-1@i.ru, " \
-	"login.3@i.ru, " \
-	"login.3-67@i.ru, " \
-	"1login@ru.name.ru"
-print(re.findall("""
-[A-Za-zа-я0-9-._]+
-@
-[A-Za-zа-я0-9-._]+
-""", email, re.VERBOSE))
+# email = "123456@i.ru," \
+# 	" 123_456@ru.name.ru," \
+# 	" login@i.ru, " \
+# 	"логин-1@i.ru, " \
+# 	"login.3@i.ru, " \
+# 	"login.3-67@i.ru, " \
+# 	"1login@ru.name.ru"
+# print(re.findall("""
+# [A-Za-zа-я0-9-._]+
+# @
+# [A-Za-zа-я0-9-._]+
+# """, email, re.VERBOSE))
+
+#
+
+# 19 Занятие
+# №1
+
+
+def validate_password(password):
+	return re.findall(r'((?=.*\d)(?=.*[a-z])(?=.*@)(?=.*[A-Z]).{6,18})', password, re.IGNORECASE)
+
+
+print(validate_password('my-p@ssw0rd'))
+
+# №2
+
+test = "В июне 2021 года, 02/06/2021, 05/06/2021, 14/06/2021," \
+	" были зафиксированы максимумы ежемесячных осадков"
+# reg = '02/06/2021|05/06/2021|14/06/2021'
+# reg = r'([\d*/]+)'
+reg = r'(\d{1,2}\/\d{1,2}\/\d{4})'
+print(re.findall(reg, test, re.I))
+
+
+
+
