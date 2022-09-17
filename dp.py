@@ -127,22 +127,54 @@ import re
 # 19 Занятие
 # №1
 
+#
+# def validate_password(password):
+# 	return re.findall(r'((?=.*\d)(?=.*[a-z])(?=.*@)(?=.*[A-Z]).{6,18})', password, re.IGNORECASE)
+#
+#
+# print(validate_password('my-p@ssw0rd'))
+#
+# # №2
+#
+# test = "В июне 2021 года, 02/06/2021, 05/06/2021, 14/06/2021," \
+# 	" были зафиксированы максимумы ежемесячных осадков"
+# # reg = '02/06/2021|05/06/2021|14/06/2021'
+# # reg = r'([\d*/]+)'
+# reg = r'(\d{1,2}\/\d{1,2}\/\d{4})'
+# print(re.findall(reg, test, re.I))
 
-def validate_password(password):
-	return re.findall(r'((?=.*\d)(?=.*[a-z])(?=.*@)(?=.*[A-Z]).{6,18})', password, re.IGNORECASE)
+# 20 Занятие
 
 
-print(validate_password('my-p@ssw0rd'))
-
-# №2
-
-test = "В июне 2021 года, 02/06/2021, 05/06/2021, 14/06/2021," \
-	" были зафиксированы максимумы ежемесячных осадков"
-# reg = '02/06/2021|05/06/2021|14/06/2021'
-# reg = r'([\d*/]+)'
-reg = r'(\d{1,2}\/\d{1,2}\/\d{4})'
-print(re.findall(reg, test, re.I))
-
-
+def count_items(item_list):
+	count = 0
+	for item in item_list:
+		if isinstance(item, list):
+			count += count_items(item)
+		else:
+			count = count_items(item_list[1:])
+			if item_list[0] < 0:
+				count = count + 1
+	return count
 
 
+lst = [-2, 3, 8, -11, -4, 6]
+n = count_items(lst)
+print("n =", n)
+
+
+# 2 Вариант
+
+def Negativ(res):
+	if res == []:
+		return 0
+	else:
+		count = Negativ(res[1:])
+		if res[0] < 0:
+			count = count + 1
+		return count
+
+
+lst = [-2, 3, 8, -11, -4, 6]
+n = Negativ(lst)
+print("n =", n)
