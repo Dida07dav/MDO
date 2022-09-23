@@ -217,19 +217,19 @@ import re
 # f.close()
 
 #3
-my_file = open("python.txt", "w")
-my_file.write("Python поддерживает динамическую типизацию, то есть тип переменной определяется только во время исполнения. \nПоэтому вместо «присваивания значения переменной» лучше говорить о «связывании значения с некоторым именем.»\n")
-my_file.close()
-
-my_file1 = open("python1.txt", "w")
-my_file1.write("К примитивным типам в Python относятся булевый, целое число произвольной точности, число с плавающей запятой и комплексное число\n")
-my_file1.close()
-s = open('python.txt', 'rb')
-s1 = open('python1.txt', 'rb')
-F = s.readlines() + s1.readlines()
-s.close()
-s1.close()
-
-s2 = open('python3.txt', 'wb')
-s2.writelines(F)
-s2.close()
+# my_file = open("python.txt", "w")
+# my_file.write("Python поддерживает динамическую типизацию, то есть тип переменной определяется только во время исполнения. \nПоэтому вместо «присваивания значения переменной» лучше говорить о «связывании значения с некоторым именем.»\n")
+# my_file.close()
+#
+# my_file1 = open("python1.txt", "w")
+# my_file1.write("К примитивным типам в Python относятся булевый, целое число произвольной точности, число с плавающей запятой и комплексное число\n")
+# my_file1.close()
+# s = open('python.txt', 'rb')
+# s1 = open('python1.txt', 'rb')
+# F = s.readlines() + s1.readlines()
+# s.close()
+# s1.close()
+#
+# s2 = open('python3.txt', 'wb')
+# s2.writelines(F)
+# s2.close()
