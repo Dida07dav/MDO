@@ -566,3 +566,81 @@
 # summa2 = list(map(lambda x: x**3, nums))
 # print(summa1)
 # print(summa2)
+#
+# pos1 = int(input('pos1 = '))
+# pos2 = int(input('pos2 = '))
+# f = open('text4.txt', 'r')
+# L = f.readlines()
+#
+# s = L[pos1]
+# L[pos1] = L[pos2]
+# L[pos2] = s
+#
+# f = open('text4.txt', 'w')
+# f.writelines(L)
+# f.close()
+
+
+# 1
+my_file = open("text4.txt", "w")
+my_file.write("Замена строки в текстовом документе;\nизменить строку в списке;\nзаписать список в файл;")
+my_file.close()
+my_file1 = int(input('pos1 = '))
+my_file2 = int(input('pos2 = '))
+f = open('text4.txt', 'r')
+L = f.readlines()
+s = L[len(L) - 1]
+k = len(s)
+if (k > 0) and (s[k - 1] != '\n'):
+	L[len(L) - 1] += '\n'
+f.close()
+s = L[my_file1]
+L[my_file1] = L[my_file2]
+L[my_file2] = s
+
+f = open('text4.txt', 'w')
+f.writelines(L)
+f.close()
+
+#2
+# my_file = open("text5.txt", "w")
+# my_file.write("Замена строки в текстовом документе;\nизменить строку в списке;\nзаписать список в файл;")
+# my_file.close()
+# f = open("text5.txt", 'r')
+# read_file = f.readlines()
+# print(read_file)
+# s = read_file[len(read_file)- 1]
+# k = len(s)
+# if (k > 0) and (s[k - 1] != '\n'):
+# 	read_file[len(read_file) - 1] += '\n'
+# f.close()
+# read_file2 =[]
+# i = 0
+# while i < len(read_file):
+# 	s = read_file[len(read_file) - i -1]
+# 	read_file2 = read_file2 + [s]
+# 	i = i + 1
+# f = open('text5.txt', 'w')
+# f.writelines(read_file2)
+# f.close()
+
+#3
+# my_file = open("python.txt", "w")
+# my_file.write("Python поддерживает динамическую типизацию, то есть тип переменной определяется только во время исполнения. \nПоэтому вместо «присваивания значения переменной» лучше говорить о «связывании значения с некоторым именем.»")
+# my_file.close()
+#
+# my_file1 = open("python1.txt", "w")
+# my_file1.write("\nК примитивным типам в Python относятся булевый, целое число произвольной точности, число с плавающей запятой и комплексное число")
+# my_file1.close()
+# s = open('python.txt', 'rb')
+# s1 = open('python1.txt', 'rb')
+# F = s.readlines()
+# F1 = s1.readlines()
+# F2 = F + F1
+# s.close()
+# s1.close()
+#
+# s2 = open('python3.txt', 'wb')
+# s2.writelines(F2)
+# s2.close()
+
