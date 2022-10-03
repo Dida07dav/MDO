@@ -1387,7 +1387,7 @@
 # 10 Занятие
 
 # Картеж (tuple) - это неизменяумая структура данныч, которая по своему подобию очень похожа на список.
-# Картеж -нетзменяемый список. Или списки доступные толькодля чтения. Состоит из элементов, разделенных запятыми
+# Картеж - нетзменяемый список. Или списки доступные толькодля чтения. Состоит из элементов, разделенных запятыми
 # заключенных в круглые скобки
 #
 # lst =(10, 20, 30)
@@ -3011,7 +3011,7 @@ import re
 # reg = "[0-2][0-9]:[0-5][0-9]"
 # print(re.findall(reg, s))
 
-# s = "Я ищу совпадения в 2021 го-да. И \t из найду в 2 счёта. \n 45678"
+# S = "Я ищу совпадения в 2021 го-да. И \t из найду в 2 счёта. \n 45678"
 # reg = r'20*'
 # # \d - одна цифра [0-5]
 # # \w - цифра, буква, символ _ [0-9A-яА-z]
@@ -3333,7 +3333,7 @@ import re
 
 # Файлы
 
-# 1.Открытие файла
+# 1. Открытие файла
 # 2. Выполнение операции с файлом (запись, чтение)
 # 3. Закрытие файла
 
@@ -3554,9 +3554,509 @@ import os.path
 #
 #
 # remove_empty_dirs('test')
+
+#
+# print(os.path.split(r"C:\Pacharm225.d\test\nested2\nested3\1.txt"))  # разбивает путь на кортеж (head, tail)
+#
+# print(os.path.dirname(r"C:\Pacharm225.d\test\nested2\nested3\1.txt"))
+# print(os.path.basename(r"C:\Pacharm225.d\test\nested2\nested3\1.txt"))
+
+
+# 22 Занятие
+
+# print(os.path.join("C:\Pacharm225.d", "test", "nested2", "nested3", "1.txt"))
+
+# dirs = ['Work/F1', 'Work/F2/F21']
+# # for dir in dirs:
+# # 	os.makedirs(dir)
+# #
+# files = {
+# 	'Work': ['w.txt'],
+# 	r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+# 	'Work\\F2\\F21': ['f211.txt', 'f212.txt']
+# }
+#
+# for d, f in files.items():
+# 	for file in f:
+# 		file_path = os.path.join(d, file)
+# 		# print(file_path)
+# 		open(file_path, "w").close()
+#
+# file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt',
+# r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+#
+# for file in file_with_text:
+# 	with open(file, "w") as f:
+# 		f.write(f"Некоторый текст в файле {file}.")
 #
 #
-# print(os.path.split(r"D:\Python225\test\nested2\nested3\1.txt"))  # разбивает путь на кортеж (head, tail)
+# def print_tree(root, topdown):
+# 	print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
+# 	for root, dirs, files in os.walk(root, topdown=topdown):
+# 		print(root)
+# 		print(dirs)
+# 		print(files)
+# 	print("-" * 50)
 #
-# print(os.path.dirname(r"D:\Python225\test\nested2\nested3\1.txt"))
-# print(os.path.basename(r"D:\Python225\test\nested2\nested3\1.txt"))
+# # print_tree('Work', topdown=False)
+# print_tree('Work', topdown=True)
+
+#
+# print(os.path.exists(r"C:\Pacharm225.d\test\nested2\nested3\1.txt")) # проверка не
+# # существование файла по заданному пути
+# path = 'python.txt'
+# print(os.path.getatime(path)) # возвращает время последнего достуа к файлу(в секундах)
+# print(os.path.getmtime(path)) # возвращает время последнего изменения к файлу(в секундах)
+# print(os.path.getctime(path)) # возвращает время создания файла(в секундах)
+# print(os.path.getsize(path)) # возвращает размер файла(в байтах)
+
+
+import time
+
+# path = r"C:\Program Files\JetBrains\PyCharm Community Edition 2022.2\plugins\python-ce\helpers\typeshed\stdlib"
+# # path = r"C:\Pacharm225.d\test\nested2\nested3\1.txt"
+# size = os.path.getsize(path)
+# k_size = size // 1024
+# print("Размер", k_size, "КВ")
+# c_time = os.path.getatime(path)
+# print(c_time)
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(c_time)))
+
+# print(os.path.isfile(r'C:\Program Files\JetBrains\PyCharm Community Edition '
+# 					 r'2022.2\plugins\python-ce\helpers\typeshed\stdlib\typing.pyi'))
+# print(os.path.isdir(r'C:\Program Files\JetBrains\PyCharm Community Edition '
+# 					 r'2022.2\plugins\python-ce\helpers\typeshed\stdlib'))
+
+
+# ООП (объектно-ориентированное программирование)
+# class Point:
+# 	"""Класс для предоставления координат точек на плоскости"""
+# 	x = 1
+# 	y = 1
+#
+# 	def set_coords(self):
+# 		 print(self.__dict__)
+#
+#
+# p1 = Point()
+# # print(type(p1))
+# # Point.x = 100
+# p1.x = 200
+# p1.y = 5
+# p1.set_coords()
+# Point.set_coords(p1)
+# print(p1.x, p1.y)
+# print(id(p1))
+# print(id(Point))
+# print(p1.__dict__)
+# print(Point.__doc__)
+# print(Point.__name__)
+# print(dir(Point))
+#
+# p2 = Point()
+# print(p2.x, p2.y)
+# print(p2.__dict__)
+# print(Point.__dict__)
+
+# class Point:
+# 	x = 1
+# 	y = 1
+#
+# 	def set_coords(self, x, y):
+# 		self.x = x
+# 		self.y = y
+#
+#
+# p1 = Point()
+# p1.set_coords(5, 10)
+# print(p1.__dict__)
+#
+# p2 = Point()
+# p2.set_coords(3, 8)
+# print(p2.__dict__)
+#
+# Point.set_coords(p2, 2, 7)
+# print(p2.__dict__)
+
+#
+# class Human:
+# 	name = "name"
+# 	birthday = "00.00.0000"
+# 	phone = "00-00-00"
+# 	country = "country"
+# 	city = "city"
+# 	address = "street, house"
+#
+# 	def print_info(self):
+# 		print(" Персональные данные ".center(40, "*"))
+# 		print(f"Имя: {self.name}\nДата рождения: {self.birthday}\n"
+# 			  f"Номер телефона: {self.phone}\n"
+# 			  f"Страна: {self.country}\n"
+# 			  f"Город: {self.city}\n"
+# 			  f"Домашний адрес: {self.address}")
+# 		print("=" * 40)
+#
+# 	def input_info(self, first_name, birthday, phone, country, city, address):
+# 		self.name = first_name
+# 		self.birthday = birthday
+# 		self.phone = phone
+# 		self.country = country
+# 		self.city = city
+# 		self.address = address
+#
+# 	def set_name(self, name): # установить имя
+# 		self.name = name
+#
+# 	def get_name(self):  # получить имя
+# 		# a = "Имя:"
+# 		return self.name
+#
+#
+# h1 = Human()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1А")
+# h1.print_info()
+# h1.set_name("Валерия")
+# print(h1.get_name())
+
+
+# h2 = Human()
+# h2.input_info("Катя", "26.05.1990", "46-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1А")
+# h2.print_info()
+
+# 23 Занятие
+
+
+# class Point:
+# 	x = 1
+# 	y = 1
+#
+#
+# p1 = Point ()
+# # p1.x = 5
+# p1.y = 10
+# print(p1.__dict__)
+# print(p1.x)
+# print(getattr(p1, "x"))
+# # print(p1, "z")
+# print(getattr(p1, "z", "False"))
+
+
+# class Person:
+# 	skill = 10
+#
+# 	def __init__(self, name, surname):
+# 		self.name = name
+# 		self.surname = surname
+#
+# 	def print_info(self):
+# 		print("Данные сотрудника:", self.name, self.surname)
+#
+# 	def add_skill(self, k):
+# 		self.skill += k
+# 		print("Квалификация сотрудника:", self.skill, "\n")
+#
+#
+# p1 = Person("Viktor", "Reznik")
+# p1.print_info()
+# p1.add_skill(3)
+#
+# p2 = Person("Anna", "Dilgin")
+# p2.print_info()
+# p2.add_skill(2)
+
+
+# class Point:
+# 	def __new__(cls, *args, **kwargs):
+# 		print("This is constructor!")
+# 		return super().__new__(cls)
+#
+# 	def __init__(self):
+# 		print("This is initializator!")
+#
+#
+# p1 = Point()
+
+# class Point:
+#
+# 	def __init__(self, x=0, y=0):
+# 		self.x = x
+# 		self.y = y
+#
+# 	def __del__(self):
+# 		print("Удаление экземпляра:" + self.__class__.__name__)
+#
+#
+# p1 = Point(5, 10)
+# print(p1.__dict__)
+# del p1
+# print(p1.x)
+
+# class Point:
+# 	count = 0  # статические свойства
+#
+# 	def __init__(self, x=0, y=0): # динамические свойства
+# 		self.x = x
+# 		self.y = y
+# 		Point.count += 1
+#
+#
+# p1 = Point(5, 10)
+# p2 = Point(15, 20)
+# p3 = Point(25, 30)
+# print(Point.count)
+
+
+# class Robot:
+# 	k = 0
+#
+# 	def __init__(self, name):
+# 		self.name = name
+# 		print("Инициализация робота:", self.name)
+# 		Robot.k += 1
+#
+# 	def __del__(self):
+# 		print(self.name, "выключается!")
+# 		Robot.k -= 1
+# 		if Robot.k == 0:
+# 			print(self.name, "был посдедним.")
+# 		else:
+# 			print("Работающих роботов осталось:", Robot.k)
+#
+# 	def say_hi(self):
+# 		print("Приветствую! Меня зовут:", self.name)
+#
+#
+# droid1 = Robot("R2-D2")
+# droid1.say_hi()
+# print("Численность роботов:", Robot.k)
+#
+# droid2 = Robot("C-3PO")
+# droid2.say_hi()
+# print("Численность роботов:", Robot.k)
+#
+# droid3 = Robot("C-PRO")
+# droid3.say_hi()
+# print("Численность роботов:", Robot.k)
+#
+# print("\nЗдесь роботы могут проделать какую-то работу\n")
+# print("Роботы закончили свою работу. Давайте их выключим")
+# del droid1
+# del droid2
+# del droid3
+# print("Численность роботов:", Robot.k)
+
+
+# class Point:
+# 	def __init__(self, x=0, y=0):
+# 		self.__x = self.__y = 0
+# 		if Point.__check_value (x) and Point.__check_value (y):
+# 			self.__x = x
+# 			self.__y = y
+#
+# 	def __check_value(q):
+# 		if isinstance(q, int) or isinstance(q, float):
+# 			return True
+# 		return False
+#
+# 	def set_coords(self, x, y):
+# 		if Point.__check_value(x) and Point.__check_value(y):
+# 			self.__x = x
+# 			self.__y = y
+# 		else:
+# 			print("кординаты должны быть числами")
+#
+# 	def get_coords(self):
+# 		return self.__x, self.__y
+#
+# 	def set_x(self, x):
+# 		if Point.__check_value(x):
+# 			self.__x = x
+# 		else:
+# 			print("кординаты должны быть числами")
+#
+# 	def set_x(self, y):
+# 		if Point.__check_value(y):
+# 			self.__y = y
+# 		else:
+# 			print("кординаты должны быть числами")
+#
+# 	def get_x(self):
+# 		print()
+#
+# p1 = Point(5, 10)
+# print(p1.get_coords())
+# p1.set_coords(1, 2)
+# print(p1.get_coords())
+# p1.set.y(13)
+# print(p1.get_y(13))
+# # print(p1.__x, p1.__y)
+# # p1.__x = 100
+# # p1.__y = "abc"
+# # print(p1.__x, p1.__y)
+# p1.set_x(8)
+# print(p1.get_x())
+# print(p1.__dict__)
+# print(p1._Point__x)
+# p1._Point__x = 111
+# print(p1.__dict__)
+
+# class Car:
+# 	def __init__(self, name, year, model, power, color, price):
+# 		self.__name = self.__model = self.__color = "Некорректные данные"
+# 		self.__year = self.__power = self.__power = 0
+# 		if Car.__check_value_str(name):
+# 			self.__name = name
+# 		if Car.__check_value_str (year):
+# 			self.__year = year
+# 		if Car.__check_value_str (model):
+# 			self.__model = model
+# 		if Car.__check_value_str (power):
+# 			self.__power = power
+# 		if Car.__check_value_str (color):
+# 			self.__color = color
+# 		if Car.__check_value_str (price):
+# 			self.__price = price
+#
+# 	def __check_value_str(s,):
+# 		if not isinstance(s, int):
+# 			print("Данные должны быть числом")
+#
+# 	def set_name(self, name):
+# 		if Car.__check_value_str()
+# 	def print_info(self):
+# 		print("Данные автомобиля ".center(40, "*"))
+# 		print(f"""Название модели: {self.__name}
+# Год выпуска: {self.__year}
+# Производитель: {self.__model}
+# Мощность двигателя: {self.__power}
+# Цвет машины: {self.__color}
+# Цена: {self.__price}
+# """)
+#
+#
+# c1 = Car('X7 M50i', 2021, 'BMW', 530, 'write', 10790000)
+# c1.print_info()
+# c1.set_name('X2')
+# print(c1.get_name)
+# c1.print_info()
+
+# 24 Занятие
+
+
+# class Point:
+#     __slots__ = ['x', 'y', 'z']
+#
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#
+#
+# p1 = Point(5, 10)
+# p1.z = 2
+# print(p1.z)
+# print(p1.__dict__)
+
+# class Point:
+#
+# 	def __init__(self, x=0, y=0):
+# 		self.x = x
+# 		self.y = y
+#
+# 	def __set_x(self, x):
+# 		print("Вызов __set_x")
+# 		self.__x = x
+#
+# 	def __get_x(self):
+# 		print ("Вызов __get_x")
+# 		return self.__x
+#
+# 	def __del_x(self):
+# 		print("Удаление свойства")
+# 		del self.__x
+#
+# 	coord_x = property(__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.coord_x = 100
+# print(p1.coord_x)
+# del p1.coord_x
+# p1.coord_x = 7
+# print(p1.__dict__)
+
+# class Point:
+#
+# 	def __init__(self, x=0, y=0):
+# 		self.__x = x
+# 		self.__y = y
+#
+# 	@property
+# 	def coord_x(self):
+# 		print ("Вызов __get_x")
+# 		return self.__x
+#
+# 	@coord_x.setter
+# 	def coord_x(self, x):
+# 		print ("Вызов __set_x")
+# 		self.__x = x
+#
+# 	@coord_x.deleter
+# 	def coord_x(self):
+# 		print ("Удаление свойства")
+# 		del self.__x
+#
+# 	# coord_x = property (__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.coord_x = 100
+# print (p1.coord_x)
+# del p1.coord_x
+# p1.coord_x = 7
+# print(p1.__dict__)
+
+# class Person:
+# 	def __init__(self, name, old):
+# 		self.__name = name
+# 		self.__old = old
+#
+# 	@property
+# 	def name(self):
+# 		return self.__name
+#
+# 	@name.setter
+# 	def name(self, n):
+# 		self.__name = n
+#
+# 	@name.deleter
+# 	def name(self):
+# 		del self.__name
+#
+#
+# p1 = Person('Irina', 26)
+# print(p1.name)
+# p1.name = 'Igor'
+# del p1.name
+# p1.old = 31
+# print(p1.old)
+# del p1.old
+# print(p1.__dict__)
+
+# class Point:
+# 	__count = 0
+#
+# 	def __init__(self, x=0, y=0):
+# 		self.__x = x
+# 		self.__y = y
+# 		Point.__count += 1
+#
+# 	@staticmethod
+# 	def get_count():
+# 		return Point.__count
+#
+# p1 = Point()
+# print("p1 =", Point.get_count())
+# p2 = Point()
+# print("p2 =", Point.get_count())
+# p3 = Point()
+# print("p3 =", Point.get_count())

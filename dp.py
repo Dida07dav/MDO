@@ -233,3 +233,87 @@ import re
 # s2 = open('python3.txt', 'wb')
 # s2.writelines(F)
 # s2.close()
+
+# 22 Задание
+
+class Book:
+	the_book = "name"
+	release = "0000"
+	publisher = "publisher"
+	genre = "genre"
+	author = "author"
+	price = "price"
+
+	def print_info(self):
+		print(" Маркетинг ".center(40, "*"))
+		print(f"Название книги: {self.the_book}\n"
+			  f"год выпуска: {self.release}\n"
+			  f"Издатель: {self.publisher}\n"
+			  f"Жанр: {self.genre}\n"
+			  f"Автор: {self.author}\n"
+			  f"цена: {self.price}")
+		print("=" * 40)
+
+	def input_info(self, the_book, release, publisher, genre, author, price):
+		self.the_book = the_book
+		self.release = release
+		self.publisher = publisher
+		self.genre = genre
+		self.author = author
+		self.price = price
+	
+	def set_the_book(self, the_book):
+		self.the_book = the_book
+
+	def get_the_book(self):
+		return self.the_book
+	
+	def set_release(self, release):
+		self.release = release
+
+	def get_release(self):
+		return self.release
+	
+	def set_publisher(self, publisher):
+		self.publisher = publisher
+	
+	def get_publisher(self):
+		return self.publisher
+	
+	def set_genre(self, genre):
+		self.genre = genre
+	
+	def get_genre(self):
+		return self.genre
+	
+	def set_author(self, author):
+		self.author = author
+	
+	def get_author(self):
+		return self.author
+	
+	def set_price(self, price):
+		self.price = price
+	
+	def get_price(self):
+		return self.price
+
+
+h1 = Book()
+h1.input_info("Маркетинг. Курс лекций", "2018", "Инфра-М", "Маркетинг, PR, реклама", "Басовский Леонид Ефимович", "719р.")
+h1.print_info()
+h1.set_the_book("Ромео и Джульетта")
+print(h1.get_the_book())
+h1.set_release('2004')
+print(h1.get_release())
+h1.set_publisher("Библиотека драматургии Агентства ФТМ")
+print(h1.get_publisher())
+h1.set_genre('Зарубежная драматургия, Зарубежная классика')
+print(h1.get_genre())
+h1.set_author("Уильям Шекспир")
+print(h1.get_author())
+h1.set_price('815р.')
+print(h1.get_price())
+print("=" * 40)
+
+
