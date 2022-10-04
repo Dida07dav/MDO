@@ -236,84 +236,126 @@ import re
 
 # 22 Задание
 
-class Book:
-	the_book = "name"
-	release = "0000"
-	publisher = "publisher"
-	genre = "genre"
-	author = "author"
-	price = "price"
+# class Book:
+# 	the_book = "name"
+# 	release = "0000"
+# 	publisher = "publisher"
+# 	genre = "genre"
+# 	author = "author"
+# 	price = "price"
+#
+# 	def print_info(self):
+# 		print(" Маркетинг ".center(40, "*"))
+# 		print(f"Название книги: {self.the_book}\n"
+# 			  f"год выпуска: {self.release}\n"
+# 			  f"Издатель: {self.publisher}\n"
+# 			  f"Жанр: {self.genre}\n"
+# 			  f"Автор: {self.author}\n"
+# 			  f"цена: {self.price}")
+# 		print("=" * 40)
+#
+# 	def input_info(self, the_book, release, publisher, genre, author, price):
+# 		self.the_book = the_book
+# 		self.release = release
+# 		self.publisher = publisher
+# 		self.genre = genre
+# 		self.author = author
+# 		self.price = price
+#
+# 	def set_the_book(self, the_book):
+# 		self.the_book = the_book
+#
+# 	def get_the_book(self):
+# 		return self.the_book
+#
+# 	def set_release(self, release):
+# 		self.release = release
+#
+# 	def get_release(self):
+# 		return self.release
+#
+# 	def set_publisher(self, publisher):
+# 		self.publisher = publisher
+#
+# 	def get_publisher(self):
+# 		return self.publisher
+#
+# 	def set_genre(self, genre):
+# 		self.genre = genre
+#
+# 	def get_genre(self):
+# 		return self.genre
+#
+# 	def set_author(self, author):
+# 		self.author = author
+#
+# 	def get_author(self):
+# 		return self.author
+#
+# 	def set_price(self, price):
+# 		self.price = price
+#
+# 	def get_price(self):
+# 		return self.price
+#
+#
+# h1 = Book()
+# h1.input_info("Маркетинг. Курс лекций", "2018", "Инфра-М", "Маркетинг, PR, реклама", "Басовский Леонид Ефимович", "719р.")
+# h1.print_info()
+# h1.set_the_book("Ромео и Джульетта")
+# print(h1.get_the_book())
+# h1.set_release('2004')
+# print(h1.get_release())
+# h1.set_publisher("Библиотека драматургии Агентства ФТМ")
+# print(h1.get_publisher())
+# h1.set_genre('Зарубежная драматургия, Зарубежная классика')
+# print(h1.get_genre())
+# h1.set_author("Уильям Шекспир")
+# print(h1.get_author())
+# h1.set_price('815р.')
+# print(h1.get_price())
+# print("=" * 40)
 
-	def print_info(self):
-		print(" Маркетинг ".center(40, "*"))
-		print(f"Название книги: {self.the_book}\n"
-			  f"год выпуска: {self.release}\n"
-			  f"Издатель: {self.publisher}\n"
-			  f"Жанр: {self.genre}\n"
-			  f"Автор: {self.author}\n"
-			  f"цена: {self.price}")
-		print("=" * 40)
 
-	def input_info(self, the_book, release, publisher, genre, author, price):
-		self.the_book = the_book
-		self.release = release
-		self.publisher = publisher
-		self.genre = genre
-		self.author = author
-		self.price = price
-	
-	def set_the_book(self, the_book):
-		self.the_book = the_book
-
-	def get_the_book(self):
-		return self.the_book
-	
-	def set_release(self, release):
-		self.release = release
-
-	def get_release(self):
-		return self.release
-	
-	def set_publisher(self, publisher):
-		self.publisher = publisher
-	
-	def get_publisher(self):
-		return self.publisher
-	
-	def set_genre(self, genre):
-		self.genre = genre
-	
-	def get_genre(self):
-		return self.genre
-	
-	def set_author(self, author):
-		self.author = author
-	
-	def get_author(self):
-		return self.author
-	
-	def set_price(self, price):
-		self.price = price
-	
-	def get_price(self):
-		return self.price
+# # 23 Задание
+from math import sqrt
 
 
-h1 = Book()
-h1.input_info("Маркетинг. Курс лекций", "2018", "Инфра-М", "Маркетинг, PR, реклама", "Басовский Леонид Ефимович", "719р.")
-h1.print_info()
-h1.set_the_book("Ромео и Джульетта")
-print(h1.get_the_book())
-h1.set_release('2004')
-print(h1.get_release())
-h1.set_publisher("Библиотека драматургии Агентства ФТМ")
-print(h1.get_publisher())
-h1.set_genre('Зарубежная драматургия, Зарубежная классика')
-print(h1.get_genre())
-h1.set_author("Уильям Шекспир")
-print(h1.get_author())
-h1.set_price('815р.')
-print(h1.get_price())
-print("=" * 40)
+class Rectangle:
+    def __init__(self, lg, wd):
+        self.__length = lg
+        self.__width = wd
 
+    def get_length(self):
+        return self.__length
+
+    def get_width(self):
+        return self.__width
+
+    def get_square(self):
+        s = self.__length * self.__width
+        print("Площадь прямоугольника: ", s)
+
+    def perimetr(self):
+        s1 = (self.__length + self.__width) * 2
+        print("Периметр прямоугольника: ", s1)
+
+    def hypotenuse(self):
+        s2 = sqrt(self.__length ** 2 + self.__width ** 2)
+        print("Гипотенуза прямоугольника: ", round(s2, 2))
+
+    def figur(self):
+        print(("*" * self.__width + "\n") * self.__length)
+
+
+p = Rectangle(3, 9)
+print("Длина прямоугольника: ", p.get_length())
+print("Ширина прямоугольника: ", p.get_width())
+p.get_square()
+p.perimetr()
+p.hypotenuse()
+p.figur()
+
+
+# 24 Задание
 
