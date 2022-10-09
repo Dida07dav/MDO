@@ -318,44 +318,74 @@ import re
 
 
 # # 23 Задание
-from math import sqrt
-
-
-class Rectangle:
-    def __init__(self, lg, wd):
-        self.__length = lg
-        self.__width = wd
-
-    def get_length(self):
-        return self.__length
-
-    def get_width(self):
-        return self.__width
-
-    def get_square(self):
-        s = self.__length * self.__width
-        print("Площадь прямоугольника: ", s)
-
-    def perimetr(self):
-        s1 = (self.__length + self.__width) * 2
-        print("Периметр прямоугольника: ", s1)
-
-    def hypotenuse(self):
-        s2 = sqrt(self.__length ** 2 + self.__width ** 2)
-        print("Гипотенуза прямоугольника: ", round(s2, 2))
-
-    def figur(self):
-        print(("*" * self.__width + "\n") * self.__length)
-
-
-p = Rectangle(3, 9)
-print("Длина прямоугольника: ", p.get_length())
-print("Ширина прямоугольника: ", p.get_width())
-p.get_square()
-p.perimetr()
-p.hypotenuse()
-p.figur()
+# from math import sqrt
+#
+#
+# class Rectangle:
+#     def __init__(self, lg, wd):
+#         self.__length = lg
+#         self.__width = wd
+#
+#     def get_length(self):
+#         return self.__length
+#
+#     def get_width(self):
+#         return self.__width
+#
+#     def get_square(self):
+#         s = self.__length * self.__width
+#         print("Площадь прямоугольника: ", s)
+#
+#     def perimetr(self):
+#         s1 = (self.__length + self.__width) * 2
+#         print("Периметр прямоугольника: ", s1)
+#
+#     def hypotenuse(self):
+#         s2 = sqrt(self.__length ** 2 + self.__width ** 2)
+#         print("Гипотенуза прямоугольника: ", round(s2, 2))
+#
+#     def figur(self):
+#         print(("*" * self.__width + "\n") * self.__length)
+#
+#
+# p = Rectangle(3, 9)
+# print("Длина прямоугольника: ", p.get_length())
+# print("Ширина прямоугольника: ", p.get_width())
+# p.get_square()
+# p.perimetr()
+# p.hypotenuse()
+# p.figur()
 
 
 # 24 Задание
+
+class Weight:
+    def __init__(self, k=0):
+        self.__kg = k
+
+    @property
+    def klm(self):
+        return self.__kg
+
+    @klm.setter
+    def klm(self, k):
+        if isinstance(k, (int, float)):
+            self.__kg = k
+        else:
+            print("Килограммы задаются только числами")
+
+    def to_lb(self):
+        return round(self.__kg * 2.205, 3)
+
+
+f = Weight(12)
+print(f.klm, "кг => ", end="")
+print(f.to_lb(), 'фунтов')
+
+f.klm = 41
+print(f.klm, "кг => ", end="")
+print(f.to_lb(), 'фунтов')
+
+
+
 

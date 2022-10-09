@@ -4100,6 +4100,35 @@ import time
 #
 # print(Change.inc(10), Change.dec(10))
 
+# class Numbers:
+#     @staticmethod
+#     def minimum(a, b, c, d):
+#         minim = min(a, b, c, d)
+#         return minim
+#
+#     @staticmethod
+#     def maximum(a, b, c, d):
+#         maxim = max(a, b, c, d)
+#         return maxim
+#
+#     @staticmethod
+#     def sr_arifm(a, b, c, d):
+#         arifm = (a+b+c+d)/4
+#         return arifm
+#
+#     @staticmethod
+#     def factor(a):
+#         count = 1
+#         for i in range(1, a+1):
+#             count = count * i
+#             print(count)
+#         return count
+#
+#
+# print("Минимальное число:", Numbers.minimum(4, 5, 9, 2))
+# print("Максимальное число:", Numbers.maximum(4, 5, 9, 2))
+# print("Среднее арифметическое:", Numbers.sr_arifm(4, 5, 9, 2))
+# print("Факториал числа:", Numbers.factor(5))
 
 # class Date:
 #     def __init__(self, day=0, month=0, year=0):
@@ -4120,8 +4149,8 @@ import time
 #         if data_as_string.count('.') == 2:
 #             d, m, y = map(int, data_as_string.split('.'))
 #             return d <= 31 and m <= 12 and y <= 3999
-#
-#
+
+
 # dates = [
 #     '30.12.2020',
 #     '30.12.2020',
@@ -4181,6 +4210,7 @@ import time
 # print(w1.kg_k, "кг => ", end="")
 # print(w1.to_pounds(), 'фунтов')
 
+# 25 Занятие
 
 # class Account:
 #     rate_usd = 0.013
@@ -4325,3 +4355,172 @@ import time
 #
 #
 # p1 = UserData("Волков Игорь Николаевич", 26, "1234 567890", 80.8)
+
+# p1.fio = 'Соболев Игорь Николаевич'
+# print(p1.fio)
+# p1.old = 35
+# p1.password = '4567 123456'
+# p1.weight = 70.0
+# print(p1.__dict__)
+
+
+# class Point:
+#     def __init__(self, x=0, y=0):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f'({self.__x}, {self.__y})'
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = 'red', width: int = 1):
+#         print("Инициализатор базового класса Prop")
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self.__width = width
+#
+#     def get_width(self):
+#         return self.__width
+#
+#
+# class Line(Prop):
+#     def __init__(self, *args):
+#         print('Переопределенный инициализатор Line')
+#         super().__init__(*args)
+#         self.__width = 5
+#
+#     def draw_line(self) -> None:
+#         print(f'Рисование линии: {self._sp}, {self._ep}, {self._color}, {self.__width}')
+#
+#
+# class Rect(Prop):
+#
+#     def __init__(self, sp, ep, color='red', width=1, bg='yellow'):
+#         super().__init__(sp, ep, color, width)
+#         self.background = bg
+#
+#     def draw_rect(self) -> None:
+#         print(f'Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self.get_width()}, {self.background}')
+#
+#
+# line = Line(Point(1, 2), Point(10, 20), 'green', 3)
+# line.draw_line()
+# print(line.__dict__)
+# # print(line._width)
+# # print(type(line))
+# rect = Rect(Point(30, 40), Point(70, 80))
+# rect.draw_rect()
+#
+# # print(issubclass(Point, object))
+# # print(line.__dict__)
+
+
+# class Figure:
+#     def __init__(self, color):
+#         self.__color = color
+#
+#     @property
+#     def color(self):
+#         return self.__color
+#
+#     @color.setter
+#     def color(self, c):
+#         self.__color = c
+#
+#
+# class Rectangle(Figure):
+#     def __init__(self, width, height, color):
+#         super().__init__(color)
+#         self.__width = width
+#         self.__height = height
+#
+#     @property
+#     def width(self):
+#         return self.__width
+#
+#     @width.setter
+#     def width(self, w):
+#         if w > 0:
+#             self.__width = w
+#         else:
+#             self.__width = 1
+#             # raise ValueError
+#
+#     @property
+#     def height(self):
+#         return self.__height
+#
+#     @height.setter
+#     def height(self, h):
+#         if h > 0:
+#             self.__height = h
+#         else:
+#             raise ValueError
+#
+#     def area(self):
+#         print(f"Площадь {self.color} прямоугольника: ", end="")
+#         return self.__width * self.__height
+#
+#
+# rect = Rectangle(10, 20, 'green')
+# # rect.width = -5
+# print(rect.width)
+# print(rect.height)
+# print(rect.color)
+# rect.color = 'red'
+# print(rect.color)
+# print(rect.area())
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f'({self.__x}, {self.__y})'
+#
+#     def is_digit(self):
+#         if not isinstance(self.__x, (int, float)) and not isinstance(self.__y, (int, float)):
+#             print("Координаты должны быть числами")
+#             return False
+#         return True
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = 'red', width: int = 1):
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#
+#     def set_coords(self, sp, ep):
+#         if sp.is_digit() and ep.is_digit():
+#             self._sp = sp
+#             self._ep = ep
+#
+#
+# class Line(Prop):
+#
+#     def draw_line(self) -> None:
+#         print(f'Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}')
+#
+#
+# class Rect(Prop):
+#
+#     def draw_rect(self) -> None:
+#         print(f'Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self._width}')
+#
+#
+# line = Line(Point(1, 2), Point(10, 20))
+# line.draw_line()
+# line.set_coords(Point(10, 20), Point(100, 200))
+# line.draw_line()
+#
+# rect = Rect(Point(7, 9), Point(12, 15))
+# rect.draw_rect()
+# rect.set_coords(Point(30.5, 40.2), Point(50, 60))
+# rect.draw_rect()
+
