@@ -4316,6 +4316,9 @@ import time
 #
 # acc.withdraw_money(3000)
 # print()
+
+
+
 # import re
 #
 #
@@ -4363,6 +4366,7 @@ import time
 # p1.weight = 70.0
 # print(p1.__dict__)
 
+# 26 Занятие
 
 # class Point:
 #     def __init__(self, x=0, y=0):
@@ -4524,3 +4528,4 @@ import time
 # rect.set_coords(Point(30.5, 40.2), Point(50, 60))
 # rect.draw_rect()
 
+# 27 Занятие
