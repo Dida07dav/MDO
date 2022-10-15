@@ -518,138 +518,290 @@ import re
 # print()
 
 # 2
-class Account:
-    rate_usd = 0.013
-    rate_eur = 0.011
-    suffix = 'RUB'
-    suffix_usd = 'USD'
-    suffix_eur = 'EUR'
-    
-    def __init__(self, num, surname, percent, value=0):
-        self.__num = num
-        self.__surname = surname
-        self.__percent = percent
-        self.__value = value
-        print(f'Счет #{self.__num} принадлежит {self.__surname} был открыт.')
-        print('*' * 50)
-    
-    def __del__(self):
-        print('*' * 50)
-        print(f'Счет #{self.__num} принадлежащий {self.__surname} был закрыт.')
-    
-    @classmethod
-    def set_usd_rate(cls, rate):
-        cls.rate_usd = rate
-    
-    @classmethod
-    def set_eur_rate(cls, rate):
-        cls.rate_eur = rate
-    
-    @staticmethod
-    def convert(value, rate):
-        return value * rate
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eur = 'EUR'
+#
+#     def __init__(self, num, surname, percent, value=0):
+#         self.__num = num
+#         self.__surname = surname
+#         self.__percent = percent
+#         self.__value = value
+#         print(f'Счет #{self.__num} принадлежит {self.__surname} был открыт.')
+#         print('*' * 50)
+#
+#     def __del__(self):
+#         print('*' * 50)
+#         print(f'Счет #{self.__num} принадлежащий {self.__surname} был закрыт.')
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     @property
+#     def num(self):
+#         return self.__num
+#
+#     @num.setter
+#     def num(self, num):
+#         self.__num = num
+#
+#     @property
+#     def surname(self):
+#         return self.__surname
+#
+#     @surname.setter
+#     def surname(self, surname):
+#         self.__surname = surname
+#
+#     @property
+#     def percent(self):
+#         return self.__percent
+#
+#     @percent.setter
+#     def percent(self, percent):
+#         self.__percent = percent
+#
+#     @property
+#     def value(self):
+#         return self.__value
+#
+#     @value.setter
+#     def value(self, value):
+#         self.__value = value
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert (self.__value, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val} {Account.suffix_usd}.')
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert (self.__value, Account.rate_eur)
+#         print(f'Состояние счета: {eur_val} {Account.suffix_eur}.')
+#
+#     def print_balance(self):
+#         print(f'Текущий баланс {self.__value} {Account.suffix}')
+#
+#     def print_info(self):
+#         print(f'Информация о счете:')
+#         print('-' * 20)
+#         print(f'#{self.__num}')
+#         print(f'Владелец: {self.__surname}')
+#         self.print_balance ()
+#         print(f'Проценты: {self.__percent:.0%}')
+#         print('-' * 20)
+#
+#     def add_percents(self):
+#         self.__value += self.__value * self.__percent
+#         print('Проценты были успешно начислены')
+#         self.print_balance ()
+#
+#     def withdraw_money(self, val):
+#         if val > self.__value:
+#             print(f'К сожалению у вас нет {val} {Account.suffix}')
+#         else:
+#             self.__value -= val
+#             print(f'{val} {Account.suffix} было успешно снято!')
+#         self.print_balance ()
+#
+#     def add_money(self, val):
+#         self.__value += val
+#         print(f'{val} {Account.suffix} было успешно добавлено!')
+#         self.print_balance()
+#
+#
+# acc = Account('12345', 'Долгих', 0.03, 1000)
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+#
+# Account.set_usd_rate(2)
+# acc.convert_to_usd()
+#
+# Account.set_eur_rate(3)
+# acc.convert_to_eur()
+# print()
+#
+# acc.num = "13579"
+# acc.surname = "Vladimir"
+# acc.percent = 0.04
+# acc.value = 2000
+# acc.print_info()
+#
+# acc.add_percents()
+# print()
+#
+# acc.withdraw_money(3000)
+# print()
+#
+# acc.withdraw_money(100)
+# print()
+#
+# acc.add_money(5000)
+# print()
+#
+# acc.withdraw_money(3000)
+# print()
 
-    @property
-    def num(self):
-        return self.__num
+# 26 Задание
 
-    @num.setter
-    def num(self, num):
-        self.__num = num
+# class Point:
+# 	def __init__(self, x=0, y=0):
+# 		self.__x = x
+# 		self.__y = y
+#
+# 	def __str__(self):
+# 		return f'({self.__x}, {self.__y})'
+#
+# 	def is_digit(self):
+# 		if not isinstance(self.__x, (int, float)) or not isinstance(self.__y, (int, float)):
+# 			print("Координаты должны быть числами")
+# 			return False
+# 		return True
+#
+# 	def is_int(self):
+# 		if not isinstance(self.__x, int) or not isinstance(self.__y, int):
+# 			print("Координаты должны быть целочисленными")
+# 			return False
+# 		return True
+#
+#
+# class Prop:
+# 	def __init__(self, sp: Point, ep: Point, color='red', width: int = 1):
+# 		self._sp = sp
+# 		self._ep = ep
+# 		self._color = color
+# 		self._width = width
+#
+# 	def set_coords(self, sp, ep):
+# 		if sp.is_digit() and ep.is_digit():
+# 			self._sp = sp
+# 			self._ep = ep
+#
+#
+# class Line (Prop):
+#
+# 	def draw_line(self) -> None:
+# 		print(f'Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}')
+#
+# 	def set_coords(self, sp, ep):
+# 		if sp.is_int() and ep.is_int():
+# 			self._sp = sp
+# 			self._ep = ep
+#
+#
+# class Rect (Prop):
+#
+# 	def draw_rect(self) -> None:
+# 		print(f'Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self._width}')
+#
+#
+# line = Line(Point (1, 2), Point(10, 20))
+# line.draw_line()
+# line.set_coords(Point(10.9, 20), Point(100.8, 200))
+# line.draw_line()
+#
+# rect = Rect(Point(7, 9), Point(12, 15))
+# rect.draw_rect()
+# rect.set_coords(Point(30.8, 40), Point(50, 60))
+# rect.draw_rect()
+
+#27 Задание
+
+# class Liquid:
+#     def __init__(self, name, density):
+#         self.name = name
+#         self.density = density
+#
+#     def edit_density(self, val):
+#         self.density = val
+#
+#     def calc_m(self, v):
+#         m = v * self.density
+#         print(f'Вес {v} m^3 of {self.name} составляет {m} кг.')
+#
+#     def calc_v(self, m):
+#         v = m / self.density
+#         print(f'Объем {m} кг {self.name} равен {v} m^3.')
+#
+#     def print_info(self):
+#         print(f"Жидкость '{self.name}' (плотность = {self.density} kg/m^3).")
+#
+#
+# class Alcohol(Liquid):
+#     def __init__(self, name, density, strength):
+#         super().__init__(name, density)
+#         self.strength = strength
+#
+#     def edit_strength(self, val):
+#         self.strength = val
+#
+#
+# a = Alcohol('Wine', 1064.2, 14)
+# a.print_info()
+#
+# a.edit_density(1000)
+# a.print_info()
+# print()
+# a.calc_m(0.5)
+# a.calc_v(300)
+# print()
+#
+# print(a.strength)
+# a.edit_strength(20)
+# print(a.strength)
+
+# 28 Задание
+
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.md = self.Notebook()
+        self.nt = self.Notebook1()
         
-    @property
-    def surname(self):
-        return self.__surname
-    
-    @surname.setter
-    def surname(self, surname):
-        self.__surname = surname
-    
-    @property
-    def percent(self):
-        return self.__percent
-    
-    @percent.setter
-    def percent(self, percent):
-        self.__percent = percent
-    
-    @property
-    def value(self):
-        return self.__value
-    
-    @value.setter
-    def value(self, value):
-        self.__value = value
-    
-    def convert_to_usd(self):
-        usd_val = Account.convert (self.__value, Account.rate_usd)
-        print(f'Состояние счета: {usd_val} {Account.suffix_usd}.')
-    
-    def convert_to_eur(self):
-        eur_val = Account.convert (self.__value, Account.rate_eur)
-        print(f'Состояние счета: {eur_val} {Account.suffix_eur}.')
-    
-    def print_balance(self):
-        print(f'Текущий баланс {self.__value} {Account.suffix}')
-    
-    def print_info(self):
-        print(f'Информация о счете:')
-        print('-' * 20)
-        print(f'#{self.__num}')
-        print(f'Владелец: {self.__surname}')
-        self.print_balance ()
-        print(f'Проценты: {self.__percent:.0%}')
-        print('-' * 20)
-    
-    def add_percents(self):
-        self.__value += self.__value * self.__percent
-        print('Проценты были успешно начислены')
-        self.print_balance ()
-    
-    def withdraw_money(self, val):
-        if val > self.__value:
-            print(f'К сожалению у вас нет {val} {Account.suffix}')
-        else:
-            self.__value -= val
-            print(f'{val} {Account.suffix} было успешно снято!')
-        self.print_balance ()
-    
-    def add_money(self, val):
-        self.__value += val
-        print(f'{val} {Account.suffix} было успешно добавлено!')
-        self.print_balance()
+    def display(self):
+        print(f'{self.name} =>', end="")
+
+    class Notebook:
+        def __init__(self):
+            self.model = "HP"
+            self.processor = "i7"
+            self.memory = 16
+
+        def display(self):
+            print(f" {self.model}, {self.processor}, {self.memory}")
+
+    class Notebook1:
+        def __init__(self):
+            self.model = "HP"
+            self.processor = "i7"
+            self.memory = 16
+
+        def display(self):
+            print(f" {self.model}, {self.processor}, {self.memory}")
 
 
-acc = Account('12345', 'Долгих', 0.03, 1000)
-acc.print_info()
-acc.convert_to_usd()
-acc.convert_to_eur()
-print()
+outer = Student("Roman")
+outer.display()
+d1 = outer.md
+d1.display()
 
-Account.set_usd_rate(2)
-acc.convert_to_usd()
+outer = Student("Vladimir")
+outer.display()
+d2 = outer.nt
+d2.display()
 
-Account.set_eur_rate(3)
-acc.convert_to_eur()
-print()
 
-acc.num = "13579"
-acc.surname = "Vladimir"
-acc.percent = 0.04
-acc.value = 2000
-acc.print_info()
-
-acc.add_percents()
-print()
-
-acc.withdraw_money(3000)
-print()
-
-acc.withdraw_money(100)
-print()
-
-acc.add_money(5000)
-print()
-
-acc.withdraw_money(3000)
-print()
+        
