@@ -644,6 +644,46 @@ f.close()
 # s2.writelines(F2)
 # s2.close()
 
+class Shape:
+	def __init__(self, color=None, perimeter=None, space=None):
+		self.color = color
+		self.perimeter = perimeter
+		self.space = space
 
+	def Info(self):
+		p = self.Perimeter ()
+		s = self.Square ()
+
+
+
+class Rectangle (Shape):
+	def __init__(self, x, y, w, h):
+		Shape.__init__ (self)
+		self.x = x
+		self.y = y
+		self.w = w
+		self.h = h
+
+	def Perimeter(self):
+		perimeter = self.w * 2 + self.h * 2
+		return perimeter
+
+	def Square(self):
+		space = self.x * self.y
+		return space
+
+	def Info(self):
+		p = self.Perimeter ()
+		s = self.Square ()
+		print ("Цвет:", "red")
+		print ('площадь : %s \nпериметр : %s ' % (s, p))
+
+
+if __name__ == '__main__':
+	fig1 = Rectangle (6, 8, 6, 9)
+
+	array = [fig1]
+	for f in array:
+		f.Info ()
 
 

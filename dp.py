@@ -198,7 +198,7 @@ import re
 # f.writelines(L)
 # f.close()
 
-#2
+# 2
 # my_file = open("text5.txt", "w")
 # my_file.write("Замена строки в текстовом документе;\nизменить строку в списке;\nзаписать список в файл;")
 # my_file.close()
@@ -216,7 +216,7 @@ import re
 # f.writelines(read_file2)
 # f.close()
 
-#3
+# 3
 # my_file = open("python.txt", "w")
 # my_file.write("Python поддерживает динамическую типизацию, то есть тип переменной определяется только во время исполнения. \nПоэтому вместо «присваивания значения переменной» лучше говорить о «связывании значения с некоторым именем.»\n")
 # my_file.close()
@@ -318,8 +318,9 @@ import re
 
 
 # # 23 Задание
-# from math import sqrt
-#
+from math import sqrt
+
+
 #
 # class Rectangle:
 #     def __init__(self, lg, wd):
@@ -717,7 +718,7 @@ import re
 # rect.set_coords(Point(30.8, 40), Point(50, 60))
 # rect.draw_rect()
 
-#27 Задание
+# 27 Задание
 
 # class Liquid:
 #     def __init__(self, name, density):
@@ -765,43 +766,233 @@ import re
 # 28 Задание
 
 
-class Student:
-    def __init__(self, name):
-        self.name = name
-        self.md = self.Notebook()
-        self.nt = self.Notebook1()
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+#         self.md = self.Notebook()
+#         self.nt = self.Notebook1()
+#
+#     def display(self):
+#         print(f'{self.name} =>', end="")
+#
+#     class Notebook:
+#         def __init__(self):
+#             self.model = "HP"
+#             self.processor = "i7"
+#             self.memory = 16
+#
+#         def display(self):
+#             print(f" {self.model}, {self.processor}, {self.memory}")
+#
+#     class Notebook1:
+#         def __init__(self):
+#             self.model = "HP"
+#             self.processor = "i7"
+#             self.memory = 16
+#
+#         def display(self):
+#             print(f" {self.model}, {self.processor}, {self.memory}")
+#
+#
+# outer = Student("Roman")
+# outer.display()
+# d1 = outer.md
+# d1.display()
+#
+# outer = Student("Vladimir")
+# outer.display()
+# d2 = outer.nt
+# d2.display()
+
+# 29 Задание
+# № 1
+# class Clock:
+# 	__DAY = 86400
+#
+# 	def __init__(self, sec: int):
+# 		if not isinstance(sec, int):
+# 			raise ValueError("Секунды должны быть целым числом")
+#
+# 		self.sec = sec % self.__DAY
+#
+# 	def __add__(self, other):
+# 		if not isinstance(other, Clock):
+# 			raise ArithmeticError("Правый операнд должен быть типом данных Clock")
+# 		return Clock(self.sec + other.sec)
+#
+# 	def __sub__(self, other):
+# 		if not isinstance(other, Clock):
+# 			raise ArithmeticError("Правый операнд должен быть типом данных Clock")
+# 		return Clock(self.sec - other.sec)
+#
+# 	def __mul__(self, other):
+# 		if not isinstance(other, Clock):
+# 			raise ArithmeticError()
+# 		return Clock(self.sec * other.sec)
+#
+# 	def __floordiv__(self, other):
+# 		if not isinstance(other, Clock):
+# 			raise ArithmeticError()
+# 		return Clock(self.sec // other.sec)
+#
+# 	def __mod__(self, other):
+# 		if not isinstance(other, Clock):
+# 			raise ArithmeticError()
+# 		return Clock(self.sec % other.sec)
+#
+# 	def __eq__(self, other):
+# 		return self.sec == other.sec
+#
+# 	def __ne__(self, other):
+# 		return not self.__eq__(other)
+#
+# 	def __gt__(self, other):
+# 		return self.sec > other.sec
+#
+# 	def get_format_time(self):
+# 		s = self.sec % 60  # секунды
+# 		m = (self.sec // 60) % 60  # минуты
+# 		h = (self.sec // 3600) % 24  # часы
+# 		return f'{Clock.__get_form (h)}:{Clock.__get_form (m)}:{Clock.__get_form (s)}'
+#
+# 	@staticmethod
+# 	def __get_form(x):
+# 		return str(x) if x > 9 else "0" + str(x)
+#
+# 	def __getitem__(self, item):
+# 		if not isinstance(item, str):
+# 			raise ValueError("Ключ должен быть строкой")
+#
+# 		if item == "hour":
+# 			return (self.sec // 3600) % 24
+# 		elif item == "min":
+# 			return (self.sec // 60) % 60
+# 		elif item == "sec":
+# 			return self.sec % 60
+#
+# 		return "Неверный ключ"
+#
+# 	def __setitem__(self, key, value):
+# 		if not isinstance(key, str):
+# 			raise ValueError("Ключ должен быть строкой")
+# 		if not isinstance(value, int):
+# 			raise ValueError('Значение должно быть целым числом')
+# 		h = (self.sec // 3600) % 24
+# 		m = (self.sec // 60) % 60
+# 		s = self.sec % 60
+# 		if key == "hour":
+# 			self.sec = s + 60 * m + value * 3600
+# 		elif key == 'min':
+# 			self.sec = s + 60 * value + h * 3600
+# 		elif key == 'sec':
+# 			self.sec = value + 60 * m + h * 3600
+#
+#
+# c1 = Clock(700)
+# print(c1.get_format_time())
+# c1["hour"] = 12
+# print(c1.get_format_time())
+# print(c1['hour'], c1['min'], c1['sec'])
+
+# № 2
+
+class Point3D:
+    def __init__(self, x=0, y=0, z=0):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __str__(self):
+        return f"{self.x}, {self.y}, {self.z}"
+
+    @staticmethod
+    def __check_value(v):
+        return isinstance(v, int) or isinstance(v, float)
+
+    def __add__(self, other):
+        if not isinstance(other, Point3D):
+            raise ValueError("Правый операнд должен быть типом Point3D")
+        else:
+            return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
+
+    def __sub__(self, other):
+        if not isinstance(other, Point3D):
+            raise ValueError("Правый операнд должен быть типом Point3D")
+        else:
+            return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
+
+    def __mul__(self, other):
+        if not isinstance(other, Point3D):
+            raise ValueError("Правый операнд должен быть типом Point3D")
+        else:
+            return Point3D(self.x * other.x, self.y * other.y, self.z * other.z)
+
+    def __truediv__(self, other):
+        if not isinstance(other, Point3D):
+            raise ValueError("Правый операнд должен быть типом Point3D")
+        return self.x / other.x, self.y / other.y, self.z / other.z
+
+    def __eq__(self, other):
+        if not isinstance(other, Point3D):
+            raise ValueError("Правый операнд должен быть типом Point3D")
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
+    def __getitem__(self, item):
+        if not isinstance(item, str):
+            raise ValueError("Ключ должен быть строкой")
+        elif item == 'x':
+            return self.x
+        elif item == 'y':
+            return self.y
+        elif item == 'z':
+            return self.z
+        else:
+            print("Неверно задан ключ!")
+
+    def __setitem__(self, key, value):
+        if not isinstance(key, str):
+            raise ValueError("Ключ должен быть строкой!")
+        if self.__check_value(value):
+            if key == 'x':
+                self.x = value
+            elif key == 'y':
+                self.y = value
+            elif key == 'z':
+                self.z = value
+        else:
+            print("Координаты должны быть числами!")
+    
         
-    def display(self):
-        print(f'{self.name} =>', end="")
+pt1 = Point3D(12, 15, 18)
+pt2 = Point3D(6, 3, 9)
+print("Координаты 1-й точки: ", pt1)
+print("Координаты 2-й точки: ", pt2)
 
-    class Notebook:
-        def __init__(self):
-            self.model = "HP"
-            self.processor = "i7"
-            self.memory = 16
+pt3 = pt1 + pt2
+print(f"Сложение координат: ({pt3})")
 
-        def display(self):
-            print(f" {self.model}, {self.processor}, {self.memory}")
+pt4 = pt1 - pt2
+print(f"Разность координат: ({pt4})")
 
-    class Notebook1:
-        def __init__(self):
-            self.model = "HP"
-            self.processor = "i7"
-            self.memory = 16
+pt5 = pt1 * pt2
+print(f"Произведение координат: ({pt5})")
 
-        def display(self):
-            print(f" {self.model}, {self.processor}, {self.memory}")
+pt6 = pt1 / pt2
+print(f"Частное координат: ({pt6})")
 
+print(f"Равенство координат: {pt1 == pt2}")
 
-outer = Student("Roman")
-outer.display()
-d1 = outer.md
-d1.display()
+print("x =", pt1['x'], "x1 =", pt2['x'])
+print("y =", pt1['y'], "y1 =", pt2['y'])
+print("z =", pt1['z'], "z1 =", pt2['z'])
 
-outer = Student("Vladimir")
-outer.display()
-d2 = outer.nt
-d2.display()
+pt1['x'] = 24
+print("Запись значения в координату x:", pt1['x'])
+
+# 30 Задание
+
 
 
         
+
+# 31 Занятие
