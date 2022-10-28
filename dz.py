@@ -179,11 +179,11 @@
 # #    i += 1
 #
 # # Задание 7
-#
-# # n = [int(input("-> ")) for i in range(int(input("n = ")))]
-# # a = len(n)
-# # for i in range(0, a, 2):
-# #     print(n[i], end=" ")
+# #
+# n = [int(input("-> ")) for i in range(int(input("n = ")))]
+# a = len(n)
+# for i in range(0, a, 2):
+#     print(n[i], end=" ")
 #
 # # Задание 8
 #
@@ -219,7 +219,7 @@
 #     print(w[i], end=" ")
 #
 # # Дополнительно
-#
+# #
 # w = int(input("Ширина треугольника: "))
 # h = int(input("Высота треугольника: "))
 # for i in range(h):
@@ -227,7 +227,7 @@
 #         if i == 0 or i <= h + 1 or j == 0 or j == w + 1:
 #             print("*", end="")
 #     w += 2
-#
+
 # # Задание 10
 #
 # a = [1, 3, 5, 6, 2, 4, 6, 1, 2, 7]
@@ -582,25 +582,25 @@
 
 
 # 1
-my_file = open("text4.txt", "w")
-my_file.write("Замена строки в текстовом документе;\nизменить строку в списке;\nзаписать список в файл;")
-my_file.close()
-my_file1 = int(input('pos1 = '))
-my_file2 = int(input('pos2 = '))
-f = open('text4.txt', 'r')
-L = f.readlines()
-s = L[len(L) - 1]
-k = len(s)
-if (k > 0) and (s[k - 1] != '\n'):
-	L[len(L) - 1] += '\n'
-f.close()
-s = L[my_file1]
-L[my_file1] = L[my_file2]
-L[my_file2] = s
-
-f = open('text4.txt', 'w')
-f.writelines(L)
-f.close()
+# my_file = open("text4.txt", "w")
+# my_file.write("Замена строки в текстовом документе;\nизменить строку в списке;\nзаписать список в файл;")
+# my_file.close()
+# my_file1 = int(input('pos1 = '))
+# my_file2 = int(input('pos2 = '))
+# f = open('text4.txt', 'r')
+# L = f.readlines()
+# s = L[len(L) - 1]
+# k = len(s)
+# if (k > 0) and (s[k - 1] != '\n'):
+# 	L[len(L) - 1] += '\n'
+# f.close()
+# s = L[my_file1]
+# L[my_file1] = L[my_file2]
+# L[my_file2] = s
+#
+# f = open('text4.txt', 'w')
+# f.writelines(L)
+# f.close()
 
 #2
 # my_file = open("text5.txt", "w")

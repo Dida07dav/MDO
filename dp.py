@@ -896,103 +896,215 @@ from math import sqrt
 
 # № 2
 
-class Point3D:
-    def __init__(self, x=0, y=0, z=0):
-        self.x = x
-        self.y = y
-        self.z = z
-
-    def __str__(self):
-        return f"{self.x}, {self.y}, {self.z}"
-
-    @staticmethod
-    def __check_value(v):
-        return isinstance(v, int) or isinstance(v, float)
-
-    def __add__(self, other):
-        if not isinstance(other, Point3D):
-            raise ValueError("Правый операнд должен быть типом Point3D")
-        else:
-            return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
-
-    def __sub__(self, other):
-        if not isinstance(other, Point3D):
-            raise ValueError("Правый операнд должен быть типом Point3D")
-        else:
-            return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
-
-    def __mul__(self, other):
-        if not isinstance(other, Point3D):
-            raise ValueError("Правый операнд должен быть типом Point3D")
-        else:
-            return Point3D(self.x * other.x, self.y * other.y, self.z * other.z)
-
-    def __truediv__(self, other):
-        if not isinstance(other, Point3D):
-            raise ValueError("Правый операнд должен быть типом Point3D")
-        return self.x / other.x, self.y / other.y, self.z / other.z
-
-    def __eq__(self, other):
-        if not isinstance(other, Point3D):
-            raise ValueError("Правый операнд должен быть типом Point3D")
-        return self.x == other.x and self.y == other.y and self.z == other.z
-
-    def __getitem__(self, item):
-        if not isinstance(item, str):
-            raise ValueError("Ключ должен быть строкой")
-        elif item == 'x':
-            return self.x
-        elif item == 'y':
-            return self.y
-        elif item == 'z':
-            return self.z
-        else:
-            print("Неверно задан ключ!")
-
-    def __setitem__(self, key, value):
-        if not isinstance(key, str):
-            raise ValueError("Ключ должен быть строкой!")
-        if self.__check_value(value):
-            if key == 'x':
-                self.x = value
-            elif key == 'y':
-                self.y = value
-            elif key == 'z':
-                self.z = value
-        else:
-            print("Координаты должны быть числами!")
-    
-        
-pt1 = Point3D(12, 15, 18)
-pt2 = Point3D(6, 3, 9)
-print("Координаты 1-й точки: ", pt1)
-print("Координаты 2-й точки: ", pt2)
-
-pt3 = pt1 + pt2
-print(f"Сложение координат: ({pt3})")
-
-pt4 = pt1 - pt2
-print(f"Разность координат: ({pt4})")
-
-pt5 = pt1 * pt2
-print(f"Произведение координат: ({pt5})")
-
-pt6 = pt1 / pt2
-print(f"Частное координат: ({pt6})")
-
-print(f"Равенство координат: {pt1 == pt2}")
-
-print("x =", pt1['x'], "x1 =", pt2['x'])
-print("y =", pt1['y'], "y1 =", pt2['y'])
-print("z =", pt1['z'], "z1 =", pt2['z'])
-
-pt1['x'] = 24
-print("Запись значения в координату x:", pt1['x'])
+# class Point3D:
+#     def __init__(self, x=0, y=0, z=0):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     def __str__(self):
+#         return f"{self.x}, {self.y}, {self.z}"
+#
+#     @staticmethod
+#     def __check_value(v):
+#         return isinstance(v, int) or isinstance(v, float)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError("Правый операнд должен быть типом Point3D")
+#         else:
+#             return Point3D(self.x + other.x, self.y + other.y, self.z + other.z)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError("Правый операнд должен быть типом Point3D")
+#         else:
+#             return Point3D(self.x - other.x, self.y - other.y, self.z - other.z)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError("Правый операнд должен быть типом Point3D")
+#         else:
+#             return Point3D(self.x * other.x, self.y * other.y, self.z * other.z)
+#
+#     def __truediv__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError("Правый операнд должен быть типом Point3D")
+#         return self.x / other.x, self.y / other.y, self.z / other.z
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Point3D):
+#             raise ValueError("Правый операнд должен быть типом Point3D")
+#         return self.x == other.x and self.y == other.y and self.z == other.z
+#
+#     def __getitem__(self, item):
+#         if not isinstance(item, str):
+#             raise ValueError("Ключ должен быть строкой")
+#         elif item == 'x':
+#             return self.x
+#         elif item == 'y':
+#             return self.y
+#         elif item == 'z':
+#             return self.z
+#         else:
+#             print("Неверно задан ключ!")
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, str):
+#             raise ValueError("Ключ должен быть строкой!")
+#         if self.__check_value(value):
+#             if key == 'x':
+#                 self.x = value
+#             elif key == 'y':
+#                 self.y = value
+#             elif key == 'z':
+#                 self.z = value
+#         else:
+#             print("Координаты должны быть числами!")
+#
+#
+# pt1 = Point3D(12, 15, 18)
+# pt2 = Point3D(6, 3, 9)
+# print("Координаты 1-й точки: ", pt1)
+# print("Координаты 2-й точки: ", pt2)
+#
+# pt3 = pt1 + pt2
+# print(f"Сложение координат: ({pt3})")
+#
+# pt4 = pt1 - pt2
+# print(f"Разность координат: ({pt4})")
+#
+# pt5 = pt1 * pt2
+# print(f"Произведение координат: ({pt5})")
+#
+# pt6 = pt1 / pt2
+# print(f"Частное координат: ({pt6})")
+#
+# print(f"Равенство координат: {pt1 == pt2}")
+#
+# print("x =", pt1['x'], "x1 =", pt2['x'])
+# print("y =", pt1['y'], "y1 =", pt2['y'])
+# print("z =", pt1['z'], "z1 =", pt2['z'])
+#
+# pt1['x'] = 24
+# print("Запись значения в координату x:", pt1['x'])
 
 # 30 Задание
 
+class Shape:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+        
+    def info(self):
+        print(f'{self.name}')
 
 
+class Square(Shape):
+    def __init__(self, name, color, side):
+        super().__init__(name, color)
+        self.side = side
+        
+    def info(self):
+        super().info()
+        print(f'Сторона: {self.side}\nЦвет:{self.color}'
+              f'\nПлощадь: {self.side*self.side}'
+              f'\nПериметр:{self.side * 2 + self.side * 2}')
+    
+    def figur(self):
+        print(("*" * self.side + "\n") * self.side)
+
+
+class Rectangle(Shape):
+    def __init__(self, name,  color, w, lg):
+        super().__init__(name, color)
+        self.width = w
+        self.length = lg
+
+    def info(self):
+        super().info()
+        print(f'Длина:{self.length}'
+              f'\nШирина: {self.width}\nЦвет:{self.color}'
+              f'\nПлощадь:{self.width * self.length}'
+              f'\nПериметр:{self.width * 2 + self.length * 2}')
+
+    def figur(self):
+        print(("*" * self.width + "\n") * self.length)
+
+
+class Triangle(Shape):
+    def __init__(self, name, color, side1, side2, side3):
+        super().__init__(name, color)
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def info(self):
+        super().info()
+        print(f'Сторона 1: {self.side1}'
+              f'\nСторона 2: {self.side2}'
+              f'\nСторона 2: {self.side3}\n'
+              f'Цвет:{self.color}'
+              f'\nПлощадь:{self.side1 + self.side2 / 2}'
+              f'\nПериметр:{self.side1  + self.side2  + self.side3}')
+    
+    def figur(self):
+        for i in range(1, self.side1 - 4):
+            print(' ' * (self.side1 - i) + '*' * (2 * i - 1))
         
 
+# shape1 = Square('===Квадрат===', 'red', 3)
+# shape1.info()
+# shape1.figur()
+# print()
+# shape2 = Rectangle('===Прямоугольник===', 'green', 7, 3)
+# shape2.info()
+# shape2.figur()
+#
+# shape3 = Triangle('===Треугольник===', 'yellow', 11, 6, 6)
+# shape3.info()
+# shape3.figur()
+
+shape = [
+        Square('===Квадрат===', 'red', 3),
+        Rectangle('===Прямоугольник===', 'green', 7, 3),
+        Triangle('===Треугольник===', 'yellow', 11, 6, 6)
+]
+
+for i in shape:
+    i.info()
+    i.figur()
+
+
 # 31 Занятие
+#
+# class NonNegative:
+#     def __get__(self, instance, owner):
+#         return instance.__dict__[self.name]
+#
+#     def __set__(self, instance, value):
+#         if value < 0:
+#             raise ValueError("Не может быть отрицательным.")
+#         instance.__dict__[self.name] = value
+#
+#     def __set_name__(self, owner, name):
+#         self.name = name
+#
+#
+# class Order:
+#     price = NonNegative()
+#     amount = NonNegative()
+#
+#     def __init__(self, name, price, amount):
+#         self.name = name
+#         self.price = price
+#         self.amount = amount
+#
+#     def info(self):
+#         return self.price * self.amount
+#
+#
+# apple_order = Order("apple", 5, 10)
+# print(apple_order.info())
+
+
