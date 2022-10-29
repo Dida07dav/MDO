@@ -6094,31 +6094,35 @@ import re
 # print(p.name.get())
 
 
-class ValidString:
-	def __set_name__(self, owner, name):
-		self.__name = name
-		
-	def __get__(self, instance, owner):
-		return instance.__dict__[self.__name]
-	
-	def __set__(self, instance, value):
-		if not isinstance(value, str):
-			raise ValueError(f"{self.__name} должно быть строкой")
-		instance.__dict__[self.__name] = value
-		
-		
-class Person:
-	name = ValidString()
-	surname = ValidString()
-	
-	def __init__(self, name, surname):
-		self.name = name
-		self.surname = surname
-		
+# class ValidString:
+# 	def __set_name__(self, owner, name):
+# 		self.__name = name
+#
+# 	def __get__(self, instance, owner):
+# 		return instance.__dict__[self.__name]
+#
+# 	def __set__(self, instance, value):
+# 		if not isinstance(value, str):
+# 			raise ValueError(f"{self.__name} должно быть строкой")
+# 		instance.__dict__[self.__name] = value
+#
+#
+# class Person:
+# 	name = ValidString()
+# 	surname = ValidString()
+#
+# 	def __init__(self, name, surname):
+# 		self.name = name
+# 		self.surname = surname
+#
+#
+# p = Person("Ivan", "Petrov")
+# print(p.name)
+# print(p.surname)
+#
+# p.name = "23"
+# print(p.name)
 
-p = Person("Ivan", "Petrov")
-print(p.name)
-print(p.surname)
+# 32 Занятие
 
-p.name = "23"
-print(p.name)
+

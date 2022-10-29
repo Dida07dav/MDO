@@ -990,121 +990,135 @@ from math import sqrt
 # print("Запись значения в координату x:", pt1['x'])
 
 # 30 Задание
-
-class Shape:
-    def __init__(self, name, color):
-        self.name = name
-        self.color = color
-        
-    def info(self):
-        print(f'{self.name}')
-
-
-class Square(Shape):
-    def __init__(self, name, color, side):
-        super().__init__(name, color)
-        self.side = side
-        
-    def info(self):
-        super().info()
-        print(f'Сторона: {self.side}\nЦвет:{self.color}'
-              f'\nПлощадь: {self.side*self.side}'
-              f'\nПериметр:{self.side * 2 + self.side * 2}')
-    
-    def figur(self):
-        print(("*" * self.side + "\n") * self.side)
-
-
-class Rectangle(Shape):
-    def __init__(self, name,  color, w, lg):
-        super().__init__(name, color)
-        self.width = w
-        self.length = lg
-
-    def info(self):
-        super().info()
-        print(f'Длина:{self.length}'
-              f'\nШирина: {self.width}\nЦвет:{self.color}'
-              f'\nПлощадь:{self.width * self.length}'
-              f'\nПериметр:{self.width * 2 + self.length * 2}')
-
-    def figur(self):
-        print(("*" * self.width + "\n") * self.length)
-
-
-class Triangle(Shape):
-    def __init__(self, name, color, side1, side2, side3):
-        super().__init__(name, color)
-        self.side1 = side1
-        self.side2 = side2
-        self.side3 = side3
-
-    def info(self):
-        super().info()
-        print(f'Сторона 1: {self.side1}'
-              f'\nСторона 2: {self.side2}'
-              f'\nСторона 2: {self.side3}\n'
-              f'Цвет:{self.color}'
-              f'\nПлощадь:{self.side1 + self.side2 / 2}'
-              f'\nПериметр:{self.side1  + self.side2  + self.side3}')
-    
-    def figur(self):
-        for i in range(1, self.side1 - 4):
-            print(' ' * (self.side1 - i) + '*' * (2 * i - 1))
-        
-
-# shape1 = Square('===Квадрат===', 'red', 3)
-# shape1.info()
-# shape1.figur()
-# print()
-# shape2 = Rectangle('===Прямоугольник===', 'green', 7, 3)
-# shape2.info()
-# shape2.figur()
 #
-# shape3 = Triangle('===Треугольник===', 'yellow', 11, 6, 6)
-# shape3.info()
-# shape3.figur()
-
-shape = [
-        Square('===Квадрат===', 'red', 3),
-        Rectangle('===Прямоугольник===', 'green', 7, 3),
-        Triangle('===Треугольник===', 'yellow', 11, 6, 6)
-]
-
-for i in shape:
-    i.info()
-    i.figur()
+# import math
+# from abc import ABC, abstractmethod
+#
+# class Shape:
+#     def __init__(self, name, color):
+#         self.name = name
+#         self.color = color
+#
+#     def info(self):
+#         print(f'{self.name}')
+#
+#
+# class Square(Shape):
+#     def __init__(self, name, color, side):
+#         super().__init__(name, color)
+#         self.side = side
+#
+#     def info(self):
+#         super().info()
+#         print(f'Сторона: {self.side}\nЦвет:{self.color}'
+#               f'\nПлощадь: {self.side*self.side}'
+#               f'\nПериметр:{self.side * 2 + self.side * 2}')
+#
+#     def figur(self):
+#         print(("*" * self.side + "\n") * self.side)
+#
+#
+# class Rectangle(Shape):
+#     def __init__(self, name,  color, w, lg):
+#         super().__init__(name, color)
+#         self.width = w
+#         self.length = lg
+#
+#     def info(self):
+#         super().info()
+#         print(f'Длина:{self.length}'
+#               f'\nШирина: {self.width}\nЦвет:{self.color}'
+#               f'\nПлощадь:{self.width * self.length}'
+#               f'\nПериметр:{self.width * 2 + self.length * 2}')
+#
+#     def figur(self):
+#         print(("*" * self.width + "\n") * self.length)
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, name, color, side1, side2, side3):
+#         super().__init__(name, color)
+#         self.side1 = side1
+#         self.side2 = side2
+#         self.side3 = side3
+#
+#     # def perimeter(self):
+#     #     perimeter = (self.side1 + self.side2 + self.side3) / 2
+#     #     return perimeter
+#     #
+#     # def square(self):
+#     #     return self.side1 / 4 * math.sqrt (4 * self.side2 ** 2 - self.side3 ** 2)
+#
+#     def info(self):
+#         super().info()
+#         print(f'Сторона 1: {self.side1}'
+#               f'\nСторона 2: {self.side2}'
+#               f'\nСторона 2: {self.side3}\n'
+#               f'Цвет:{self.color}'
+#               f'\nПлощадь:{self.side1 / 4 * math.sqrt (4 * self.side2 ** 2 - self.side1 ** 2)}'
+#               f'\nПериметр:{(self.side1 + self.side2 + self.side3) / 2}')
+#
+#     # def figur(self):
+#     #     for i in range(1, self.side1 - 4):
+#     #         print(' ' * (self.side1 - i) + '*' * (2 * i - 1))
+#
+#     def figur(self):
+#         rows = []
+#         for i in range(self.side2):
+#             rows.append(" " * i + "*" *(self.side1 - 2 * i) + " " * i)
+#         print("\n".join(rows))
+# # shape1 = Square('===Квадрат===', 'red', 3)
+# # shape1.info()
+# # shape1.figur()
+# # print()
+# # shape2 = Rectangle('===Прямоугольник===', 'green', 7, 3)
+# # shape2.info()
+# # shape2.figur()
+# #
+# # shape3 = Triangle('===Треугольник===', 'yellow', 11, 6, 6)
+# # shape3.info()
+# # shape3.figur()
+#
+# shape = [
+#         Square('===Квадрат===', 'red', 3),
+#         Rectangle('===Прямоугольник===', 'green', 7, 3),
+#         Triangle('===Треугольник===', 'yellow', 11, 6, 6)
+# ]
+#
+# for i in shape:
+#     i.info()
+#     i.figur()
 
 
 # 31 Занятие
-#
-# class NonNegative:
-#     def __get__(self, instance, owner):
-#         return instance.__dict__[self.name]
-#
-#     def __set__(self, instance, value):
-#         if value < 0:
-#             raise ValueError("Не может быть отрицательным.")
-#         instance.__dict__[self.name] = value
-#
-#     def __set_name__(self, owner, name):
-#         self.name = name
-#
-#
-# class Order:
-#     price = NonNegative()
-#     amount = NonNegative()
-#
-#     def __init__(self, name, price, amount):
-#         self.name = name
-#         self.price = price
-#         self.amount = amount
-#
-#     def info(self):
-#         return self.price * self.amount
-#
-#
-# apple_order = Order("apple", 5, 10)
-# print(apple_order.info())
+
+class NonOrder:
+    def __set_name__(self, owner, name):
+        self.name = name
+    
+    def __get__(self, instance, owner):
+        return instance.__dict__[self.name]
+
+    def __set__(self, instance, value):
+        if value < 0:
+            raise ValueError("Число не может быть отрицательным.")
+        instance.__dict__[self.name] = value
+
+
+class Order:
+    price = NonOrder()
+    amount = NonOrder()
+
+    def __init__(self, name, price, amount):
+        self.name = name
+        self.price = price
+        self.amount = amount
+        
+    def info(self):
+        return self.price * self.amount
+    
+
+apple_order = Order("apple", 5, 10)
+print(apple_order.info())
 
 
