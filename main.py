@@ -6124,5 +6124,24 @@ import re
 # print(p.name)
 
 # 32 Занятие
+class Integer:
+	def __set_name__(self, owner, name):
+		self.name = "_" + name
+	
+	def __get__(self, instance, owner):
+		return  instance.__dict__[self.name]
+	
+		
+class Point3d:
+	x = Integer()
+	y = Integer()
+	z = Integer()
+	
+	def __init__(self, x, y , z):
+		self.x = x
+		self.y = y
+		self.z = z
+		
 
-
+p1 = Point3d(1, 2, 3)
+print(p1.__dict__)
