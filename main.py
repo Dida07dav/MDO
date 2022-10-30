@@ -6124,24 +6124,187 @@ import re
 # print(p.name)
 
 # 32 Занятие
-class Integer:
-	def __set_name__(self, owner, name):
-		self.name = "_" + name
-	
-	def __get__(self, instance, owner):
-		return  instance.__dict__[self.name]
-	
-		
-class Point3d:
-	x = Integer()
-	y = Integer()
-	z = Integer()
-	
-	def __init__(self, x, y , z):
-		self.x = x
-		self.y = y
-		self.z = z
-		
 
-p1 = Point3d(1, 2, 3)
-print(p1.__dict__)
+# Виды дискрипторов:
+# non-data descriptors (дескриптор не данных) - дескрипторы, которые определили
+# только __get__. Они только отдают значение, нельзя ничего сохранить. Например:
+# staticmethod(), classmethod()
+# • data descriptor (дескриптор данных) - если объект определяет сразу и __get__,
+# и __set__ и другие. Например: property()
+
+
+# class Integer:
+# 	@classmethod
+# 	def verify_coords(cls, coord):
+# 		if not isinstance(coord, int):
+# 			raise TypeError(f'Координата{coord} должна быть числом')
+#
+# 	def __set_name__(self, owner, name):
+# 		self.name = "_" + name
+#
+# 	def __get__(self, instance, owner):
+# 		# return instance.__dict__[self.name]
+# 		return getattr(instance, self.name)
+#
+# 	def __set__(self, instance, value):
+# 		self.verify_coords(value)
+# 		# instance.__dict__[self.name] = value
+# 		setattr(instance, self.name, value)
+
+# class Point3d:
+# 	x = Integer()
+# 	y = Integer()
+# 	z = Integer()
+#
+# 	def __init__(self, x, y , z):
+# 		self.x = x
+# 		self.y = y
+# 		self.z = z
+#
+#
+# p1 = Point3d(1, 2, 3)
+# print(p1.__dict__)
+
+# Метеклассы
+
+# a = 5
+# print(type(a))
+# print(type(int))
+
+# class Mylist(list):
+# 	def get_length(self):
+# 		return len(self)
+#
+# Mylist = type(
+# 	'Mylist',
+# 	(list,),
+# 	dict(get_length=lambda self: len(self))
+# )
+#
+# lst = Mylist()
+# lst.append(5)
+# lst.append(7)
+# lst[0] = 3
+# print(lst, lst.get_length())
+
+
+# type(
+# имя класса
+# кортеж родительских классов
+# словарь, содержащий атрибуты и их значения
+# )
+
+# class MyMetaClass(type):
+# 	def __new__(cls, *args, **kwargs):
+# 		print('Создание нового объекта', args[0])
+# 		return super(MyMetaClass, cls).__new__(cls, *args, **kwargs)
+#
+# 	def __init__(cls, *args, **kwargs):
+# 		print('Инициализация класса', args[0])
+# 		super(MyMetaClass, cls).__init__(*args, **kwargs)
+#
+#
+# class Student(metaclass=MyMetaClass):
+# 	def __init__(self, name):
+# 		self.name = name
+#
+# 	def get_name(self):
+# 		return self.name
+#
+#
+# stud = Student('Anna')
+# print("Имя студента: ", stud.get_name())
+# print('Тип объекта Student:', type(stud))
+# print('Тип класса Student:', type(Student))
+
+# Создание модулей
+
+# import geometry
+#
+# print(geometry.pi)
+
+import geometry.rect
+import geometry.sq
+import geometry.trian
+#
+# from geometry import rect, sq, trian
+# # import geometry
+#
+# # from geometry import *
+#
+# r1 = rect.Rectangle(1, 2)
+# r2 = rect.Rectangle(3, 4)
+# s1 = sq.Square(10)
+# s2 = sq.Square(20)
+# t1 = trian.Triangle(1, 2, 3)
+# t2 = trian.Triangle(4, 5, 6)
+# shape = [r1, r2, s1, s2, t1, t2]
+# for g in shape:
+#     print(g.get_perimetr())
+#
+#
+
+# from shapes import rectangle, circle, cylinder
+#
+# circles = [circle.Circle(4), circle.Circle(2), circle.Circle(6), circle.Circle(8), circle.Circle(1)]
+# rects = [rectangle.Rectangle(3, 7), rectangle.Rectangle(2, 7), rectangle.Rectangle(19, 12)]
+# cylinders = [cylinder.Cylinder(4, 7), cylinder.Cylinder(2, 5), cylinder.Cylinder(9, 3), cylinder.Cylinder(5, 5)]
+# circle_max_s = max(circles, key=lambda c: c.get_circle_area())
+# rect_min_p = min(rects, key=lambda r: r.get_rect_perimetr())
+# cylinders_v = list(map(lambda c: c.get_volume(), cylinders))
+# cylinder_v_avr = sum(cylinders_v) / len(cylinders_v)
+# print(f"Окружность с наибольшей площадью: {circle_max_s.print_circle()} = {circle_max_s.get_circle_area()}")
+# print(f'Прямоугольник с наименьшим периметром: {rect_min_p.print_rect()} = {rect_min_p.get_rect_perimetr()}')
+# print(f"Средний объем цилиндров: {round(cylinder_v_avr, 2)}")
+
+# Упаковка данных
+# Сериализация
+# Десериализация
+
+# В стандартной библиотеке Python
+# marshal (.рус)
+# pickle
+# json
+
+import pickle
+
+# filename = "basket.txt"
+#
+# shop_list = {
+# 	'фрукты': ['яблоки', 'манго'],
+# 	'овощи': ['морковь'],
+# 	'бюджет': 100
+# }
+#
+# with open(filename, 'wb') as fh:
+# 	pickle.dump(shop_list, fh)
+#
+# with open(filename, 'rb') as fh:
+# 	shop_list_2 = pickle.load(fh)
+#
+# print(shop_list_2)
+
+class Test:
+	num = 35
+	st = "Привет"
+	lst = [1, 2, 3]
+	dct = {
+		'first': "a",
+		'second': 2,
+		'third': [1, 2, 3]}
+	tpl = (22, 23)
+	
+	def __str__(self):
+		return f'Число: {Test.num}\nСтрока: {Test.lst}\nСловарь: {Test.dct}\nКортеж:{Test.tpl}'
+
+
+obj = Test()
+# print(obj)
+
+d_save = pickle.dumps(obj)
+print(f'Сериализация в строку:\n{d_save}\n')
+
+d_read = pickle.loads(d_save)
+print(f'Десериализация в строку:\n{d_read}\n')
+
+
