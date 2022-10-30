@@ -28,9 +28,9 @@ class Triangle:
 	
 	def examination(self):
 		if (self.a + self.b > self.c) and (self.a + self.c > self.b) and (self.b + self.c > self.a):
-			return "существует"
+			return "существует."
 		else:
-			return "не существует"
+			return "не существует."
 	
 	def info(self):
 		print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) {self.examination()}")
