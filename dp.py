@@ -36,10 +36,10 @@ class Triangle:
 		print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) {self.examination()}")
 
 
-t1 = [
+tr = [
 	Triangle(2, 5, 6),
 	Triangle(5, 2, 8),
 	Triangle(7, 3, 6)]
-for i in t1:
+for i in tr:
 	i.info()
 
