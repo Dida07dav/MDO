@@ -1,45 +1,16 @@
 # Давыдова Лидия Викторовна
 #  Python 225
-# 32 Занятие
+# 33 Занятие
 #
-
-class Side:
-	def __set_name__(self, owner, name):
-		self.name = name
-	
-	def __get__(self, instance, owner):
-		return instance.__dict__[self.name]
-	
-	def __set__(self, instance, value):
-		if value < 0:
-			raise ValueError("Число не может быть отрицательным.")
-		instance.__dict__[self.name] = value
+from sistem import employee, salary, dz
 
 
-class Triangle:
-	a = Side()
-	b = Side()
-	s = Side()
-	
-	def __init__(self, a, b, c):
-		self.a = a
-		self.b = b
-		self.c = c
-	
-	def examination(self):
-		if (self.a + self.b > self.c) and (self.a + self.c > self.b) and (self.b + self.c > self.a):
-			return "существует."
-		else:
-			return "не существует."
-	
-	def info(self):
-		print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) {self.examination()}")
-
-
-tr = [
-	Triangle(2, 5, 6),
-	Triangle(5, 2, 8),
-	Triangle(7, 3, 6)]
-for i in tr:
-	i.info()
-
+salary_employee = employee.SalaryEmp(1, "Валерий Задорожный", 1500)
+hourly_employee = salary.HourlyEmp(2, "Илья Кромин", 300, 2)
+commission_employee = salary.CommissionEmp(3, "Николай Хорольский", 1000, 250)
+payroll = dz.Statement()
+payroll.check_info([
+		salary_employee,
+		hourly_employee,
+		commission_employee
+])

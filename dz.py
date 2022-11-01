@@ -1718,46 +1718,147 @@ class Triangle (Shape):
 # shape3.info()
 # shape3.figur()
 
-shape = [
-	Square ('===Квадрат===', 'red', 3),
-	Rectangle ('===Прямоугольник===', 'green', 7, 3),
-	Triangle ('===Треугольник===', 'yellow', 11, 6, 6)
-]
+# shape = [
+# 	Square ('===Квадрат===', 'red', 3),
+# 	Rectangle ('===Прямоугольник===', 'green', 7, 3),
+# 	Triangle ('===Треугольник===', 'yellow', 11, 6, 6)
+# ]
+#
+# for i in shape:
+# 	i.info ()
+# 	i.figur ()
+#
+#
+# # 31 Занятие
+#
+# class NonOrder:
+# 	def __set_name__(self, owner, name):
+# 		self.name = name
+#
+# 	def __get__(self, instance, owner):
+# 		return instance.__dict__[self.name]
+#
+# 	def __set__(self, instance, value):
+# 		if value < 0:
+# 			raise ValueError("Число не может быть отрицательным.")
+# 		instance.__dict__[self.name] = value
+#
+#
+# class Order:
+# 	price = NonOrder()
+# 	amount = NonOrder()
+#
+# 	def __init__(self, name, price, amount):
+# 		self.name = name
+# 		self.price = price
+# 		self.amount = amount
+#
+# 	def info(self):
+# 		return self.price * self.amount
+#
+#
+# apple_order = Order("apple", 5, 10)
+# print(apple_order.info())
 
-for i in shape:
-	i.info ()
-	i.figur ()
+
+# 32 Занятие
+#
+#
+# class Side:
+# 	def __set_name__(self, owner, name):
+# 		self.name = name
+#
+# 	def __get__(self, instance, owner):
+# 		return instance.__dict__[self.name]
+#
+# 	def __set__(self, instance, value):
+# 		if value < 0:
+# 			raise ValueError ("Число не может быть отрицательным.")
+# 		instance.__dict__[self.name] = value
+#
+#
+# class Triangle:
+# 	a = Side ()
+# 	b = Side ()
+# 	s = Side ()
+#
+# 	def __init__(self, a, b, c):
+# 		self.a = a
+# 		self.b = b
+# 		self.c = c
+#
+# 	def examination(self):
+# 		if (self.a + self.b > self.c) and (self.a + self.c > self.b) and (self.b + self.c > self.a):
+# 			return "существует."
+# 		else:
+# 			return "не существует."
+#
+# 	def info(self):
+# 		print (f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) {self.examination ()}")
+#
+#
+# tr = [
+# 	Triangle (2, 5, 6),
+# 	Triangle (5, 2, 8),
+# 	Triangle (7, 3, 6)]
+# for i in tr:
+# 	i.info ()
+
+# 33 Занятие
+#
+# from sistem import employee, salary, statement
+
+# class Statement:
+# 	def check_info(self, employees):
+# 		print('Расчет заработной платы')
+# 		print('=' * 50)
+# 		for employee in employees:
+# 			print(f'Заработная плата:  {employee.cod} - {employee.name}')
+# 			print(f'- Проверить сумму: {employee.check_info ()}')
+# 			print('')
+#
+#
+# class Employee:
+# 	def __init__(self, cod, name):
+# 		self.cod = cod
+# 		self.name = name
+#
+#
+# class SalaryEmp(Employee):
+# 	def __init__(self, cod, name, salary):
+# 		super().__init__(cod, name)
+# 		self.salary = salary
+#
+# 	def check_info(self):
+# 		return self.salary
+#
+#
+# class HourlyEmp (Employee):
+# 	def __init__(self, cod, name, hours_worked, hour_rate):
+# 		super().__init__(cod, name)
+# 		self.hours_worked = hours_worked
+# 		self.hour_rate = hour_rate
+#
+# 	def check_info(self):
+# 		return self.hours_worked * self.hour_rate
+#
+#
+# class CommissionEmp (SalaryEmp):
+# 	def __init__(self, cod, name, salary, commission):
+# 		super().__init__(cod, name, salary)
+# 		self.commission = commission
+#
+# 	def check_info(self):
+# 		fixed = super().check_info()
+# 		return fixed + self.commission
 
 
-# 31 Занятие
-
-class NonOrder:
-	def __set_name__(self, owner, name):
-		self.name = name
-	
-	def __get__(self, instance, owner):
-		return instance.__dict__[self.name]
-	
-	def __set__(self, instance, value):
-		if value < 0:
-			raise ValueError("Число не может быть отрицательным.")
-		instance.__dict__[self.name] = value
-
-
-class Order:
-	price = NonOrder()
-	amount = NonOrder()
-	
-	def __init__(self, name, price, amount):
-		self.name = name
-		self.price = price
-		self.amount = amount
-	
-	def info(self):
-		return self.price * self.amount
-
-
-apple_order = Order("apple", 5, 10)
-print(apple_order.info())
-
-
+# salary_employee = employee.SalaryEmp (1, "Валерий Задорожный", 1500)
+# hourly_employee = salary.HourlyEmp (2, "Илья Кромин", 300, 2)
+# commission_employee = salary.CommissionEmp (3, "Николай Хорольский", 1000, 250)
+# payroll = statement.Statement ()
+# payroll.check_info ([
+# 	salary_employee,
+# 	hourly_employee,
+# 	commission_employee
+# ])
