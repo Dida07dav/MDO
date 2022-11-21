@@ -30,11 +30,9 @@ def gen_person():
 	
 	while len(name) != 7:
 		name += choice(letters)
-	# print(name)
 	
 	while len(tel) != 10:
 		tel += choice(nums)
-	# print(tel)
 	
 	person = {
 		'name': name,
