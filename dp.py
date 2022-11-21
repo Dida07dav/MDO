@@ -1,7 +1,7 @@
 # Давыдова Лидия Викторовна
 #  Python 225
 # 33 Занятие
-# #
+
 # from sistem import employee, salary, dz
 #
 #
