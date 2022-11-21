@@ -1641,11 +1641,11 @@
 # d = {"a": "one", "b": "two", "c": "three"}
 # print(d)
 # print(d["b"])
-
+#
 # d = {}
 # print(d)
 # print(type(d))
-
+#
 # d = {'one': 1, 2: "two"}
 # print(d)
 
@@ -1658,9 +1658,9 @@
 # 	('irina@gmail.com', 'Irina'),
 # 	('ann@gmail.com', 'Ann'),
 # )
-# print(users)
-# d_users = dict(users)
-# print(d_users)
+# print (users)
+# d_users = dict (users)
+# print (d_users)
 
 # d = {i: i ** 2 for i in range(7)}
 # print(d)
@@ -2970,8 +2970,9 @@
 # print("Количество слов:", e)
 
 # Регулярные выражения
-import math
-import re
+# import json
+# import math
+# import re
 
 # s = "Я ищу сов[паден]ия в 2021 го-да. И я их найду в 2 счёта. 45678"
 # # reg = r'[201]'
@@ -3517,8 +3518,8 @@ import re
 
 # Модуль os и os.path
 
-import os
-import os.path
+# import os
+# import os.path
 
 # print("Текущая директория:", os.getcwd())
 # print(os.listdir())  # вернулся список файлов и папок, находящихся в текущей директории (по умолчанию) или в
@@ -3611,7 +3612,7 @@ import os.path
 # print(os.path.getsize(path)) # возвращает размер файла(в байтах)
 
 
-import time
+# import time
 
 # path = r"C:\Program Files\JetBrains\PyCharm Community Edition 2022.2\plugins\python-ce\helpers\typeshed\stdlib"
 # # path = r"C:\Pacharm225.d\test\nested2\nested3\1.txt"
@@ -4318,8 +4319,8 @@ import time
 # print()
 
 
+# import re
 
-import re
 
 #
 # class UserData:
@@ -6120,8 +6121,142 @@ import re
 # print(p.name)
 # print(p.surname)
 #
-# p.name = "23"
+# p.name = "Vadim"
 # print(p.name)
+
+# import geometry
+# from abc import ABC, abstractmethod
+#
+#
+# class Share(ABC):
+#     def __init__(self, color):
+#         # self.perimeter = perimeter
+#         # self.square = square
+#         # self.info_fig = []
+#         self.color = color
+#
+#     @abstractmethod
+#     def perimeter(self):
+#         pass
+#
+#     @abstractmethod
+#     def square(self):
+#         pass
+#
+#     @abstractmethod
+#     def draw(self):
+#         pass
+#
+#
+# class Square(Share):
+#     def __init__(self, w, color):
+#         self.w = w
+#         # self.h = h
+#         super().__init__(color)
+#
+#     def perimeter(self):
+#         perimeter = self.w * 4
+#         return perimeter
+#
+#     def square(self):
+#         return self.w * self.w
+#
+#     def draw(self):
+#         return ('*' * self.w + '\n') * self.w
+#
+#     def info(self):
+#         print(f"===Квадрат===\nСторона: {self.w}\nЦвет: {self.color}\nПлощадь: {self.square()}\nПериметр:"
+#               f" {self.perimeter()}\n{self.draw()} ")
+#
+#
+# class Rectangle(Share):
+#     def __init__(self, w, h):
+#         self.w = w
+#         self.h = h
+#
+#     def perimeter(self):
+#         perimeter = self.w * 2 + self.h * 2
+#         return perimeter
+#
+#     def square(self):
+#         return self.w * self.h
+#
+#     def draw(self):
+#         print(('*' * self.h + '\n') * self.w)
+#
+#
+# class Triangle(Share):
+#     def __init__(self, w, h, l):
+#         self.w = w1
+#         self.h = h
+#         self.l = l
+#
+#     def perimeter(self):
+#         perimeter = (self.w + self.h + self.l) / 2
+#         return perimeter
+#
+#     def square(self):
+#         return self.w / 4 * geometry.sqrt(4 * self.h ** 2 - self.w ** 2)
+#
+#     def draw(self):
+#         rows = []
+#         for n in range(self.h):
+#             rows.append(" " * n + "*" * (self.w - 2 * n) + " " * n)
+#         print("\n".join(reversed(rows)))
+#
+#
+# s = Square(3, 'red')
+# s.info()
+# print(f"===Квадрат===\nСторона: 3\nЦвет: red\nПлощадь: {s.square()}\nПериметр: {s.perimeter()} ")
+# s.draw()
+# r = Rectangle(3, 7)
+# print(f"===Квадрат===\nДлина: 3\nШирина: 7\nЦвет: green\nПлощадь: {r.square()}\nПериметр: {r.perimeter()}")
+# # r.draw()
+# t = Triangle(11, 6, 6)
+# print(
+#     f"===Треугольник===\nСторона 1: 11\nСторона 2: 6\nСторона 3: 6\nЦвет: yellow\nПлощадь: {t.square():.2f}\nПериметр: {t.perimeter()}")
+# t.draw()
+
+# for i in range(s):
+#     for j in range(i):
+#         print("*", end="")
+#     print()
+# a = (s, r, t)
+# for i in a:
+#     print(i.perimeter())
+#     print(i.square())
+#     i.draw()
+
+
+# class OldOrder:
+#     def __set_name__(self, owner, name):
+#         self.__name = name
+#
+#     def __get__(self, instance, owner):
+#         return instance.__dict__[self.__name]
+#
+#     def __set__(self, instance, value):
+#         if value <= 0:
+#             raise ValueError(f"{self.__name} число должно быть положительным")
+#         instance.__dict__[self.__name] = value
+#
+#
+# class Order:
+#     price = OldOrder()
+#     amount = OldOrder()
+#
+#     def __init__(self, name, price, amount):
+#         self.name = name
+#         self.price = price
+#         self.amount = amount
+#
+#     def sum(self):
+#         return self.price * self.amount
+#
+#
+# o = Order('apple', 5, 10)
+# print(o.sum())
+
 
 # 32 Занятие
 
@@ -6191,8 +6326,7 @@ import re
 # type(
 # имя класса
 # кортеж родительских классов
-# словарь, содержащий атрибуты и их значения
-# )
+# словарь, содержащий атрибуты и их значения)
 
 # class MyMetaClass(type):
 # 	def __new__(cls, *args, **kwargs):
@@ -6218,93 +6352,680 @@ import re
 # print('Тип класса Student:', type(Student))
 
 # Создание модулей
+# import math
 
 # import geometry
 #
 # print(geometry.pi)
 
-import geometry.rect
-import geometry.sq
-import geometry.trian
+# import geometry.rect
+# import geometry.sq
+# import geometry.trian
 #
-# from geometry import rect, sq, trian
-# # import geometry
-#
-# # from geometry import *
-#
-# r1 = rect.Rectangle(1, 2)
-# r2 = rect.Rectangle(3, 4)
-# s1 = sq.Square(10)
-# s2 = sq.Square(20)
-# t1 = trian.Triangle(1, 2, 3)
-# t2 = trian.Triangle(4, 5, 6)
+# # from geometry import rect, sq, trian
+# # # import geometry
+# #
+# # # from geometry import *
+# #
+# # r1 = rect.Rectangle(1, 2)
+# # r2 = rect.Rectangle(3, 4)
+# # s1 = sq.Square(10)
+# # s2 = sq.Square(20)
+# # t1 = trian.Triangle(1, 2, 3)
+# # t2 = trian.Triangle(4, 5, 6)
+# # shape = [r1, r2, s1, s2, t1, t2]
+# # for g in shape:
+# #     print(g.get_perimetr())
+
+# 33 Занятие
+
 # shape = [r1, r2, s1, s2, t1, t2]
 # for g in shape:
 #     print(g.get_perimetr())
+
+# class Integer:
+#     @classmethod
+#     def verify(cls, coord):
+#         if not isinstance(coord, int) or coord <= 0:
+#             raise TypeError(f"Координата {coord} должна быть положительным целым числом ")
+#
+#     def __set_name__(self, owner, name):
+#         self.name = "_" + name
+#
+#     def __get__(self, instance, owner):
+#         return getattr(instance, self.name)
+#
+#     def __set__(self, instance, value):
+#         self.verify(value)
+#         setattr(instance, self.name, value)
 #
 #
-
-# from shapes import rectangle, circle, cylinder
+# class Triangle:
+#     __a = Integer()
+#     b = Integer()
+#     c = Integer()
 #
-# circles = [circle.Circle(4), circle.Circle(2), circle.Circle(6), circle.Circle(8), circle.Circle(1)]
-# rects = [rectangle.Rectangle(3, 7), rectangle.Rectangle(2, 7), rectangle.Rectangle(19, 12)]
-# cylinders = [cylinder.Cylinder(4, 7), cylinder.Cylinder(2, 5), cylinder.Cylinder(9, 3), cylinder.Cylinder(5, 5)]
-# circle_max_s = max(circles, key=lambda c: c.get_circle_area())
-# rect_min_p = min(rects, key=lambda r: r.get_rect_perimetr())
-# cylinders_v = list(map(lambda c: c.get_volume(), cylinders))
-# cylinder_v_avr = sum(cylinders_v) / len(cylinders_v)
-# print(f"Окружность с наибольшей площадью: {circle_max_s.print_circle()} = {circle_max_s.get_circle_area()}")
-# print(f'Прямоугольник с наименьшим периметром: {rect_min_p.print_rect()} = {rect_min_p.get_rect_perimetr()}')
-# print(f"Средний объем цилиндров: {round(cylinder_v_avr, 2)}")
-
-# Упаковка данных
-# Сериализация
-# Десериализация
-
-# В стандартной библиотеке Python
-# marshal (.рус)
-# pickle
-# json
-
-import pickle
-
-# filename = "basket.txt"
+#     def __init__(self, a, b, c):
+#         self.__a = a
+#         self.b = b
+#         self.c = c
 #
-# shop_list = {
-# 	'фрукты': ['яблоки', 'манго'],
-# 	'овощи': ['морковь'],
-# 	'бюджет': 100
+#     def existence(self):
+#         if (self.__a + self.b > self.c) and (self.__a + self.c > self.b) and (self.b + self.c > self.__a):
+#             return "существует"
+#         else:
+#             return "не существует"
+#
+#     def info(self):
+#         print(f"Треугольник со сторонами ({self.__a}, {self.b}, {self.c}) {self.existence()}")
+#
+#
+# t1 = Triangle(2, 5, 6)
+# t2 = Triangle(5, 2, 8)
+# t3 = Triangle(7, 3, 6)
+#
+# tr = [t1, t2, t3]
+# for i in tr:
+#     i.info()
+# t1.info()
+# t2.info()
+# t3.info()
+
+#
+# from car import electocar
+#
+#
+# def main():
+#     e_car = electocar.ElectroCar('Tesla', "T", 2018, 99000)
+#     e_car.show_car()
+#     e_car.description_battery()
+#
+#
+# if __name__ == '__main__':
+#     main()
+#
+# # from shapes import rectangle, circle, cylinder
+# #
+# # circles = [circle.Circle(4), circle.Circle(2), circle.Circle(6), circle.Circle(8), circle.Circle(1)]
+# # rects = [rectangle.Rectangle(3, 7), rectangle.Rectangle(2, 7), rectangle.Rectangle(19, 12)]
+# # cylinders = [cylinder.Cylinder(4, 7), cylinder.Cylinder(2, 5), cylinder.Cylinder(9, 3), cylinder.Cylinder(5, 5)]
+# # circle_max_s = max(circles, key=lambda c: c.get_circle_area())
+# # rect_min_p = min(rects, key=lambda r: r.get_rect_perimetr())
+# # cylinders_v = list(map(lambda c: c.get_volume(), cylinders))
+# # cylinder_v_avr = sum(cylinders_v) / len(cylinders_v)
+# # print(f"Окружность с наибольшей площадью: {circle_max_s.print_circle()} = {circle_max_s.get_circle_area()}")
+# # print(f'Прямоугольник с наименьшим периметром: {rect_min_p.print_rect()} = {rect_min_p.get_rect_perimetr()}')
+# # print(f"Средний объем цилиндров: {round(cylinder_v_avr, 2)}")
+#
+# # Упаковка данных
+# # Сериализация
+# # Десериализация
+#
+# # В стандартной библиотеке Python
+# # marshal (.рус)
+# # pickle
+# # json
+#
+# import pickle
+#
+# # filename = "basket.txt"
+# #
+# # shop_list = {
+# # 	'фрукты': ['яблоки', 'манго'],
+# # 	'овощи': ['морковь'],
+# # 	'бюджет': 100
+# # }
+# #
+# # with open(filename, 'wb') as fh:
+# # 	pickle.dump(shop_list, fh)
+# #
+# # with open(filename, 'rb') as fh:
+# # 	shop_list_2 = pickle.load(fh)
+# #
+# # print(shop_list_2)
+#
+# class Test:
+# 	num = 35
+# 	st = "Привет"
+# 	lst = [1, 2, 3]
+# 	dct = {
+# 		'first': "a",
+# 		'second': 2,
+# 		'third': [1, 2, 3]}
+# 	tpl = (22, 23)
+#
+# 	def __str__(self):
+# 		return f'Число: {Test.num}\nСтрока: {Test.lst}\nСловарь: {Test.dct}\nКортеж:{Test.tpl}'
+#
+#
+# obj = Test()
+# # print(obj)
+#
+# d_save = pickle.dumps(obj)
+# print(f'Сериализация в строку:\n{d_save}\n')
+#
+# d_read = pickle.loads(d_save)
+# print(f'Десериализация в строку:\n{d_read}\n')
+
+
+# 34 Занятие
+# import pickle
+#
+#
+# class Test2:
+#     def __init__(self):
+#         self.a = 35
+#         self.b = 'test'
+#         self.c = lambda x: x * x
+#
+#     def __str__(self):
+#         return f"{self.a} {self.b} {self.c(2)}"
+#
+#     def __getstate__(self):
+#         attr = self.__dict__.copy()
+#         del attr['c']
+#         return attr
+#
+#     def __setstate__(self, state):
+#         self.__dict__ = state
+#         self.c = lambda x: x * x
+#
+#
+# item1 = Test2()
+# item2 = pickle.dumps(item1)   # __getstate__
+# item3 = pickle.loads(item2)  # __setstate__
+#
+# print(item3.__dict__)
+# print(item3)
+
+# import pickle
+#
+#
+# class TextReader:
+#     def __init__(self, filename):
+#         self.filename = filename
+#         self.file = open(filename)
+#         self.count = 0
+#
+#     def read_line(self):
+#         self.count += 1
+#         line = self.file.readline()
+#         if not line:
+#             return None
+#         if line.endswith('\n'):
+#             line = line[:-1]
+#         return f"{self.count}: {line}"
+#
+#     def __getstate__(self):
+#         state = self.__dict__.copy()
+#         del state['file']
+#         return state
+#
+#     def __setstate__(self, state):
+#         self.__dict__.update(state)
+#         file = open(self.filename)
+#         for i in range(self.count):
+#             file.readline()
+#         self.file = file
+#
+#
+# reader = TextReader("hello.txt")
+# print(reader.read_line())
+# print(reader.read_line())
+# print(reader.read_line())
+#
+# new_reader = pickle.loads(pickle.dumps(reader))
+# print(new_reader.read_line())
+# print(new_reader.read_line())
+
+import json
+
+# data = {
+#     'first_name': 'Jane',  # fgdfg
+#     'last name' : 'Doe',
+#     # ('second_name', 'surname'): ('Sergeevna', 'Doe'),
+#     'hobbies': ('running', 'sky diving', 'singing'),
+#     'age': 35,
+#     'children': [
+#         {
+#             'first_name': 'Alice',
+#             'age': 6
+#         },
+#         {
+#             'first_name': 'Bob',
+#             'age': 8
+#         },
+#     ],
+# }
+# print(data)
+# with open('data_file.json', 'w') as fw:
+#     json.dump(data, fw, indent=4)
+#
+# with open('data_file.json', 'r') as fw:
+#     data = json.load(fw)
+#     print(data)
+
+# json_string = json.dumps(data, sort_keys=True)
+# print(json_string)
+#
+# data = json.loads(json_string)
+# print(data)
+
+# x = {
+#     "name": "Виктор"
+# }
+# y = {
+#     "name": "Виктор"
 # }
 #
-# with open(filename, 'wb') as fh:
-# 	pickle.dump(shop_list, fh)
+# print(json.dumps(x))
+# print(json.loads(json.dumps(x)))
+# print(json.dumps(y, ensure_ascii=False))
+
+# import json
+# data = {
+# 	'first_name': 'Jane',
+# 	('second_name', 'surname'): ('Sergeevna', 'Doe'),
+# 	'hobbies': ('running', 'sky diving', 'singing'),
+# 	'age': 35,
+# 	'children': [
+# 		{
+# 			'first_name': 'Alice',
+# 			'age': 6
+# 		},
+# 		{
+# 			'first_name': 'Bob',
+# 			'age': 8
+# 		},
+# 	],
+# }
+# print(data)
+# with open('data_file.json', 'w') as fw:
+# 	json.dump(data, fw, indent=4)
 #
-# with open(filename, 'rb') as fh:
-# 	shop_list_2 = pickle.load(fh)
+# with open('data_file.json', 'r') as fw:
+# 	data = json.load(fw)
+# 	print(data)
 #
-# print(shop_list_2)
+# json_string = json.dumps(data, sort_keys=True)
+# print(json_string)
+#
+# data = json.loads(json_string)
+# print(data)
+#
+# x = {
+# 	"name": "Виктор"
+# }
+# y = {
+# 	"name": "Виктор"
+# }
+# print(json.dumps(x))
+# print(json.loads(json.dumps(x)))
+# print(json.dumps(y, ensure_ascii=False))
 
-class Test:
-	num = 35
-	st = "Привет"
-	lst = [1, 2, 3]
-	dct = {
-		'first': "a",
-		'second': 2,
-		'third': [1, 2, 3]}
-	tpl = (22, 23)
-	
-	def __str__(self):
-		return f'Число: {Test.num}\nСтрока: {Test.lst}\nСловарь: {Test.dct}\nКортеж:{Test.tpl}'
-
-
-obj = Test()
-# print(obj)
-
-d_save = pickle.dumps(obj)
-print(f'Сериализация в строку:\n{d_save}\n')
-
-d_read = pickle.loads(d_save)
-print(f'Десериализация в строку:\n{d_read}\n')
+# import json
+# from random import choice
 
 
+# def gen_person():
+# 	name = ''
+# 	tel = ''
+#
+# 	letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+# 	nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+# 	while len (name) != 7:
+# 		name += choice (letters)
+# 	# print(name)
+#
+# 	while len (tel) != 10:
+# 		tel += choice (nums)
+# 	# print(tel)
+#
+# 	person = {
+# 		'name': name,
+# 		'tel': tel
+# 	}
+# 	return person, tel
+#
+#
+# def write_json(person_dict, num):
+# 	try:
+# 		data = json.load (open ('persons.json'))
+# 	except FileNotFoundError:
+# 		data = {}
+#
+# 	# data.append (person_dict)
+#
+# 	data[num] = person_dict
+#
+# 	with open ('persons.json', 'w') as f:
+# 		json.dump (data, f, indent=2)
+#
+#
+# for i in range (5):
+# 	write_json (gen_person ()[0], gen_person ()[1])
+
+#
+# class Student:
+# 	def __init__(self, name, marks):
+# 		self.name = name
+# 		self.marks = marks
+#
+# 	def __str__(self):
+# 		a = ''
+# 		for i in self.marks:
+# 			a += str(i) + ", "
+# 		return f"Студент: {self.name} {a[:-2]}"
+#
+# 	def add_mark(self, mark):
+# 		self.marks.append(mark)
+#
+# 	def delete_mark(self, index):
+# 		self.marks.pop(index)
+#
+# 	def edit_mark(self, index, new_mark):
+# 		self.marks[index] = new_mark
+#
+# 	def average_mark(self):
+# 		return round(sum(self.marks) / len(self.marks), 2)
+#
+# class Group:
+# 	def __init__(self, students, group):
+# 		self.students = students
+# 		self.group = group
+#
+# 	def __str__(self):
+# 		a = ''
+# 		for i in self.students:
+# 			a += str(i) + "\n"
+# 		return f"Группа: {self.group}\n{a}"
+#
+#
+# st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
+# st2 = Student('Nikolaenko', [2, 3, 4, 5, 2])
+# st3 = Student('Birukov', [3, 5, 3, 2, 5, 4])
+# sts = [st1, st2, st3]
+
+# 35 Занятие
+# # Student.load_from_file('student.json')
+#
+# # Student.dump_to_json(st1, 'student.json')
+# # Student.dump_to_json(st3, 'student.json')
+# my_group = Group(sts, "ГК Python")
+# print(my_group)
+# # my_group.add_student(st3)
+# # print(my_group)
+# # my_group.remove_student(1)
+# # print(my_group)
+# #
+# group22 = [st3]
+# my_group2 = Group(group22, "ГК Web")
+# print(my_group2)
+# #
+# # Group.change_group(my_group, my_group2, 0)
+# # print(my_group)
+# # print(my_group2)
+# # print(st1)
+# # st1.add_mark(4)
+# # print(st1)
+# # st1.delete_mark(3)
+# # print(st1)
+# # st1.edit_mark(2, 4)
+# # print(st1)
+# # print(st1.average_mark())
+# # Group.dump_group('group.json', my_group2)
+# Group.upload_group('group.json')
+
+
+# import requests
+# import json
+#
+# response = requests.get('https://jsonplaceholder.typicode.com/todos')
+# todos = json.loads(response.text)
+# # print(todos[:10])
+# # print(type(todos))
+#
+# todos_by_user = {}
+#
+# for todo in todos:
+#     if todo['completed']:
+#         try:
+#             todos_by_user[todo['userId']] += 1
+#         except KeyError:
+#             todos_by_user[todo['userId']] = 1
+# print(todos_by_user)
+#
+# top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)
+# print(top_users)
+#
+# max_complete = top_users[0][1]
+# print(max_complete)
+#
+# users = []
+# for user, num_complete in top_users:
+#     if num_complete < max_complete:
+#         break
+#     users.append(str(user))
+#
+# print(users)
+# max_users = " and ".join(users)
+#
+# s = "s" if len(users) > 1 else ""
+# print(f"user{s} {max_users} completed {max_complete} TODOs")
+#
+#
+# def keep(todo):
+#     is_complete = todo['completed']
+#     has_max_count = str(todo['userId']) in users
+#     return is_complete and has_max_count
+#
+#
+# with open('filtered_file.json', 'w') as data_file:
+#     filtered_todos = list(filter(keep, todos))
+#     # print(filtered_todos)
+#     json.dump(filtered_todos, data_file, indent=2)
+#
+#
+# with open('filtered_file.json', 'r') as fw:
+#     data = json.load(fw)
+#     print(data)
+
+
+import csv
+
+# with open("data.csv") as r_file:
+#     file_reader = csv.reader(r_file, delimiter=";")
+#     count = 0
+#     for row in file_reader:
+#         # print(row)
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#         else:
+#             print(f"    {row[0]} - {row[1]}. Родился в {row[2]} году.")
+#         count += 1
+#     print(f"Всего в файле {count} строки.")
+
+
+# with open("data.csv") as r_file:
+#     field_names = ['Имя', 'Профессия', 'Год рождения']
+#     file_reader = csv.DictReader(r_file, delimiter=";", fieldnames=field_names)
+#     count = 0
+#     for row in file_reader:
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#         print(f"{row['Имя']} - {row['Профессия']}. Родился в {row['Год рождения']} году.")
+#         count += 1
+
+
+# with open('student.csv', 'w') as f:
+#     writer = csv.writer(f, delimiter=";", lineterminator='\r')
+#     writer.writerow(["Имя", "Класс", "Возраст"])
+#     writer.writerow(["Женя", "9", "15"])
+#     writer.writerow(["Саша", "5", "12"])
+#     writer.writerow(["Маша", "11", "18"])
+
+
+# data = [['hostname', 'vendor', 'model', 'location'],
+#         ['sw1', 'Cisco', '3750', 'London, Best str'],
+#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
+#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
+#         ['sw4', 'Cisco', '3650', 'London, Best str']]
+#
+# with open('data_new.csv', 'w') as f:
+#     writer = csv.writer(f, delimiter=",", lineterminator='\r', quoting=csv.QUOTE_NONNUMERIC)
+#     # for row in data:
+#     #     writer.writerow(row)
+#     writer.writerows(data)
+#
+# with open('data_new.csv') as f:
+#     print(f.read())
+
+
+# with open('student1.csv', 'w') as f:
+#     names = ["Имя", "Возраст"]
+#     file_writer = csv.DictWriter(f, delimiter=";", lineterminator='\r', fieldnames=names)
+#     file_writer.writeheader()
+#     file_writer.writerow({"Имя": "Саша", "Возраст": "6"})
+#     file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
+#     file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
+
+# data = [{
+#     'hostname': 'sw1',
+#     'location': 'London',
+#     'model': '3750',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw2',
+#     'location': 'Liverpool',
+#     'model': '3850',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw3',
+#     'location': 'Liverpool',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw4',
+#     'location': 'London',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }]
+#
+# with open('dictwriter.csv', 'w') as f:
+#     writer = csv.DictWriter(f, fieldnames=list(data[0].keys()), delimiter=";", lineterminator='\r')
+#     writer.writeheader()
+#     for d in data:
+#         writer.writerow(d)
+
+# from bs4 import BeautifulSoup
+
+# f = open('index.html').read()
+# soup = BeautifulSoup(f, "html.parser")
+# row = soup.find("div", class_="name")
+# row = soup.find_all("div", class_="name")
+# row = soup.find_all("div", class_="row")[1].find("div", class_='links')
+# row = soup.find("div", {"class": "name"})
+# row = soup.find("div", {"data-set": "salary"})
+# row = soup.find("div", text="Alena").parent
+# row = soup.find("div", text="Alena").find_parent(class_="row")
+# row = soup.find("div", id="whois3").find_next_sibling()
+# row = soup.find("div", id="whois3").find_previous_sibling()
+# print(row)
+
+
+# def get_copywriter(tag):
+#     whois = tag.find('div', class_="whois").text
+#     if "Copywriter" in whois:
+#         return tag
+#     return None
+#
+#
+# f = open('index.html', encoding='utf-8').read()
+# soup = BeautifulSoup(f, "html.parser")
+# copywriter = []
+# row = soup.find_all('div', class_="row")
+# for i in row:
+#     cw = get_copywriter(i)
+#     if cw:
+#         copywriter.append(cw)
+# print(copywriter)
+
+# import re
+#
+#
+# def get_salary(s):
+#     pattern = r"\d+"
+#     # res = re.findall(pattern, s)[0]
+#     res = re.search(pattern, s).group()
+#     print(res)
+#
+#
+# f = open('index.html', encoding='utf-8').read()
+# soup = BeautifulSoup(f, "html.parser")
+# salary = soup.find_all("div", {"data-set": "salary"})
+# for i in salary:
+#     get_salary(i.text)
+
+# 36 Занятие
+# from bs4 import BeautifulSoup
+# import requests
+# import re
+# import csv
+
+# req = requests.get("https://ru.wordpress.org/")
+# # req.encoding = 'utf-8'
+# print(req.text)
+
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     p1 = soup.find("header", id="masthead").find("p", class_="site-title")
+#     return p1
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/"
+#     print(get_data(get_html(url)))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+#
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def refined(s):
+#     res = re.sub(r"\D+", "", s)
+#     return res
+#
+#
+# def write_csv(data):
+#     with open('plugins.csv', 'a') as f:
+#         writer = csv.writer(f, lineterminator="\r", delimiter=";")
+#         writer.writerow((data['name'], data['url'], data['rating']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     p1 = soup.find_all('section', class_="plugin-section")[1]
+#     plugins = p1.find_all('article')
+#
+#     for plugin in plugins:
+#         name = plugin.find("h3").text
+#         # url = plugin.find("h3").find("a")['href']
+#         url = plugin.find("h3").find("a").get('href')
+#         rating = plugin.find("span", class_="rating-count").find("a").text
+#         r = refined(rating)
+#
+#         data = {'name': name, 'url': url, 'rating': r}
+#         write_csv(data)
+
+# return len(plugins)

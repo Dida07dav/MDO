@@ -409,6 +409,7 @@
 # }
 # print(sales)
 # person = input("Emp: ")
+# Name = input("Наименование: ")
 # print(sales[person][Name])
 # sale = int(input("Зарплата : 0"))
 # sales[person][Name] = sale
