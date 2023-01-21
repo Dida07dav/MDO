@@ -6378,7 +6378,7 @@
 # #     print(g.get_perimetr())
 
 # 33 Занятие
-
+import pickle
 # shape = [r1, r2, s1, s2, t1, t2]
 # for g in shape:
 #     print(g.get_perimetr())
@@ -6706,6 +6706,9 @@ import json
 # for i in range (5):
 # 	write_json (gen_person ()[0], gen_person ()[1])
 
+# 35 Занятие
+# import json
+#
 #
 # class Student:
 # 	def __init__(self, name, marks):
@@ -6730,6 +6733,24 @@ import json
 # 	def average_mark(self):
 # 		return round(sum(self.marks) / len(self.marks), 2)
 #
+# 	@classmethod
+# 	def dump_to_json(cls, stud, filename):
+# 		try:
+# 			data = json.load(open(filename))
+# 		except FileNotFoundError:
+# 			data = []
+#
+# 		data.append({'name': stud.name, 'marks': stud.marks})
+# 		with open(filename, 'w') as f:
+# 			json.dump(data, f, indent=2)
+#
+#
+# 	@classmethod
+# 	def load_from_file(cls, filename):
+# 		with open(filename, 'r') as f:
+# 			print(json.load(f))
+#
+#
 # class Group:
 # 	def __init__(self, students, group):
 # 		self.students = students
@@ -6741,44 +6762,72 @@ import json
 # 			a += str(i) + "\n"
 # 		return f"Группа: {self.group}\n{a}"
 #
+# 	def add_student(self, student):
+# 		self.students.append(student)
+#
+# 	def remove_student(self, index):
+# 		return self.students.pop(index)
+#
+# 	@classmethod
+# 	def change_group(cls, group1, group2, index):
+# 		return group2.add_student(group1.remove_student(index))
+#
+# 	@classmethod
+# 	def dump_group(cls, file, group):
+# 		try:
+# 			data = json.load(open(file))
+# 		except FileNotFoundError:
+# 			data = []
+#
+# 		with open(file, 'w') as f:
+# 			stud_list = []
+# 			for i in group.students:
+# 				stud_list.append([i.name, i.marks])
+# 			data.append(stud_list)
+# 			json.dump(data, f, indent=2)
+#
+# 	@classmethod
+# 	def upload_group(cls, file):
+# 		with open(file, 'r') as f:
+# 			print(json.load(f))
+#
+#
 #
 # st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
-# st2 = Student('Nikolaenko', [2, 3, 4, 5, 2])
+# st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
 # st3 = Student('Birukov', [3, 5, 3, 2, 5, 4])
-# sts = [st1, st2, st3]
-
-# 35 Занятие
+# sts = [st1, st2]
 # # Student.load_from_file('student.json')
-#
-# # Student.dump_to_json(st1, 'student.json')
-# # Student.dump_to_json(st3, 'student.json')
+# Student.dump_to_json(st1, 'student.json')
+# Student.dump_to_json(st3, 'student.json')
 # my_group = Group(sts, "ГК Python")
 # print(my_group)
-# # my_group.add_student(st3)
-# # print(my_group)
-# # my_group.remove_student(1)
-# # print(my_group)
-# #
+# print(my_group)
+# my_group.add_student(st3)
+# print(my_group)
+# my_group.remove_student(1)
+# print(my_group)
+#
 # group22 = [st3]
 # my_group2 = Group(group22, "ГК Web")
 # print(my_group2)
-# #
-# # Group.change_group(my_group, my_group2, 0)
-# # print(my_group)
-# # print(my_group2)
-# # print(st1)
-# # st1.add_mark(4)
-# # print(st1)
-# # st1.delete_mark(3)
-# # print(st1)
-# # st1.edit_mark(2, 4)
-# # print(st1)
-# # print(st1.average_mark())
-# # Group.dump_group('group.json', my_group2)
+#
+# Group.change_group(my_group, my_group2, 0)
+# print(my_group)
+# print(my_group2)
+# print(st1)
+# st1.add_mark(4)
+# print(st1)
+# st1.delete_mark(3)
+# print(st1)
+# st1.edit_mark(2, 4)
+# print(st1)
+# print(st1.average_mark())
+# Group.dump_group('group.json', my_group2)
 # Group.upload_group('group.json')
 
-
-# import requests
+# 36 Занятие
+import requests
 # import json
 #
 # response = requests.get('https://jsonplaceholder.typicode.com/todos')
@@ -6967,7 +7016,7 @@ import csv
 # for i in salary:
 #     get_salary(i.text)
 
-# 36 Занятие
+
 # from bs4 import BeautifulSoup
 # import requests
 # import re
