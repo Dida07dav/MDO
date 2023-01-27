@@ -6827,7 +6827,7 @@ import json
 # Group.upload_group('group.json')
 
 # 36 Занятие
-import requests
+# import requests
 # import json
 #
 # response = requests.get('https://jsonplaceholder.typicode.com/todos')
@@ -6882,12 +6882,12 @@ import requests
 
 
 import csv
-
+#
 # with open("data.csv") as r_file:
 #     file_reader = csv.reader(r_file, delimiter=";")
 #     count = 0
 #     for row in file_reader:
-#         # print(row)
+#         print(row)
 #         if count == 0:
 #             print(f"Файл содержит столбцы: {', '.join(row)}")
 #         else:
@@ -6895,7 +6895,7 @@ import csv
 #         count += 1
 #     print(f"Всего в файле {count} строки.")
 
-
+#
 # with open("data.csv") as r_file:
 #     field_names = ['Имя', 'Профессия', 'Год рождения']
 #     file_reader = csv.DictReader(r_file, delimiter=";", fieldnames=field_names)
@@ -6939,33 +6939,33 @@ import csv
 #     file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
 #     file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
 
-# data = [{
-#     'hostname': 'sw1',
-#     'location': 'London',
-#     'model': '3750',
-#     'vendor': 'Cisco'
-# }, {
-#     'hostname': 'sw2',
-#     'location': 'Liverpool',
-#     'model': '3850',
-#     'vendor': 'Cisco'
-# }, {
-#     'hostname': 'sw3',
-#     'location': 'Liverpool',
-#     'model': '3650',
-#     'vendor': 'Cisco'
-# }, {
-#     'hostname': 'sw4',
-#     'location': 'London',
-#     'model': '3650',
-#     'vendor': 'Cisco'
-# }]
-#
-# with open('dictwriter.csv', 'w') as f:
-#     writer = csv.DictWriter(f, fieldnames=list(data[0].keys()), delimiter=";", lineterminator='\r')
-#     writer.writeheader()
-#     for d in data:
-#         writer.writerow(d)
+data = [{
+    'hostname': 'sw1',
+    'location': 'London',
+    'model': '3750',
+    'vendor': 'Cisco'
+}, {
+    'hostname': 'sw2',
+    'location': 'Liverpool',
+    'model': '3850',
+    'vendor': 'Cisco'
+}, {
+    'hostname': 'sw3',
+    'location': 'Liverpool',
+    'model': '3650',
+    'vendor': 'Cisco'
+}, {
+    'hostname': 'sw4',
+    'location': 'London',
+    'model': '3650',
+    'vendor': 'Cisco'
+}]
+
+with open('dictwriter.csv', 'w') as f:
+    writer = csv.DictWriter(f, fieldnames=list(data[0].keys()), delimiter=";", lineterminator='\r')
+    writer.writeheader()
+    for d in data:
+        writer.writerow(d)
 
 # from bs4 import BeautifulSoup
 
