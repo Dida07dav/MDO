@@ -6938,34 +6938,36 @@ import csv
 #     file_writer.writerow({"Имя": "Саша", "Возраст": "6"})
 #     file_writer.writerow({"Имя": "Маша", "Возраст": "15"})
 #     file_writer.writerow({"Имя": "Вова", "Возраст": "14"})
+#
+# data = [{
+#     'hostname': 'sw1',
+#     'location': 'London',
+#     'model': '3750',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw2',
+#     'location': 'Liverpool',
+#     'model': '3850',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw3',
+#     'location': 'Liverpool',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw4',
+#     'location': 'London',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }]
+#
+# with open('dictwriter.csv', 'w') as f:
+#     writer = csv.DictWriter(f, fieldnames=list(data[0].keys()), delimiter=";", lineterminator='\r')
+#     writer.writeheader()
+#     for d in data:
+#         writer.writerow(d)
 
-data = [{
-    'hostname': 'sw1',
-    'location': 'London',
-    'model': '3750',
-    'vendor': 'Cisco'
-}, {
-    'hostname': 'sw2',
-    'location': 'Liverpool',
-    'model': '3850',
-    'vendor': 'Cisco'
-}, {
-    'hostname': 'sw3',
-    'location': 'Liverpool',
-    'model': '3650',
-    'vendor': 'Cisco'
-}, {
-    'hostname': 'sw4',
-    'location': 'London',
-    'model': '3650',
-    'vendor': 'Cisco'
-}]
-
-with open('dictwriter.csv', 'w') as f:
-    writer = csv.DictWriter(f, fieldnames=list(data[0].keys()), delimiter=";", lineterminator='\r')
-    writer.writeheader()
-    for d in data:
-        writer.writerow(d)
+# 37 Занятие
 
 # from bs4 import BeautifulSoup
 
