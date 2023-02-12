@@ -6881,7 +6881,7 @@ import json
 #     print(data)
 
 
-import csv
+# import csv
 #
 # with open("data.csv") as r_file:
 #     file_reader = csv.reader(r_file, delimiter=";")
@@ -7019,8 +7019,6 @@ import csv
 #     get_salary(i.text)
 
 
-from bs4 import BeautifulSoup
-import requests
 import re
 import csv
 
@@ -7092,75 +7090,90 @@ import csv
 #     main()
 
 
-# 38 Занятие
+# 38 - 39 Занятие
 
-from bs4 import BeautifulSoup
-import requests
-import csv
+# from bs4 import BeautifulSoup
+# import requests
+# import csv
+#
+#
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def write_csv(data):
+#     with open('plugin1.csv', 'a') as f:
+#         writer = csv.writer(f, lineterminator="\r", delimiter=";")
+#         writer.writerow((data['name'],
+#                          data['url'],
+#                          data['snippet'],
+#                          data['active_install'],
+#                          data['tested']))
+#
+#
+# def refine_cy(s):
+#     return s.split()[-1]
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     elements = soup.find_all("article", class_="plugin-card")
+#     for el in elements:
+#         try:
+#             name = el.find('h3').text
+#         except ValueError:
+#             name = ''
+#
+#         try:
+#             url = el.find('h3').find("a").get('href')
+#         except ValueError:
+#             url = ''
+#
+#         try:
+#             snippet = el.find('div', class_='entry-excerpt').text.strip()
+#         except ValueError:
+#             snippet = ''
+#         try:
+#             active = el.find("span", class_="active-installs").text.strip().strip()
+#
+#         except ValueError:
+#             active = ''
+#         try:
+#             c = el.find("span", class_="tested-with").text.strip()
+#             cy = refine_cy(c)
+#         except ValueError:
+#             cy = ''
+#
+#         data = {
+#             'name': name,
+#             'url': url,
+#             'snippet': snippet,
+#             'active_install': active,
+#             'tested': cy
+#         }
+#
+#         write_csv(data)
+#
+#
+# def main():
+#     for i in range(12, 13):
+#         url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
+#         get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# from parse import Parser
+#
+#
+# def main():
+# 	pars = Parser("https://www.ixbt.com/live/index/news/", "news.txt")
+# 	pars.run()
+#
+#
+# if __name__ == '__main__':
+# 	main()
 
 
-def get_html(url):
-    r = requests.get(url)
-    return r.text
-
-
-def write_csv(data):
-    with open('plugin1.csv', 'a') as f:
-        writer = csv.writer(f, lineterminator="\r", delimiter=";")
-        writer.writerow((data['name'],
-                         data['url'],
-                         data['snippet'],
-                         data['active_install'],
-                         data['tested']))
-        
-        
-def refine_cy(s):
-    return s.split()[-1]
-
-
-def get_data(html):
-    soup = BeautifulSoup(html, 'lxml')
-    elements = soup.find_all("article", class_="plugin-card")
-    for el in elements:
-        try:
-            name = el.find('h3').text
-        except ValueError:
-            name = ''
-
-        try:
-            url = el.find('h3').find("a").get('href')
-        except ValueError:
-            url = ''
-
-        try:
-            snippet = el.find('div', class_='entry-excerpt').text.strip()
-        except ValueError:
-            snippet = ''
-        try:
-            active = el.find("span", class_="active-installs").text.strip().strip()
-            
-        except ValueError:
-            active = ''
-        try:
-            c = el.find("span", class_="tested-with").text.strip()
-            cy = refine_cy(c)
-        except ValueError:
-            cy = ''
-            
-        data = {
-            'name': name,
-            'url': url,
-            'snippet': snippet,
-            'active_install': active,
-            'tested': cy
-        }
-    
-        write_csv(data)
-        
-def main():
-    url = f"https://ru.wordpress.org/plugins/browse/"
-    get_data(get_html(url))
-
-
-if __name__ == '__main__':
-    main()

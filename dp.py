@@ -190,7 +190,7 @@
 #     file_reader = csv.reader(r_file, delimiter=";")
 #     for row in file_reader:
 #         print(row)
-       
+
 # 2 вариант
 
 
@@ -355,4 +355,14 @@
 
 # 39 Задание
 
+from parse1 import Parser
+
+
+def main():
+	pars = Parser("https://www.ixbt.com/live/blog/movie/", "movie.txt")
+	pars.run()
+
+
+if __name__ == '__main__':
+	main()
 
