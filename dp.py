@@ -355,14 +355,16 @@
 
 # 39 Задание
 
-from parse1 import Parser
+# from parse1 import Parser
+#
+#
+# def main():
+# 	pars = Parser("https://www.ixbt.com/live/blog/movie/", "movie.txt")
+# 	pars.run()
+#
+#
+# if __name__ == '__main__':
+# 	main()
 
-
-def main():
-	pars = Parser("https://www.ixbt.com/live/blog/movie/", "movie.txt")
-	pars.run()
-
-
-if __name__ == '__main__':
-	main()
+# 41 Задание
 
