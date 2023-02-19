@@ -68,6 +68,11 @@ WHERE NOT CITY = 'Мурманск' AND NOT CITY = 'Иркутск' AND NOT CITY = 'Зеленоград'
 NOT CITY = 'Липецк' AND NOT CITY = 'Кемерово' AND NOT CITY = 'Дзержинск'AND 
 NOT CITY = 'Химки' AND NOT CITY = 'Брянск' AND NOT CITY = 'Уфа' AND NOT CITY = 'Пенза';
 
+SELECT  NAME, KOD, CITY, CITY2
+FROM ZAKAZ
+WHERE NOT CITY IN('Мурманск', 'Иркутск', 'Зеленоград', 'Липецк', 'Кемерово',
+'Дзержинск', 'Химки', 'Брянск', 'Уфа', 'Пенза');
+
 10. Вывести код  всех продавцов рейтинг заказчиков, которых менее 200 или больше 350.
 
 SELECT KOD, RATING
