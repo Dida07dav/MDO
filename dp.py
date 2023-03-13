@@ -352,6 +352,18 @@
 #             CountryCapital.load_from_file(filename='list_capital.json')
 #     except IndexError:
 #         break
+# from parse1 import Parser
+#
+#
+# def main():
+# 	pars = Parser("https://www.ixbt.com/live/blog/movie/", "movie.txt")
+# 	pars.run()
+#
+#
+# if __name__ == '__main__':
+# 	main()
+
+
 
 # 46 Задание
 
@@ -403,16 +415,5 @@ with sq.connect("cafe.db") as con:
 
 
 
-# from parse1 import Parser
-#
-#
-# def main():
-# 	pars = Parser("https://www.ixbt.com/live/blog/movie/", "movie.txt")
-# 	pars.run()
-#
-#
-# if __name__ == '__main__':
-# 	main()
 
-# 41 Задание
 
