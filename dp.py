@@ -353,7 +353,55 @@
 #     except IndexError:
 #         break
 
-# 39 Задание
+# 46 Задание
+
+import sqlite3 as sq
+
+cafe = [
+	('Руккола с креветками', 'руккола, креветки, помидоры, пармезан', 480),
+	('Фунчоза', 'рисовая лапша, огурцы, болгарский перец, морковь', 370),
+	('Редиска с огурцом', 'редиска, огурцы, зеленый лук, сметана', 270)
+]
+with sq.connect("cafe.db") as con:
+	cur = con.cursor()
+	cur.execute("""
+	CREATE TABLE IF NOT EXISTS cafe(
+	manu_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	salads TEXT,
+	description TEXT,
+	price INTEGER
+	
+	)
+	""")
+	
+	cur.executemany("INSERT INTO cafe VALUES(NULL, ?, ?, ?)", cafe)
+	# for cafe1 in cafe:
+	# 	cur.execute("INSERT INTO cafe VALUES(NULL, ?, ?, ?)", cafe1)
+	# cur.execute("INSERT INTO cafe VALUES(1, 'Цезарь', 'салат, куриное филе, черри, "
+	# 			"сыр', 430)")
+	# cur.execute("INSERT INTO cafe VALUES(2, 'Мимоза', 'картошка, яйца, морковь"
+	# 			 "сыр', 480)")
+	# cur.execute("INSERT INTO cafe VALUES(3, 'Оливье', 'зеленый горошек, яйца, картошка,"
+	# 			 "соленые огурцы', 230)")
+	# cur.execute("INSERT INTO cafe VALUES(4, 'Крабовый салат', 'картошка, яйца, кукуруза, крабовые палочки"
+	# 			 "лук', 320)")
+	# cur.execute("INSERT INTO cafe VALUES(5, 'Капустный', 'салат, морковь, горох"
+	# 			 "лук', 2500)")
+	# cur.execute("INSERT INTO cafe VALUES(6, 'Морковный', 'морковь, чеснок, майонез"
+	# 			 "', 180)")
+	# cur.execute("INSERT INTO cafe VALUES(7, 'Винегрет', 'соленная капуста, свекла, морковь,,"
+	# 			 "фасоль', 330)")
+	# cur.execute("INSERT INTO cafe VALUES(8, 'Одуванчик', 'яйца, кукуруза, майонез"
+	# 			 "сыр', 130)")
+	# cur.execute("INSERT INTO cafe VALUES(9, 'морской', 'креветки, кальмары, тобико,"
+	# 			 "соус', 630)")
+	# cur.execute("INSERT INTO cafe VALUES(10, 'Шуба', 'свекла, картошка, корейская морковка, яйца,"
+	# 			 "', 270)")
+	# cur.execute("INSERT INTO cafe VALUES(11, 'Греческий', 'огурцы, черри, болгарский перец"
+	# 			 " фета сыр', 460)")
+	
+
+
 
 # from parse1 import Parser
 #
