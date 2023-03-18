@@ -37,6 +37,32 @@ SELECT COUNT(e.Predmet) AS [сессия]
 FROM Exzamen e, Student s
 WHERE e.Id_St=s.ID_St 
 
+или
+SELECT s.FIO
+
+FROM Student s
+WHERE s.ID_St IN
+	(SELECT e.ID_St
+
+	FROM Exzamen e
+
+	WHERE e.Predmet LIKE 'Иностр. язык' AND e.Ball LIKE '5')
+
+		AND s."Group" IN
+		
+(SELECT g."Group"
+
+		FROM G g
+
+		WHERE g.Kafedra IN
+			
+(SELECT k.kafedra
+
+			FROM Kafedra k
+	
+		WHERE k.Decanat LIKE 'Физико-технический'))
+
+
 
 7.	Напишите запрос, который выводит средний балл по экзаменам Васильевой.
 

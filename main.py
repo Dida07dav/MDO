@@ -7463,21 +7463,33 @@
 #         sql = f.read()
 #         cur.executescript(sql)
 
-import sqlite3 as sq
+# import sqlite3 as sq
+#
+# data = [('car', "машина"), ('house', "дом"), ('tree', "дерево"), ('color', "цвет")]
+#
+# con = sq.connect(':memory:')
+# with con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS dict(
+#     eng TEXT,
+#     ru TEXT
+#     )
+#     """)
+#
+#     cur.executemany("INSERT INTO dict VALUES (?, ?)", data)
+#
+#     cur.execute("SELECT ru FROM dict WHERE eng LIKE 'c%'")
+#     print(cur.fetchall())
 
-data = [('car', "машина"), ('house', "дом"), ('tree', "дерево"), ('color', "цвет")]
+# 47 Занятие
+# import os
+#
+# from school.database import DATABASE_SCHOOL
+# import create1_database as db_school
+#
+# if __name__ == '__main__':
+#     db_is_school = os.path.exists(DATABASE_SCHOOL)
+#     if not db_is_school:
+#         db_school.create_database()
 
-con = sq.connect(':memory:')
-with con:
-    cur = con.cursor()
-    cur.execute("""
-    CREATE TABLE IF NOT EXISTS dict(
-    eng TEXT,
-    ru TEXT
-    )
-    """)
-    
-    cur.executemany("INSERT INTO dict VALUES (?, ?)", data)
-    
-    cur.execute("SELECT ru FROM dict WHERE eng LIKE 'c%'")
-    print(cur.fetchall())

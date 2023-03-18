@@ -367,26 +367,29 @@
 
 # 46 Задание
 
-import sqlite3 as sq
-
-cafe = [
-	('Руккола с креветками', 'руккола, креветки, помидоры, пармезан', 480),
-	('Фунчоза', 'рисовая лапша, огурцы, болгарский перец, морковь', 370),
-	('Редиска с огурцом', 'редиска, огурцы, зеленый лук, сметана', 270)
-]
-with sq.connect("cafe.db") as con:
-	cur = con.cursor()
-	cur.execute("""
-	CREATE TABLE IF NOT EXISTS cafe(
-	manu_id INTEGER PRIMARY KEY AUTOINCREMENT,
-	salads TEXT,
-	description TEXT,
-	price INTEGER
-	
-	)
-	""")
-	
-	cur.executemany("INSERT INTO cafe VALUES(NULL, ?, ?, ?)", cafe)
+# import sqlite3 as sq
+#
+# cafe = [
+# 	('Руккола с креветками', 'руккола, креветки, помидоры, пармезан', 480),
+# 	('Фунчоза', 'рисовая лапша, огурцы, болгарский перец, морковь', 370),
+# 	('Редиска с огурцом', 'редиска, огурцы, зеленый лук, сметана', 270)
+# ]
+# with sq.connect("cafe.db") as con:
+# 	cur = con.cursor()
+# 	cur.execute("""
+# 	CREATE TABLE IF NOT EXISTS cafe(
+# 	manu_id INTEGER PRIMARY KEY AUTOINCREMENT,
+# 	salads TEXT,
+# 	description TEXT,
+# 	price INTEGER
+#
+# 	)
+# 	""")
+# 	cur.executescript("""
+# 	DELETE FROM cafe WHERE
+# 	""")
+	# cur.execute("UPDATE cafe SET price = :Price WHERE salads LIKE 'К%'", {'Price': 230})
+	# cur.executemany("INSERT INTO cafe VALUES(NULL, ?, ?, ?)", cafe)
 	# for cafe1 in cafe:
 	# 	cur.execute("INSERT INTO cafe VALUES(NULL, ?, ?, ?)", cafe1)
 	# cur.execute("INSERT INTO cafe VALUES(1, 'Цезарь', 'салат, куриное филе, черри, "
@@ -413,7 +416,17 @@ with sq.connect("cafe.db") as con:
 	# 			 " фета сыр', 460)")
 	
 
+# 47 Задание
 
+import os
+
+from school.database import DATABASE_SCHOOL
+import create1_database as db_school
+
+if __name__ == '__main__':
+	db_is_school = os.path.exists(DATABASE_SCHOOL)
+	if not db_is_school:
+		db_school.create_database()
 
 
 
