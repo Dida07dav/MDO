@@ -7241,61 +7241,61 @@
 # with sq.connect("profile.db") as con:
 #     cur = con.cursor()
 #     cur.execute("DROP TABLE users")
-    # cur.execute("""CREATE TABLE IF NOT EXISTS users(
-    # id INTEGER PRIMARY KEY AUTOINCREMENT,
-    # name TEXT NOT NULL,
-    # summa REAL,
-    # date TEXT
-    # )""")
+# cur.execute("""CREATE TABLE IF NOT EXISTS users(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT NOT NULL,
+# summa REAL,
+# date TEXT
+# )""")
 
 # import sqlite3 as sq
 #
 #
 # with sq.connect("users.db") as con:
 #     cur = con.cursor()
-    # cur.execute("""
-    # CREATE TABLE IF NOT EXISTS person(
-    # id INTEGER PRIMARY KEY AUTOINCREMENT,
-    # name TEXT NOT NULL,
-    # phone BLOB NOT NULL DEFAULT '+79090000000',
-    # age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
-    # email TEXT UNIQUE
-    # )
-    # """)
-    # Переименовать, Изменения таблицы:
-    # cur.execute("""
-    # ALTER TABLE person
-    # RENAME TO person_table;
-    # """)
-    # cur.execute("""
-    # ALTER TABLE person_table
-    # ADD COLUMN address TEXT;
-    # """)
-    # cur.execute("""
-    # ALTER TABLE person_table
-    # RENAME COLUMN address TO home_address;
-    # """)
-    # cur.execute("""
-    #     DROP TABLE person_table;
-    #     """)
-    # cur.execute("""
-    #     CREATE TABLE IF NOT EXISTS person(
-    #     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    #     name TEXT NOT NULL,
-    #     phone BLOB NOT NULL DEFAULT '+79090000000',
-    #     age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
-    #     email TEXT UNIQUE
-    #     )
-    #     """)
-    # cur.execute("""
-    # INSERT INTO person
-    # VALUES (1, 'Ирина', '+75052033166', 23, 'irina@gmail.com')
-    # """)
-    # cur.execute("""
-    #     INSERT INTO person(email, name, age)
-    #     VALUES ('igor@gmail.com', 'Игорь', 20)
-    #     """)
-    
+# cur.execute("""
+# CREATE TABLE IF NOT EXISTS person(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT NOT NULL,
+# phone BLOB NOT NULL DEFAULT '+79090000000',
+# age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+# email TEXT UNIQUE
+# )
+# """)
+# Переименовать, Изменения таблицы:
+# cur.execute("""
+# ALTER TABLE person
+# RENAME TO person_table;
+# """)
+# cur.execute("""
+# ALTER TABLE person_table
+# ADD COLUMN address TEXT;
+# """)
+# cur.execute("""
+# ALTER TABLE person_table
+# RENAME COLUMN address TO home_address;
+# """)
+# cur.execute("""
+#     DROP TABLE person_table;
+#     """)
+# cur.execute("""
+#     CREATE TABLE IF NOT EXISTS person(
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT NOT NULL,
+#     phone BLOB NOT NULL DEFAULT '+79090000000',
+#     age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+#     email TEXT UNIQUE
+#     )
+#     """)
+# cur.execute("""
+# INSERT INTO person
+# VALUES (1, 'Ирина', '+75052033166', 23, 'irina@gmail.com')
+# """)
+# cur.execute("""
+#     INSERT INTO person(email, name, age)
+#     VALUES ('igor@gmail.com', 'Игорь', 20)
+#     """)
+
 # import sqlite3 as sq
 #
 #
@@ -7312,11 +7312,11 @@
 #     res2 = cur.fetchmany(2)
 #     print(res)
 #     print(res2)
-    # res = cur.fetchall()
-    # print(res)
-    # for res in cur:
-    #     print(res)
-    
+# res = cur.fetchall()
+# print(res)
+# for res in cur:
+#     print(res)
+
 # import sqlite3 as sq
 #
 # cars = [
@@ -7363,16 +7363,16 @@
 #     DELETE FROM cars WHERE model LIKE 'B%';
 #     UPDATE cars SET price = price + 100;
 #     """)
-    # cur.execute("UPDATE cars SET price = :Price WHERE model LIKE 'B%'", {'Price': 0})
-    # cur.executemany("INSERT INTO cars VALUES(NULL, ?, ?)", cars)
-    # for car in cars:
-    #     cur.execute("INSERT INTO cars VALUES(NULL, ?, ?)", car)
-    # cur.execute("INSERT INTO cars VALUES(1, 'Renault', 22000)")
-    # cur.execute("INSERT INTO cars VALUES(2, 'Volvo', 29000)")
-    # cur.execute("INSERT INTO cars VALUES(3, 'Mercedes', 57000)")
-    # cur.execute("INSERT INTO cars VALUES(4, 'Bentley', 35000)")
-    # cur.execute("INSERT INTO cars VALUES(5, 'Audy', 52000)")
-    
+# cur.execute("UPDATE cars SET price = :Price WHERE model LIKE 'B%'", {'Price': 0})
+# cur.executemany("INSERT INTO cars VALUES(NULL, ?, ?)", cars)
+# for car in cars:
+#     cur.execute("INSERT INTO cars VALUES(NULL, ?, ?)", car)
+# cur.execute("INSERT INTO cars VALUES(1, 'Renault', 22000)")
+# cur.execute("INSERT INTO cars VALUES(2, 'Volvo', 29000)")
+# cur.execute("INSERT INTO cars VALUES(3, 'Mercedes', 57000)")
+# cur.execute("INSERT INTO cars VALUES(4, 'Bentley', 35000)")
+# cur.execute("INSERT INTO cars VALUES(5, 'Audy', 52000)")
+
 # con.commit() - сохраняет все изменения в базу данных
 # con.close() - закрывает соединение с БД
 
@@ -7391,11 +7391,11 @@
 #     name TEXT, tr_in INTEGER, buy INTEGER
 #     )
 #     """)
-    
-    # cur.execute("INSERT INTO cars VALUES(NULL, 'Запорожец', 1000)")
-    # last_row_id = cur.lastrowid  # lastrowid - возвращает id последней записи
-    # buy_car_id = 2
-    # cur.execute("INSERT INTO cost VALUES('Илья', ?, ?)", (last_row_id, buy_car_id))
+
+# cur.execute("INSERT INTO cars VALUES(NULL, 'Запорожец', 1000)")
+# last_row_id = cur.lastrowid  # lastrowid - возвращает id последней записи
+# buy_car_id = 2
+# cur.execute("INSERT INTO cost VALUES('Илья', ?, ?)", (last_row_id, buy_car_id))
 
 
 # import sqlite3 as sq
@@ -7436,20 +7436,20 @@
 #     img = cur.fetchone()['ava']
 #
 #     write_ava("out.png", img)
-    
-    # img = read_ava(1)
-    # if img:
-    #     binary = sq.Binary(img)
-    #     cur.execute("INSERT INTO users VALUES ('Илья', ?, 1000)", (binary,))
-    #
-    # cur.execute("SELECT model, price FROM cars")
-    
-    # rows = cur.fetchall()
-    # rows = cur.fetchone()
-    # rows = cur.fetchmany(5)
-    # for res in cur:
-    #     print(res['model'], "-",  res['price'])
-    
+
+# img = read_ava(1)
+# if img:
+#     binary = sq.Binary(img)
+#     cur.execute("INSERT INTO users VALUES ('Илья', ?, 1000)", (binary,))
+#
+# cur.execute("SELECT model, price FROM cars")
+
+# rows = cur.fetchall()
+# rows = cur.fetchone()
+# rows = cur.fetchmany(5)
+# for res in cur:
+#     print(res['model'], "-",  res['price'])
+
 # import sqlite3 as sq
 #
 # with sq.connect("cars.db") as con:
@@ -7483,13 +7483,14 @@
 #     print(cur.fetchall())
 
 # 47 Занятие
-# import os
-#
-# from school.database import DATABASE_SCHOOL
-# import create1_database as db_school
-#
-# if __name__ == '__main__':
-#     db_is_school = os.path.exists(DATABASE_SCHOOL)
-#     if not db_is_school:
-#         db_school.create_database()
+import os
+
+from school.database import DATABASE_SCHOOL
+import create1_database as db_school
+
+if __name__ == '__main__':
+    db_is_school = os.path.exists(DATABASE_SCHOOL)
+    if not db_is_school:
+        db_school.create_database()
+
 

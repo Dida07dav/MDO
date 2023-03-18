@@ -34,8 +34,8 @@ def _load_fake_data(session):
 	for _ in range(50):
 		full_name = faker.name().split()
 		age = faker.random.randint(7, 17)
-		group = faker.random.choice(room_list)
-		student = Student (full_name, age, group.id)
+		cool_room = faker.random.choice(room_list)
+		student = Student (full_name, age, cool_room.id)
 		session.add(student)
 	
 	session.commit()

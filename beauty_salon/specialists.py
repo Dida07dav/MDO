@@ -13,13 +13,13 @@ class Specialists (Base):
 	age = Column(Integer)
 	price = Column(Integer, ForeignKey('price.id'))
 	
-	def __init__(self, special_name, age, id_price):
+	def __init__(self, special_name, age, id_price1):
 		self.hairdresser = special_name[0]
 		self.manicure = special_name[1]
 		self.beautician = special_name[2]
 		self.age = age
-		self.price = id_price
+		self.price1 = id_price1
 		
 	def __repr__(self):
-		return f"Специалисты({self.hairdresser} {self.manicure} {self.beautician}," \
+		return f"Специалисты(ИМЕНА:{self.hairdresser} {self.manicure} {self.beautician}," \
 			   f"Возраст: {self.age}, ID группы: {self.price})"

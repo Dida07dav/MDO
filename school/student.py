@@ -13,12 +13,12 @@ class Student (Base):
 	age = Column(Integer)
 	cool_room = Column(Integer, ForeignKey('cool_room.id'))
 	
-	def __init__(self, full_name, age, id_group):
+	def __init__(self, full_name, age, id_cool_room):
 		self.surname = full_name[0]
 		self.name = full_name[1]
 		self.patronymic = full_name[2]
 		self.age = age
-		self.group = id_group
+		self.cool_room = id_cool_room
 	
 	def __repr__(self):
 		return f"Ученик(ФИО: {self.surname} {self.name} {self.patronymic}," \
