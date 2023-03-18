@@ -29,13 +29,13 @@ def _load_fake_data(name_of_service):
 		name_of_service.add(services)
 	
 	faker = Faker('ru_RU')
-	price_list = [price1, price2]
+	price_list1 = [price1, price2]
 	name_of_service.commit()
 	
 	for _ in range (50):
 		special_name = faker.name().split()
 		age = faker.random.randint(21, 45)
-		price = faker.random.choice(price_list)
+		price = faker.random.choice(price_list1)
 		specialists = Specialists(special_name, age, price.id)
 		name_of_service.add(specialists)
 	

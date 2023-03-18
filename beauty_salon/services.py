@@ -9,7 +9,7 @@ class Services(Base):
 	
 	id = Column(Integer, primary_key=True)
 	service_title = Column(String(250), nullable=False)
-	price = relationship('Price', backref='price_service')
+	price = relationship('Price')
 	
 	def __repr__(self):
 		return f"Сервис (ID: {self.id}, Название: {self.service_title})"
