@@ -16,8 +16,8 @@ def _load_fake_data(name_of_service):
 	price_names = ['укладка - 1200', 'сушка - 500', 'мытье головы - 200',
 					 'восстановление - 1500', 'покраска - 2700']
 	
-	price1 = Price(price_list="KM-1")
-	price2 = Price(price_list="КM-2")
+	price1 = Price(price_list="KM-5")
+	price2 = Price(price_list="КM-7")
 	name_of_service.add(price1)
 	name_of_service.add(price2)
 	
