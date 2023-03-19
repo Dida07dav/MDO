@@ -21,5 +21,5 @@ class Specialists (Base):
 		self.price = id_price
 		
 	def __repr__(self):
-		return f"Специалисты(ИМЕНА:{self.hairdresser} {self.manicure} {self.beautician}," \
+		return f"Специалисты(ИМЕНА:{self.hairdresser}, {self.manicure}, {self.beautician}," \
 			   f"Возраст: {self.age}, ID группы: {self.price})"
