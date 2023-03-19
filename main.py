@@ -7665,29 +7665,29 @@
 # for it in session.query(Student).filter(text("surname like 'В%'")).order_by(text("name, id desc")):
 #     print(it)
 
-import os
-
-from sqlalchemy import and_, or_, not_, desc, func, distinct, text
-
-from beauty_salon.database import DATABASE_BEAUTY, Name_of_service
-import service_database as db_beauty
-
-from beauty_salon.services import Services
-from beauty_salon.specialists import Specialists
-from beauty_salon.price import Price
-
-
-if __name__ == '__main__':
-	db_is_beautiful = os.path.exists(DATABASE_BEAUTY)
-	if not db_is_beautiful:
-		db_beauty.service_database()
-
-	name_of_service = Name_of_service()
-	print(name_of_service.query(Services).all())
-	print("*" * 60)
-	for it in name_of_service.query(Services):
-		print(it.service_title)
-	print("*" * 60)
+# import os
+#
+# from sqlalchemy import and_, or_, not_, desc, func, distinct, text
+#
+# from beauty_salon.database import DATABASE_BEAUTY, Name_of_service
+# import service_database as db_beauty
+#
+# from beauty_salon.services import Services
+# from beauty_salon.specialists import Specialists
+# from beauty_salon.price import Price
+#
+#
+# if __name__ == '__main__':
+# 	db_is_beautiful = os.path.exists(DATABASE_BEAUTY)
+# 	if not db_is_beautiful:
+# 		db_beauty.service_database()
+#
+# 	name_of_service = Name_of_service()
+# 	print(name_of_service.query(Services).all())
+# 	print("*" * 60)
+# 	for it in name_of_service.query(Services):
+# 		print(it.service_title)
+# 	print("*" * 60)
 	# print(name_of_service.query(Services).count())
 	# print("*" * 60)
 	# print(name_of_service.query(Services).first())
@@ -7746,10 +7746,257 @@ if __name__ == '__main__':
 	# 	print(it.service_title)
 	# print("*" * 60)
 	
-	for it in name_of_service.query(Specialists).filter(text("hairdresser like 'М%'")).order_by(text("manicure, id desc")):
-		print(it)
+	# for it in name_of_service.query(Specialists).filter(text("hairdresser like 'М%'")).order_by(text("manicure, id desc")):
+	# 	print(it)
 
 	
 # шаблонизатор
-	
 
+# pip install jinja2
+
+# from jinja2 import Template
+
+# name = "Игорь"
+#
+# age = 28
+
+# per = {'name': "Игорь", 'age': 28}
+#
+# tm = Template("Мне {{ p['age'] }} лет. Меня зовут {{ p.name }}.")
+#
+# # msq = tm.render(n=name, a=age)
+#
+# msg = tm.render(p=per)
+#
+# print(msg)
+
+
+# class Person:
+# 	def __init__(self, name, age):
+# 		self.__name = name
+# 		self.__age = age
+#
+# 	def get_name(self):
+# 		return self.__name
+#
+# 	def get_age(self):
+# 		return self.__age
+#
+#
+# per = Person("Игорь", 28)
+#
+# tm = Template("Мне {{ p.get_age() }} лет. Меня зовут {{ p.get_name() }}.")
+# msg = tm.render(p=per)
+#
+# print(msg)
+#
+# data = """{% raw %}Модуль Jinja вместо
+# определения {{ name }}
+# подставит соответствующее значение {% endraw %}"""
+#
+# tm = Template(data)
+# msg = tm.render(name="Игорь")
+#
+# print(msg)
+
+# link = """В HTML- документе ссылка определяется так:
+# <a href="#">Ссылка</a>"""
+#
+# tm = Template("{{ link | e }}")
+# msg = tm.render(link=link)
+#
+# print(msg)
+
+# cities = [
+# 	{'id': 1, 'city': 'Москва'},
+# 	{'id': 2, 'city': 'Сочи'},
+# 	{'id': 3, 'city': 'Смоленск'},
+# 	{'id': 4, 'city': 'Минск'},
+# 	{'id': 5, 'city': 'Ярославль'},
+# ]
+
+# link = """<select name="cities">
+# {% for c in cities -%}
+# {% if c.id > 3 -%}
+#     <option value="{{ c['id'] }}">{{ c['city'] }}</option>
+# {% elif c.city == "Москва" -%}
+#     <option>{{ c['city'] }}</option>
+# {% else -%}
+#     {{ c['city'] }}
+# {% endif -%}
+# {% endfor -%}
+# </select>"""
+#
+# tm = Template(link)
+# msg = tm.render(cities=cities)
+#
+# print(msg)
+
+# menu = [
+#     {'href': '/index', 'link': 'Главная '},
+#     {'href': '/news', 'link': 'Новости'},
+#     {'href': '/about', 'link': 'О компании'},
+#     {'href': '/shop', 'link': 'Магазин'},
+#     {'href': '/contacts', 'link': 'Контакты'}
+# ]
+#
+#
+# text = """
+# <ul>
+# {% for m in menu -%}
+#     {% if m['href'] == '/index' -%}
+#         <li><a href='{{ m['href'] }}' class='active'>{{ m['link'] }}</a></li>
+# {% else -%}
+#         <li><a href='{{ m['href'] }}'>{{ m['link'] }}</a></li>
+# {% endif -%}
+# {% endfor -%}
+# </ul>
+# """
+
+# tm = Template(text)
+# msg = tm.render(menu=menu)
+# print(msg)
+
+# menu = [
+#     {'url': '/index', 'title': 'Главная '},
+#     {'url': '/news', 'title': 'О нас'},
+#     {'url': '/about', 'title': 'Новости'},
+#     {'url': '/shop', 'title': 'Магазин'},
+#     {'url': '/contacts', 'title': 'Контакты'}
+# ]
+#
+# text = """
+# <ul>
+# {% for m in menu -%}
+#     {% if m['url'] == '/index' -%}
+#         <li><a href='{{ m['url'] }}' class='active'>{{ m['title'] }}</a></li>
+# {% else -%}
+#         <li><a href='{{ m['url'] }}'>{{ m['title'] }}</a></li>
+# {% endif -%}
+# {% endfor -%}
+# </ul>
+# """
+#
+# tm = Template(text)
+# msg = tm.render(menu=menu)
+# print(msg)
+
+# cars = [
+#     {'model': 'Audi', 'price': 23000},
+#     {'model': 'Skoda', 'price': 17300},
+#     {'model': 'Renault', 'price': 44300},
+#     {'model': 'Wolksvagen', 'price': 21300}
+# ]
+#
+# lst = [1, 2, 3, 4, 5, 6]
+#
+# # tpl = "Суммарная цена автомобилей {{ (cs | sum(attribute='price')).model}}"
+#
+# # tpl = "Автомобиль: {{ (cs | min(attribute='price')).model }}"
+# # tpl = "Автомобиль: {{ cs | random }}"
+# tpl = "Автомобиль: {{ cs | replace('model', 'brand') }}"
+# tm = Template(tpl)
+# msg = tm.render(cs=cars)
+# print(msg)
+
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.2}
+# ]
+#
+# tpl = """
+# {%- for u in user -%}
+#     {% filter upper %} {{ u.name }} {% endfilter %} {% filter string %} {{u.year}} - {{u.weight}} {% endfilter %}
+# {% endfor -%}
+# """
+#
+# tm = Template(tpl)
+# msg = tm.render(user=persons)
+# print(msg)
+#
+# html = '''
+# {%- macro input(name, value='', type='text', size=20) -%}
+#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+# {%- endmacro %}
+#
+# <p>{{ input('username') }}</p>
+# <p>{{ input('email') }}</p>
+# <p>{{ input('password') }}</p>
+# '''
+#
+# tm = Template(html)
+# msg = tm.render()
+# print(msg)
+#
+# html = """
+# {% macro input(name, placeholder, type='text') -%}
+#     <input type='{{ type }}' name='{{ name }}' placeholder='{{ placeholder }}'>
+# {%- endmacro %}
+#
+# <p>{{ input('firstname', 'Имя') }}</p>
+# <p>{{ input('lastname', 'Фамилия') }}</p>
+# <p>{{ input('address', 'Адрес')}}</p>
+# <p>{{ input('phone', 'Телефон', 'tel')}}</p>
+# <p>{{ input('email', 'Почта', 'email')}}</p>
+# """
+# tm = Template(html)
+# msg = tm.render()
+# print(msg)
+
+
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.2}
+# ]
+
+# html = '''
+#     {% macro list_users(list_of_user) -%}
+#     <ul>
+#         {% for u in list_of_user -%}
+#         <li>{{ u.name }} {{ caller(u) }} </li>
+#         {% endfor %}
+#     </ul>
+#     {%- endmacro %}
+#
+#     {% call(user) list_users(users) %}
+#         <ul>
+#             <li>age: {{ user.year }}</li>
+#             <li>weight: {{ user.weight }}</li>
+#         </ul>
+#     {% endcall -%}
+# '''
+#
+# tm = Template(html)
+# msg = tm.render(users=persons)
+# print(msg)
+
+
+# from jinja2 import Environment, FileSystemLoader
+
+
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.2}
+# ]
+#
+# # subs = ["Культура", "Наука", "Политика", "Спорт"]
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('main.html')
+# msg = tm.render(users=persons)
+#
+# print(msg)
+
+from jinja2 import Environment, FileSystemLoader
+
+file_loader = FileSystemLoader('poster')
+env = Environment(loader=file_loader)
+
+tm = env.get_template('comedy.html')
+msg = tm.render()
+
+print(msg)
