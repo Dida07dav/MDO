@@ -7671,23 +7671,23 @@ from sqlalchemy import and_, or_, not_, desc, func, distinct, text
 
 from beauty_salon.database import DATABASE_BEAUTY, Name_of_service
 import service_database as db_beauty
-
-from beauty_salon.services import Services
-from beauty_salon.specialists import Specialists
-from beauty_salon.price import Price
-
-
+#
+# from beauty_salon.services import Services
+# from beauty_salon.specialists import Specialists
+# from beauty_salon.price import Price
+#
+#
 if __name__ == '__main__':
 	db_is_beautiful = os.path.exists(DATABASE_BEAUTY)
 	if not db_is_beautiful:
 		db_beauty.service_database()
-	
-	name_of_service = Name_of_service()
-	print(name_of_service.query(Services).all())
-	print("*" * 60)
-	for it in name_of_service.query(Services):
-		print(it.service_title)
-	print("*" * 60)
+#
+# 	name_of_service = Name_of_service()
+# 	print(name_of_service.query(Services).all())
+# 	print("*" * 60)
+# 	for it in name_of_service.query(Services):
+# 		print(it.service_title)
+# 	print("*" * 60)
 	# print(name_of_service.query(Services).count())
 	# print("*" * 60)
 	# print(name_of_service.query(Services).first())
@@ -7746,8 +7746,10 @@ if __name__ == '__main__':
 	# 	print(it.service_title)
 	# print("*" * 60)
 	
-	for it in name_of_service.query(Specialists).filter(text("hairdresser like 'М%'")).order_by(text("manicure, id desc")):
-		print(it)
+	# for it in name_of_service.query(Specialists).filter(text("hairdresser like 'М%'")).order_by(text("manicure, id desc")):
+	# 	print(it)
+	#
 	
+# шаблонизатор
 	
 
